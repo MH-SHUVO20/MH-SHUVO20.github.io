@@ -1,66 +1,31 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>MD. MEHEDI HASAN SHUVO | Portfolio</title>
-    <style>
-        body {
-            font-family: Arial, sans-serif;
-            margin: 0;
-            padding: 0;
-            background-color: #f4f4f4;
-            text-align: center;
-        }
-        header {
-            background: #333;
-            color: white;
-            padding: 20px;
-            font-size: 24px;
-        }
-        section {
-            padding: 20px;
-        }
-        .container {
-            max-width: 800px;
-            margin: auto;
-            background: white;
-            padding: 20px;
-            border-radius: 10px;
-            box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
-        }
-        footer {
-            background: #333;
-            color: white;
-            padding: 10px;
-            margin-top: 20px;
-        }
-    </style>
-</head>
-<body>
-    <header>
-       MD. MEHEDI HASAN SHUVO
-    </header>
-    <section>
-        <div class="container">
-            <h2>About Me</h2>
-            <p>Welcome to my personal website! I’m Mehedi Hasan, a Computer Science & Engineering student at AIUB. Passionate about AI, machine learning, deep learning, and embedded systems, I explore innovative solutions through research and development.</p>
-        </div>
-    </section>
-    <section>
-        <div class="container">
-            <h2>Projects</h2>
-            <p>Check out my latest work and contributions.</p>
-        </div>
-    </section>
-    <section>
-        <div class="container">
-            <h2>Contact</h2>
-            <p>Get in touch with me on <a href="#">LinkedIn</a> or <a href="#">GitHub</a>.</p>
-        </div>
-    </section>
-    <footer>
-        &copy; 2025 MD. MEHEDI HASAN SHUVO | All Rights Reserved
-    </footer>
-</body>
-</html>
+name: Deploy static site to GitHub Pages
+
+on:
+  push:
+    branches:
+      - main  # Change this to your default branch
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Checkout repository
+      uses: actions/checkout@v2
+
+    - name: Setup Node.js
+      uses: actions/setup-node@v2
+      with:
+        node-version: '14'
+
+    - name: Install dependencies
+      run: npm install
+
+    - name: Build the site
+      run: npm run build # Adjust this command to your build script
+
+    - name: Deploy to GitHub Pages
+      uses: peaceiris/actions-gh-pages@v3
+      with:
+        github_token: ${{ secrets.GITHUB_TOKEN }}
+        publish_dir: ./public  # Adjust this to your build output directory
