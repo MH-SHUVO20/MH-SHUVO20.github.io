@@ -16,13 +16,15 @@ jobs:
     - name: Setup Node.js
       uses: actions/setup-node@v2
       with:
-        node-version: '14'
+        node-version: '14'  # Ensure this is compatible with your project
 
     - name: Install dependencies
       run: npm install
+      working-directory: ./path/to/your/project  # Adjust this if your project is not in the root directory
 
     - name: Build the site
       run: npm run build # Adjust this command to your build script
+      working-directory: ./path/to/your/project  # Adjust this if your project is not in the root directory
 
     - name: Deploy to GitHub Pages
       uses: peaceiris/actions-gh-pages@v3
