@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Mehedi Hasan Shuvo | Portfolio</title>
+    <title>MD. MEHEDI HASAN SHUVO | Portfolio</title>
     <style>
         body {
             font-family: Arial, sans-serif;
@@ -39,12 +39,12 @@
 </head>
 <body>
     <header>
-        Mehedi Hasan Shuvo
+       MD. MEHEDI HASAN SHUVO
     </header>
     <section>
         <div class="container">
             <h2>About Me</h2>
-            <p>Welcome to my personal website! I am a passionate developer and tech enthusiast.</p>
+            <p>Welcome to my personal website! I’m Mehedi Hasan, a Computer Science & Engineering student at AIUB. Passionate about AI, machine learning, deep learning, and embedded systems, I explore innovative solutions through research and development.</p>
         </div>
     </section>
     <section>
@@ -60,7 +60,7 @@
         </div>
     </section>
     <footer>
-        &copy; 2025 Mehedi Hasan Shuvo | All Rights Reserved
+        &copy; 2025 MD. MEHEDI HASAN SHUVO | All Rights Reserved
     </footer>
 </body>
 </html>
