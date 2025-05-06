@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>🎉 Happy Birthday! 🎂</title>
+    <style>
+        /* General Styles */
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: 'Arial', sans-serif;
+            background: linear-gradient(135deg, #ff9a9e, #fad0c4);
+            background-size: 400% 400%;
+            animation: gradient 10s ease infinite;
+            overflow: hidden;
+            height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+        }
+
+        h1 {
+            font-size: 4rem;
+            color: #fff;
+            text-shadow: 0 0 15px #ffd700, 0 0 30px #ffaa00;
+            animation: glow 1s ease-in-out infinite alternate;
+            margin-bottom: 10px;
+            text-align: center;
+        }
+
+        p {
+            font-size: 1.5rem;
+            color: #fff;
+            margin-bottom: 30px;
+            text-align: center;
+        }
+
+        @keyframes glow {
+            0% {
+                text-shadow: 0 0 15px #ffd700, 0 0 30px #ffaa00;
+            }
+            100% {
+                text-shadow: 0 0 20px #ff4500, 0 0 40px #ffa500;
+            }
+        }
+
+        @keyframes gradient {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
+        }
+
+        .button {
+            padding: 15px 30px;
+            font-size: 1.2rem;
+            color: white;
+            background: linear-gradient(135deg, #ff6f61, #ff8566);
+            border: none;
+            border-radius: 10px;
+            cursor: pointer;
+            box-shadow: 0px 5px 15px rgba(0, 0, 0, 0.3);
+            transition: transform 0.2s ease, box-shadow 0.2s ease;
+            animation: button-glow 2s ease-in-out infinite;
+        }
+
+        .button:hover {
+            transform: scale(1.1);
+            box-shadow: 0px 8px 20px rgba(255, 255, 255, 0.8);
+        }
+
+        @keyframes button-glow {
+            0% {
+                box-shadow: 0px 0px 10px #ff6f61, 0px 0px 20px #ff8566;
+            }
+            100% {
+                box-shadow: 0px 0px 20px #ff8566, 0px 0px 30px #ff6f61;
+            }
+        }
+
+        /* Fireworks */
+        .firework {
+            position: absolute;
+            top: 50px;
+            left: 50%;
+            width: 10px;
+            height: 10px;
+            background: radial-gradient(circle, #ffd700, transparent);
+            border-radius: 50%;
+            animation: burst 2s ease infinite;
+        }
+
+        .firework:nth-child(2) {
+            left: 30%;
+            animation-delay: 0.5s;
+        }
+
+        .firework:nth-child(3) {
+            left: 70%;
+            animation-delay: 1s;
+        }
+
+        @keyframes burst {
+            0% {
+                transform: scale(0.5);
+                opacity: 1;
+            }
+            100% {
+                transform: scale(4);
+                opacity: 0;
+            }
+        }
+
+        /* Floating Stars */
+        .star {
+            position: absolute;
+            top: -10px;
+            width: 5px;
+            height: 5px;
+            background: #fff;
+            border-radius: 50%;
+            animation: float 6s linear infinite;
+        }
+
+        .star:nth-child(odd) {
+            background: #ffd700;
+        }
+
+        @keyframes float {
+            0% {
+                transform: translateY(0) translateX(0);
+            }
+            100% {
+                transform: translateY(100vh) translateX(-20px);
+            }
+        }
+
+        /* Cake Surprise */
+        .cake {
+            width: 250px;
+            height: 250px;
+            background: url('https://upload.wikimedia.org/wikipedia/commons/thumb/3/3c/Birthday_cake_icon_%28pink%29.svg/1024px-Birthday_cake_icon_%28pink%29.svg.png') no-repeat center/contain;
+            position: absolute;
+            bottom: -300px;
+            left: 50%;
+            transform: translateX(-50%);
+            animation: appear 2s ease-out forwards;
+            display: none;
+        }
+
+        @keyframes appear {
+            0% {
+                opacity: 0;
+                bottom: -300px;
+            }
+            100% {
+                opacity: 1;
+                bottom: 50px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <h1>🎉 Happy Birthday! 🎂</h1>
+    <p>Wishing you a day filled with joy, laughter, and love!</p>
+    <button class="button" onclick="showCake()">Click for a Surprise!</button>
+
+    <!-- Fireworks -->
+    <div class="firework"></div>
+    <div class="firework"></div>
+    <div class="firework"></div>
+
+    <!-- Floating Stars -->
+    <div class="star" style="left: 10%; animation-duration: 5s;"></div>
+    <div class="star" style="left: 20%; animation-duration: 4s;"></div>
+    <div class="star" style="left: 30%; animation-duration: 6s;"></div>
+    <div class="star" style="left: 40%; animation-duration: 5.5s;"></div>
+    <div class="star" style="left: 50%; animation-duration: 3.5s;"></div>
+    <div class="star" style="left: 60%; animation-duration: 4.5s;"></div>
+    <div class="star" style="left: 70%; animation-duration: 6.5s;"></div>
+    <div class="star" style="left: 80%; animation-duration: 4.2s;"></div>
+    <div class="star" style="left: 90%; animation-duration: 5.8s;"></div>
+
+    <!-- Cake -->
+    <div class="cake" id="birthdayCake"></div>
+
+    <script>
+        // Show Cake Function
+        function showCake() {
+            const cake = document.getElementById('birthdayCake');
+            cake.style.display = 'block';
+        }
+    </script>
+</body>
+</html>
