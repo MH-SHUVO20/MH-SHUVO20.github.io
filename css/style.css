@@ -332,26 +332,28 @@ section { padding: 120px 0; position: relative; z-index: 10; }
   font-family: var(--font-display);
   font-size: clamp(64px, 8vw, 110px);
   letter-spacing: 3px;
-  line-height: 0.95;
+  line-height: 1.05;
   margin-bottom: 28px;
-  overflow: hidden;
+  overflow: visible;
 }
 .title-line {
   display: block;
-  transform: translateY(100%);
-  animation: slideUp 0.8s cubic-bezier(0.16,1,0.3,1) forwards;
+  opacity: 0;
+  transform: translateY(28px);
+  animation: slideUp 0.85s cubic-bezier(0.16,1,0.3,1) forwards;
 }
-.title-line:nth-child(1) { animation-delay: 0.1s; }
-.title-line:nth-child(2) { animation-delay: 0.25s; }
-.title-line:nth-child(3) { animation-delay: 0.4s; }
+.title-line:nth-child(1) { animation-delay: 0.2s; }
+.title-line:nth-child(2) { animation-delay: 0.38s; }
+.title-line:nth-child(3) { animation-delay: 0.56s; }
 .accent-line {
   background: linear-gradient(135deg, var(--accent), var(--accent2));
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
+  padding-bottom: 4px;
 }
 @keyframes slideUp {
-  to { transform: translateY(0); }
+  to { opacity: 1; transform: translateY(0); }
 }
 .hero-sub {
   font-family: var(--font-mono);
@@ -462,22 +464,30 @@ section { padding: 120px 0; position: relative; z-index: 10; }
   border-radius: 50%;
   position: relative; z-index: 2;
   overflow: hidden;
+  /* Safari mobile: border-radius + overflow:hidden clip fix */
+  -webkit-mask-image: -webkit-radial-gradient(white, black);
+  mask-image: radial-gradient(white, black);
+  transform: translateZ(0);
+  background: linear-gradient(135deg, var(--surface2), var(--surface));
 }
 .avatar-placeholder {
   width: 100%; height: 100%;
   background: linear-gradient(135deg, var(--surface2), var(--surface));
   border: 2px solid var(--border);
   border-radius: 50%;
-  display: flex; align-items: center; justify-content: center;
+  display: none;
+  align-items: center; justify-content: center;
   font-family: var(--font-display);
   font-size: 64px;
   color: var(--accent);
   letter-spacing: 2px;
+  position: absolute; inset: 0;
 }
 .avatar-img {
   width: 100%; height: 100%;
   object-fit: cover;
-  position: absolute; top: 0; left: 0;
+  display: block;
+  position: relative; z-index: 1;
   border-radius: 50%;
 }
 .avatar-ring {
@@ -1722,4 +1732,6 @@ section { padding: 120px 0; position: relative; z-index: 10; }
     transition-duration: 0.01ms !important;
   }
   html { scroll-behavior: auto; }
+  /* Ensure title lines are visible when animations are skipped */
+  .title-line { opacity: 1 !important; transform: none !important; }
 }
