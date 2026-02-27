@@ -43,6 +43,22 @@
   --glow: 0 0 30px rgba(0, 102, 204, 0.15);
 }
 
+/* Light mode navbar & topbar overrides */
+[data-theme="light"] #topbar {
+  background: rgba(245,247,250,0.97);
+  border-bottom-color: rgba(0,120,200,0.12);
+}
+[data-theme="light"] #navbar.scrolled {
+  background: rgba(255,255,255,0.95);
+  box-shadow: 0 1px 0 rgba(0,120,200,0.12);
+}
+[data-theme="light"] .nav-brand,
+[data-theme="light"] .nav-link,
+[data-theme="light"] .brand-text {
+  color: #0d1117;
+}
+[data-theme="light"] .brand-name { color: var(--accent); }
+
 * { margin: 0; padding: 0; box-sizing: border-box; }
 html { scroll-behavior: smooth; font-size: 16px; -webkit-text-size-adjust: 100%; }
 
