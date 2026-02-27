@@ -3,6 +3,12 @@
    ============================================================ */
 
 (function () {
+  // Disable custom cursor on touch devices
+  const isTouchDevice = window.matchMedia('(pointer: coarse)').matches
+    || ('ontouchstart' in window)
+    || navigator.maxTouchPoints > 0;
+  if (isTouchDevice) return;
+
   const dot = document.getElementById('cursorDot');
   const outline = document.getElementById('cursorOutline');
   if (!dot || !outline) return;

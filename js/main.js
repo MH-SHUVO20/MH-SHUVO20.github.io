@@ -163,11 +163,9 @@
   document.body.appendChild(btn);
 })();
 
-// ── Video lazy load on hover ──────────────────────────────────
+// ── Video lazy load on hover / touch ─────────────────────────
 (function initVideoLazy() {
-  document.addEventListener('mouseover', e => {
-    const card = e.target.closest('.project-card');
-    if (!card) return;
+  function loadVideo(card) {
     const video = card.querySelector('video[data-src]');
     if (!video) return;
     const src = video.dataset.src;
@@ -177,7 +175,15 @@
       video.play().catch(() => {});
       video.removeAttribute('data-src');
     }
+  }
+  document.addEventListener('mouseover', e => {
+    const card = e.target.closest('.project-card');
+    if (card) loadVideo(card);
   });
+  document.addEventListener('touchstart', e => {
+    const card = e.target.closest('.project-card');
+    if (card) loadVideo(card);
+  }, { passive: true });
 })();
 
 // ── Smooth anchor scroll ──────────────────────────────────────

@@ -8,8 +8,10 @@
   const ctx = canvas.getContext('2d');
 
   let W, H, nodes = [], mouse = { x: -9999, y: -9999 };
-  const NODE_COUNT = 70;
-  const MAX_DIST = 160;
+  const isMobile = window.matchMedia('(max-width: 768px)').matches
+    || window.matchMedia('(pointer: coarse)').matches;
+  const NODE_COUNT = isMobile ? 25 : 70;
+  const MAX_DIST = isMobile ? 100 : 160;
   const isDark = () => !document.documentElement.getAttribute('data-theme');
 
   function resize() {
