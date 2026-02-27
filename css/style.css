@@ -23,6 +23,9 @@
   --radius: 12px;
   --glow: 0 0 30px rgba(0, 212, 255, 0.2);
   --shadow: 0 24px 48px rgba(0,0,0,0.5);
+  /* Dynamic vars set by viewport.js */
+  --navbar-h: 70px;
+  --vvh: 100vh;
 }
 
 [data-theme="light"] {
@@ -295,6 +298,7 @@ section { padding: 120px 0; position: relative; z-index: 10; }
 /* ── Hero ── */
 #hero {
   min-height: 100vh;
+  min-height: var(--vvh, 100vh);
   display: flex; align-items: center;
   padding: 0 60px;
   position: relative; z-index: 10;
@@ -303,7 +307,7 @@ section { padding: 120px 0; position: relative; z-index: 10; }
   max-width: 1300px; margin: 0 auto; width: 100%;
   display: grid; grid-template-columns: 1.1fr 0.9fr;
   gap: 80px; align-items: center;
-  padding-top: 80px;
+  padding-top: var(--navbar-h, 80px);
 }
 .hero-eyebrow {
   display: flex; align-items: center; gap: 12px;
@@ -1557,30 +1561,19 @@ section { padding: 120px 0; position: relative; z-index: 10; }
   section { padding: 80px 0; }
   .hero-container {
     grid-template-columns: 1fr;
-    padding-top: 90px;
+    padding-top: calc(var(--navbar-h, 90px) + 16px);
     padding-bottom: 60px;
-    gap: 40px;
-    /* Show photo ABOVE the text on mobile */
-    display: flex;
-    flex-direction: column-reverse;
+    gap: 20px;
+    text-align: center;
   }
-  /* Show the photo on mobile, but smaller */
-  .hero-right { display: block; }
-  .hero-visual-wrap { padding: 40px 20px 20px; }
-  .avatar-frame { width: 180px; height: 180px; margin: 0 auto; }
-  .avatar-img-wrap { width: 150px; height: 150px; }
-  .avatar-placeholder { font-size: 48px; }
-  .ring-1 { width: 160px; height: 160px; }
-  .ring-2 { width: 190px; height: 190px; }
-  .ring-3 { width: 220px; height: 220px; }
-  .stat-chips { display: none; }
-  .hero-badge {
-    position: static;
-    transform: none;
-    margin: 16px auto 0;
-    display: inline-flex;
-    max-width: fit-content;
-  }
+  /* Center eyebrow on mobile */
+  .hero-eyebrow { justify-content: center; }
+  .hero-bio { margin-left: auto; margin-right: auto; }
+  .hero-socials { justify-content: center; }
+  /* Hide the complex desktop visual */
+  .hero-right { display: none; }
+  /* Show the simple mobile photo */
+  .hero-mobile-photo { display: flex; }
   .about-grid, .contact-grid, .resume-wrapper { grid-template-columns: 1fr; }
   .about-cards { grid-template-columns: 1fr 1fr; }
   .skills-grid, .projects-grid { grid-template-columns: repeat(2, 1fr); }
@@ -1615,13 +1608,7 @@ section { padding: 120px 0; position: relative; z-index: 10; }
   .cta-primary, .cta-secondary, .cta-resume { width: 100%; justify-content: center; }
 
   /* Avatar smaller on small phones */
-  .hero-visual-wrap { padding: 30px 16px 6px; }
-  .avatar-frame { width: 150px; height: 150px; }
-  .avatar-img-wrap { width: 130px; height: 130px; }
-  .avatar-placeholder { font-size: 40px; }
-  .ring-1 { width: 140px; height: 140px; }
-  .ring-2 { width: 165px; height: 165px; }
-  .ring-3 { width: 190px; height: 190px; }
+  .mobile-avatar-wrap { width: 130px; height: 130px; }
 
   /* About */
   .about-cards { grid-template-columns: 1fr; }

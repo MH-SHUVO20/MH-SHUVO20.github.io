@@ -154,13 +154,25 @@
         </div>
       </div>
 
-      <div class="hero-right">
-        <div class="hero-visual-wrap flex justify-center items-center">
-          <div class="avatar-frame mx-auto">
+      <!-- Mobile-only photo card (simple, always visible on mobile) -->
+      <div class="hero-mobile-photo" id="heroMobilePhoto">
+        <div class="mobile-avatar-wrap">
+          <img src="assets/img/mehedi.jpg" alt="Md. Mehedi Hasan Shuvo" class="mobile-avatar-img" loading="eager" decoding="async" onerror="this.style.display='none';document.getElementById('mobileAvatarFallback').style.display='flex';">
+          <div class="mobile-avatar-fallback" id="mobileAvatarFallback">MH</div>
+        </div>
+        <div class="mobile-badge">
+          <span class="mobile-badge-dot"></span>
+          <span>Available for Research Collab</span>
+        </div>
+      </div>
+
+      <!-- Desktop visual (hidden on mobile) -->
+      <div class="hero-right" id="heroRight">
+        <div class="hero-visual-wrap">
+          <div class="avatar-frame">
             <div class="avatar-img-wrap">
-              <img src="assets/img/mehedi.jpg" alt="Md. Mehedi Hasan Shuvo" class="avatar-img" loading="eager" decoding="async" onerror="this.style.display='none'; this.previousElementSibling.style.display='flex';">
+              <img src="assets/img/mehedi.jpg" alt="Md. Mehedi Hasan Shuvo" class="avatar-img" loading="eager" decoding="async" onerror="this.style.display='none';this.nextElementSibling.style.display='flex';">
               <div class="avatar-placeholder"><span>MH</span></div>
-            </div>
             </div>
             <div class="avatar-ring ring-1"></div>
             <div class="avatar-ring ring-2"></div>
@@ -496,6 +508,7 @@
 
   <!-- Our JS -->
   <script src="js/data.js"></script>
+  <script src="js/viewport.js"></script>
   <script src="js/canvas.js"></script>
   <script src="js/cursor.js"></script>
   <script src="js/animations.js"></script>
