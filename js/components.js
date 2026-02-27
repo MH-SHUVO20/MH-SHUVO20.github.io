@@ -211,7 +211,9 @@ function renderContact() {
           <strong>${c.label}</strong>
           <span>${c.value}</span>
         </div>
-        <i class="fas fa-arrow-right" style="margin-left:auto;color:var(--muted);font-size:12px"></i>
+        <button class="copy-btn" data-copy="${c.value}" title="Copy ${c.label}">
+          <i class="fas fa-copy"></i>
+        </button>
       `;
       linksContainer.appendChild(a);
     });
