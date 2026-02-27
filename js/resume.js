@@ -17,7 +17,7 @@ function buildResumeHTML() {
 
       <div class="res-divider"></div>
       <div class="res-section-title">RESEARCH SUMMARY</div>
-      <p class="res-summary">Computer Science undergraduate specializing in Computer Vision, Deep Learning, and Large Language Models, with emphasis on scalable and real-time AI systems.</p>
+      <p class="res-summary">Computer Science undergraduate (Expected 2026) specializing in Computer Vision, Deep Learning, and Large Language Models — actively seeking <strong>internship positions</strong>, <strong>full-time AI/ML engineering roles</strong>, and research collaborations.</p>
       <p class="res-summary">Published author in IEEE conferences, including a CORE-ranked international venue (AICCSA 2025), with research contributions in YOLO-based detection frameworks and applied AI architectures.</p>
       <p class="res-summary">Skilled in experimental design, model benchmarking, fine-tuning, and performance evaluation using PyTorch, transformer-based models, and modern LLM orchestration frameworks (LangChain, LangGraph).</p>
       <p class="res-summary">Active IEEE conference reviewer with strong grounding in research methodology, reproducibility, and critical evaluation of machine learning and computer vision research.</p>
@@ -93,8 +93,18 @@ function buildResumeHTML() {
           <div class="res-edu-school">Govt. Keshab Chandra College, Jhenaidah</div>
         </div>
         <div>
-          <div class="res-edu-year">2020</div>
+          <div class="res-edu-year">2021</div>
           <div class="res-edu-gpa">GPA: 5.00/5.00</div>
+        </div>
+      </div>
+      <div class="res-edu-row">
+        <div>
+          <div class="res-edu-degree">Secondary School Certificate (Science)</div>
+          <div class="res-edu-school">Garagonj High School</div>
+        </div>
+        <div>
+          <div class="res-edu-year">2018</div>
+          <div class="res-edu-gpa">GPA: 4.67/5.00</div>
         </div>
       </div>
 

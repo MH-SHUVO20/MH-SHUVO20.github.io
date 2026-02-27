@@ -27,6 +27,7 @@ const PORTFOLIO_DATA = {
       "LLM & Agent Systems Builder",
       "IEEE Published Author",
       "YOLO Architecture Specialist",
+      "Open to Internship & Full-time Roles",
     ],
   },
 
@@ -422,7 +423,7 @@ const PORTFOLIO_DATA = {
     {
       year: "2018 — 2021",
       degree: "Higher Secondary Certificate (Science)",
-      major: null,
+      major: "",
       institution: "Govt. Keshab Chandra College, Jhenaidah",
       gpa: "GPA: 5.00 / 5.00",
       desc: "Achieved perfect GPA in the science stream, with strong foundation in Mathematics and Physics.",
@@ -431,7 +432,7 @@ const PORTFOLIO_DATA = {
     {
       year: "2016 — 2018",
       degree: "Secondary School Certificate (Science)",
-      major: null,
+      major: "",
       institution: "Garagonj High School",
       gpa: "GPA: 4.67 / 5.00",
       desc: "Completed secondary education in the science stream with a strong foundation in Mathematics, Physics, and Chemistry.",

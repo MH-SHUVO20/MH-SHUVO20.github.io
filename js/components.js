@@ -174,12 +174,12 @@ function renderEducation() {
     item.className = 'edu-item';
     item.setAttribute('data-aos', 'fade-right');
     item.setAttribute('data-aos-delay', String(i * 100));
-    const coursesHTML = e.courses.length ? `
+    const coursesHTML = (e.courses && e.courses.length) ? `
       <div class="edu-courses">
         ${e.courses.map(c => `<span class="course-tag">${c}</span>`).join('')}
       </div>` : '';
     const descHTML = e.desc ? `<p class="edu-desc">${e.desc}</p>` : '';
-    const majorHTML = e.major ? `<div class="edu-institution" style="color:var(--accent);font-size:12px;margin-bottom:4px">${e.major}</div>` : '';
+    const majorHTML = (e.major && e.major.trim()) ? `<div class="edu-institution" style="color:var(--accent);font-size:12px;margin-bottom:4px">${e.major}</div>` : '';
 
     item.innerHTML = `
       <div class="edu-dot"></div>
