@@ -1,0 +1,144 @@
+/* ============================================================
+   animations.css — Keyframes & transition classes
+   ============================================================ */
+
+/* Scroll reveal via AOS overrides */
+[data-aos] { transition-duration: 0.7s !important; }
+
+/* Glitch text effect */
+.glitch {
+  position: relative;
+}
+.glitch::before,
+.glitch::after {
+  content: attr(data-text);
+  position: absolute; top: 0; left: 0;
+  pointer-events: none;
+}
+.glitch::before {
+  color: var(--accent);
+  clip-path: polygon(0 0, 100% 0, 100% 35%, 0 35%);
+  transform: translateX(-2px);
+  animation: glitch-top 4s infinite linear;
+}
+.glitch::after {
+  color: var(--accent2);
+  clip-path: polygon(0 65%, 100% 65%, 100% 100%, 0 100%);
+  transform: translateX(2px);
+  animation: glitch-bottom 4s infinite linear;
+}
+@keyframes glitch-top {
+  0%,90%,100% { transform: translateX(-2px); opacity: 1; }
+  92% { transform: translateX(2px); opacity: 0.8; }
+  94% { transform: translateX(-4px); clip-path: polygon(0 0, 100% 0, 100% 30%, 0 30%); }
+  96% { transform: translateX(0); opacity: 1; }
+}
+@keyframes glitch-bottom {
+  0%,90%,100% { transform: translateX(2px); opacity: 1; }
+  93% { transform: translateX(-3px); opacity: 0.8; }
+  95% { transform: translateX(4px); clip-path: polygon(0 60%, 100% 60%, 100% 100%, 0 100%); }
+  97% { transform: translateX(0); opacity: 1; }
+}
+
+/* Shimmer on skill cards */
+.skill-card::after {
+  content: '';
+  position: absolute; inset: 0;
+  background: linear-gradient(135deg, transparent 40%, rgba(0,212,255,0.04) 50%, transparent 60%);
+  background-size: 200% 200%;
+  opacity: 0;
+  transition: opacity 0.3s;
+}
+.skill-card:hover::after {
+  opacity: 1;
+  animation: shimmer 1.5s ease infinite;
+}
+@keyframes shimmer {
+  0% { background-position: 200% 200%; }
+  100% { background-position: -200% -200%; }
+}
+
+/* Fade in up */
+@keyframes fadeInUp {
+  from { opacity: 0; transform: translateY(24px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+/* Counter roll */
+@keyframes countUp {
+  from { transform: translateY(10px); opacity: 0; }
+  to { transform: translateY(0); opacity: 1; }
+}
+
+/* Navbar brand hover */
+.nav-brand {
+  display: inline-flex;
+  overflow: hidden;
+}
+
+/* Page transition */
+.page-transition {
+  position: fixed; inset: 0;
+  background: var(--accent);
+  z-index: 9000;
+  transform: translateY(-100%);
+}
+
+/* Mobile menu slide */
+.nav-menu.open {
+  display: flex !important;
+  position: fixed;
+  top: 70px; left: 0; right: 0;
+  background: rgba(4,6,8,0.97);
+  backdrop-filter: blur(20px);
+  flex-direction: column;
+  padding: 24px;
+  gap: 4px;
+  border-bottom: 1px solid var(--border);
+  animation: slideDown 0.3s ease;
+}
+@keyframes slideDown {
+  from { opacity: 0; transform: translateY(-10px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+.nav-menu.open .nav-link {
+  padding: 12px 16px;
+  font-size: 14px;
+  border-bottom: 1px solid var(--border);
+}
+.nav-menu.open .nav-btn { margin-top: 8px; justify-content: center; }
+
+/* Hamburger X */
+.hamburger.open span:nth-child(1) { transform: translateY(7px) rotate(45deg); }
+.hamburger.open span:nth-child(2) { opacity: 0; }
+.hamburger.open span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
+
+/* Tilt effect on project cards */
+.project-card {
+  transform-style: preserve-3d;
+  perspective: 1000px;
+}
+
+/* Blob bg effect */
+.blob {
+  position: absolute;
+  border-radius: 50%;
+  filter: blur(80px);
+  pointer-events: none;
+  opacity: 0.08;
+  animation: blobMove 8s ease-in-out infinite;
+}
+@keyframes blobMove {
+  0%,100% { transform: translate(0, 0) scale(1); }
+  33% { transform: translate(30px, -20px) scale(1.05); }
+  66% { transform: translate(-20px, 15px) scale(0.97); }
+}
+
+/* Typing cursor */
+.type-cursor {
+  display: inline-block;
+  width: 2px;
+  background: var(--accent);
+  animation: blink-cursor 0.7s step-end infinite;
+}
+@keyframes blink-cursor { 0%,100%{opacity:1} 50%{opacity:0} }

@@ -1,0 +1,465 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>MH Shuvo — AI Engineer & Researcher</title>
+  <meta name="description" content="Md. Mehedi Hasan Shuvo — AI Researcher, Computer Vision Engineer, Deep Learning Specialist, IEEE Published Author">
+  <meta name="keywords" content="AI Engineer, Computer Vision, Deep Learning, YOLO, LLM, AIUB, IEEE, Bangladesh">
+  <meta name="author" content="Md. Mehedi Hasan Shuvo">
+  <meta property="og:title" content="MH Shuvo — AI Engineer & Researcher">
+  <meta property="og:description" content="IEEE published AI researcher specializing in Computer Vision, Deep Learning & LLMs">
+  <meta property="og:type" content="website">
+
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Outfit:wght@300;400;500;600;700&family=JetBrains+Mono:wght@300;400;500;700&display=swap" rel="stylesheet">
+
+  <!-- External CSS libs -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+
+  <!-- Our CSS -->
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/animations.css">
+  <link rel="stylesheet" href="css/components.css">
+</head>
+<body class="loading">
+
+  <!-- Preloader -->
+  <div id="preloader">
+    <div class="preloader-inner">
+      <div class="preloader-logo">MH<span>.</span></div>
+      <div class="preloader-bar"><div class="preloader-fill" id="preloaderFill"></div></div>
+      <div class="preloader-text" id="preloaderText">INITIALIZING...</div>
+    </div>
+  </div>
+
+  <!-- Custom cursor -->
+  <div class="cursor-dot" id="cursorDot"></div>
+  <div class="cursor-outline" id="cursorOutline"></div>
+
+  <!-- Noise overlay -->
+  <div class="noise-overlay"></div>
+
+  <!-- Canvas bg -->
+  <canvas id="bgCanvas"></canvas>
+
+  <!-- Navigation -->
+  <nav id="navbar">
+    <div class="nav-container">
+      <a href="#hero" class="nav-brand">
+        <span class="brand-text">MH</span><span class="brand-dot">.</span>SHUVO
+      </a>
+      <ul class="nav-menu" id="navMenu">
+        <li><a href="#about" class="nav-link" data-section="about">About</a></li>
+        <li><a href="#skills" class="nav-link" data-section="skills">Skills</a></li>
+        <li><a href="#research" class="nav-link" data-section="research">Research</a></li>
+        <li><a href="#projects" class="nav-link" data-section="projects">Projects</a></li>
+        <li><a href="#education" class="nav-link" data-section="education">Education</a></li>
+        <li><a href="#contact" class="nav-link" data-section="contact">Contact</a></li>
+        <li><a href="#" class="nav-btn" id="resumeNavBtn"><i class="fas fa-file-alt"></i> Resume</a></li>
+      </ul>
+      <div class="nav-right">
+        <button class="theme-toggle" id="themeToggle" title="Toggle theme"><i class="fas fa-moon"></i></button>
+        <button class="hamburger" id="hamburger">
+          <span></span><span></span><span></span>
+        </button>
+      </div>
+    </div>
+    <div class="nav-progress" id="navProgress"></div>
+  </nav>
+
+  <!-- HERO -->
+  <section id="hero">
+    <div class="hero-container">
+      <div class="hero-left">
+        <div class="hero-eyebrow">
+          <span class="eyebrow-line"></span>
+          <span class="eyebrow-text">AI ENGINEER & RESEARCHER</span>
+          <span class="eyebrow-dot blink"></span>
+        </div>
+        <h1 class="hero-title">
+          <span class="title-line" data-text="MD. MEHEDI">MD. MEHEDI</span>
+          <span class="title-line" data-text="HASAN">HASAN</span>
+          <span class="title-line accent-line" data-text="SHUVO">SHUVO</span>
+        </h1>
+        <p class="hero-sub">
+          <span id="typedText"></span><span class="type-cursor">|</span>
+        </p>
+        <p class="hero-bio">
+          IEEE published author · Computer Vision specialist · Building real-time AI systems with YOLO, Transformers & LLMs at AIUB, Bangladesh.
+        </p>
+        <div class="hero-actions">
+          <a href="#research" class="cta-primary">
+            <span>Explore Research</span>
+            <i class="fas fa-arrow-right"></i>
+          </a>
+          <a href="#projects" class="cta-secondary">
+            <span>View Projects</span>
+          </a>
+          <button class="cta-resume" id="openResume">
+            <i class="fas fa-download"></i>
+            <span>Resume</span>
+          </button>
+        </div>
+        <div class="hero-socials">
+          <a href="https://github.com/MH-SHUVO20" target="_blank" title="GitHub"><i class="fab fa-github"></i></a>
+          <a href="https://linkedin.com/in/mh-shuvo-aiub/" target="_blank" title="LinkedIn"><i class="fab fa-linkedin"></i></a>
+          <a href="mailto:mdmehedihasanshuvo994@gmail.com" title="Email"><i class="fas fa-envelope"></i></a>
+          <a href="https://www.facebook.com/mh.shuvo.7370" target="_blank" title="Facebook"><i class="fab fa-facebook"></i></a>
+        </div>
+      </div>
+
+      <div class="hero-right">
+        <div class="hero-visual-wrap">
+          <div class="avatar-frame">
+            <div class="avatar-img-wrap">
+              <!-- Replace src with your actual photo -->
+              <div class="avatar-placeholder">
+                <span>MH</span>
+              </div>
+              <img src="assets/img/mehedi.jpg" alt="Md. Mehedi Hasan Shuvo" class="avatar-img" onerror="this.style.display='none'">
+            </div>
+            <div class="avatar-ring ring-1"></div>
+            <div class="avatar-ring ring-2"></div>
+            <div class="avatar-ring ring-3"></div>
+          </div>
+          <div class="stat-chips">
+            <div class="chip chip-1" data-aos="fade-left" data-aos-delay="200">
+              <span class="chip-num" data-count="5">0</span>
+              <span class="chip-label">IEEE Papers</span>
+            </div>
+            <div class="chip chip-2" data-aos="fade-left" data-aos-delay="350">
+              <span class="chip-num">3.75</span>
+              <span class="chip-label">CGPA / 4.00</span>
+            </div>
+            <div class="chip chip-3" data-aos="fade-right" data-aos-delay="300">
+              <i class="fas fa-certificate chip-icon"></i>
+              <span class="chip-label">IEEE Member</span>
+            </div>
+            <div class="chip chip-4" data-aos="fade-right" data-aos-delay="450">
+              <i class="fas fa-eye chip-icon"></i>
+              <span class="chip-label">Computer Vision</span>
+            </div>
+          </div>
+          <div class="hero-badge">
+            <div class="badge-pulse"></div>
+            <span>Available for Research Collab</span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="hero-scroll-hint">
+      <span>Scroll to explore</span>
+      <div class="scroll-arrow"><i class="fas fa-chevron-down"></i></div>
+    </div>
+  </section>
+
+  <!-- ABOUT -->
+  <section id="about">
+    <div class="container">
+      <div class="section-header" data-aos="fade-up">
+        <span class="section-tag">// about_me.py</span>
+        <h2 class="section-title">Who Am <span>I?</span></h2>
+      </div>
+      <div class="about-grid">
+        <div class="about-text" data-aos="fade-right">
+          <p>I'm a <strong>Computer Science undergraduate</strong> at AIUB (American International University–Bangladesh), specializing in <strong>Computer Vision, Deep Learning, and Large Language Models</strong>.</p>
+          <p>As a published IEEE author with papers at CORE-ranked international venues, I bridge cutting-edge research with hands-on engineering — from YOLO-based detection pipelines to LLM agents built with LangChain and LangGraph.</p>
+          <p>Beyond research, I serve as an <strong>active IEEE conference reviewer</strong>, evaluating manuscripts in deep learning, intelligent systems, and applied AI for conferences like 3ICT 2025 and FET'26.</p>
+          <div class="about-quote">
+            <i class="fas fa-quote-left"></i>
+            <blockquote>"Building intelligent systems that bridge research innovation with real-world application."</blockquote>
+          </div>
+        </div>
+        <div class="about-cards" data-aos="fade-left">
+          <div class="info-card">
+            <div class="ic-icon"><i class="fas fa-flask"></i></div>
+            <div class="ic-body">
+              <strong>Research Focus</strong>
+              <span>Computer Vision · LLMs · Real-Time AI Systems · NLP</span>
+            </div>
+          </div>
+          <div class="info-card">
+            <div class="ic-icon"><i class="fas fa-university"></i></div>
+            <div class="ic-body">
+              <strong>Institution</strong>
+              <span>AIUB — B.Sc. CSE (IS Major) · Expected 2026</span>
+            </div>
+          </div>
+          <div class="info-card">
+            <div class="ic-icon"><i class="fas fa-award"></i></div>
+            <div class="ic-body">
+              <strong>IEEE Memberships</strong>
+              <span>IEEE Student Member · IEEE Computer Society</span>
+            </div>
+          </div>
+          <div class="info-card">
+            <div class="ic-icon"><i class="fas fa-search"></i></div>
+            <div class="ic-body">
+              <strong>Reviewer</strong>
+              <span>IEEE 3ICT 2025 · IEEE FET'26</span>
+            </div>
+          </div>
+          <div class="info-card">
+            <div class="ic-icon"><i class="fas fa-chalkboard-teacher"></i></div>
+            <div class="ic-body">
+              <strong>Teaching</strong>
+              <span>Senior Tutor in Math & CS (2019–Present)</span>
+            </div>
+          </div>
+          <div class="info-card">
+            <div class="ic-icon"><i class="fas fa-map-marker-alt"></i></div>
+            <div class="ic-body">
+              <strong>Location</strong>
+              <span>Kuratoli, Khilkhet, Dhaka, Bangladesh</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- SKILLS -->
+  <section id="skills" class="dark-section">
+    <div class="container">
+      <div class="section-header" data-aos="fade-up">
+        <span class="section-tag">// skills.json</span>
+        <h2 class="section-title">Technical <span>Arsenal</span></h2>
+      </div>
+
+      <!-- Skill filter tabs -->
+      <div class="skill-tabs" data-aos="fade-up" data-aos-delay="100">
+        <button class="skill-tab active" data-filter="all">All</button>
+        <button class="skill-tab" data-filter="ai">AI/ML</button>
+        <button class="skill-tab" data-filter="eng">Engineering</button>
+        <button class="skill-tab" data-filter="lang">Languages</button>
+        <button class="skill-tab" data-filter="tools">Tools</button>
+      </div>
+
+      <div class="skills-grid" id="skillsGrid">
+        <!-- Cards injected by JS from data.js -->
+      </div>
+
+      <!-- Skill proficiency bars -->
+      <div class="skill-bars" data-aos="fade-up">
+        <h3 class="bars-title">Core Proficiency</h3>
+        <div class="bars-grid" id="skillBars"></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- RESEARCH / PUBLICATIONS -->
+  <section id="research">
+    <div class="container">
+      <div class="section-header" data-aos="fade-up">
+        <span class="section-tag">// publications.bib</span>
+        <h2 class="section-title">Research &amp; <span>Publications</span></h2>
+        <p class="section-desc">IEEE-published research in Computer Vision, Deep Learning, and Applied AI</p>
+      </div>
+      <div class="research-list" id="researchList">
+        <!-- Injected by JS -->
+      </div>
+    </div>
+  </section>
+
+  <!-- PROJECTS -->
+  <section id="projects" class="dark-section">
+    <div class="container">
+      <div class="section-header" data-aos="fade-up">
+        <span class="section-tag">// projects.py</span>
+        <h2 class="section-title">Selected <span>Projects</span></h2>
+      </div>
+
+      <div class="project-filters" data-aos="fade-up">
+        <button class="proj-filter active" data-cat="all">All</button>
+        <button class="proj-filter" data-cat="cv">Computer Vision</button>
+        <button class="proj-filter" data-cat="llm">LLM / NLP</button>
+        <button class="proj-filter" data-cat="web">Web / Systems</button>
+        <button class="proj-filter" data-cat="ml">Machine Learning</button>
+      </div>
+
+      <div class="projects-grid" id="projectsGrid">
+        <!-- Injected by JS -->
+      </div>
+    </div>
+  </section>
+
+  <!-- EDUCATION -->
+  <section id="education">
+    <div class="container">
+      <div class="section-header" data-aos="fade-up">
+        <span class="section-tag">// education.xml</span>
+        <h2 class="section-title">Academic <span>Journey</span></h2>
+      </div>
+      <div class="edu-timeline" id="eduTimeline">
+        <!-- Injected by JS -->
+      </div>
+    </div>
+  </section>
+
+  <!-- RESUME SECTION -->
+  <section id="resume" class="dark-section">
+    <div class="container">
+      <div class="section-header" data-aos="fade-up">
+        <span class="section-tag">// resume.pdf</span>
+        <h2 class="section-title">My <span>Resume</span></h2>
+      </div>
+      <div class="resume-wrapper" data-aos="fade-up">
+        <div class="resume-preview" id="resumePreview">
+          <div class="resume-doc">
+            <!-- Resume rendered by JS -->
+            <div id="resumeContent"></div>
+          </div>
+          <div class="resume-overlay">
+            <button class="resume-expand-btn" id="openResumeModal">
+              <i class="fas fa-expand"></i> View Full Resume
+            </button>
+          </div>
+        </div>
+        <div class="resume-actions" data-aos="fade-up" data-aos-delay="200">
+          <a href="assets/resume/Md_Mehedi_Hasan_Shuvo_Resume.pdf" download class="btn-dl">
+            <i class="fas fa-download"></i> Download PDF
+          </a>
+          <button class="btn-view" id="openResumeModal2">
+            <i class="fas fa-eye"></i> View Online
+          </button>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CONTACT -->
+  <section id="contact">
+    <div class="container">
+      <div class="section-header" data-aos="fade-up">
+        <span class="section-tag">// contact.send()</span>
+        <h2 class="section-title">Let's <span>Connect</span></h2>
+        <p class="section-desc">Open to research collaborations, AI projects, and academic opportunities.</p>
+      </div>
+      <div class="contact-grid">
+        <div class="contact-left" data-aos="fade-right">
+          <div class="contact-links" id="contactLinks">
+            <!-- Injected by JS -->
+          </div>
+          <div class="contact-refs">
+            <h4>References</h4>
+            <div class="ref-cards" id="refCards"></div>
+          </div>
+        </div>
+        <div class="contact-right" data-aos="fade-left">
+          <form class="contact-form" id="contactForm" novalidate>
+            <div class="form-row">
+              <div class="form-field">
+                <label for="cName">Name <span>*</span></label>
+                <input type="text" id="cName" name="name" placeholder="Your name" required>
+                <span class="field-err" id="errName"></span>
+              </div>
+              <div class="form-field">
+                <label for="cEmail">Email <span>*</span></label>
+                <input type="email" id="cEmail" name="email" placeholder="your@email.com" required>
+                <span class="field-err" id="errEmail"></span>
+              </div>
+            </div>
+            <div class="form-field">
+              <label for="cSubject">Subject</label>
+              <input type="text" id="cSubject" name="subject" placeholder="Research collaboration, project inquiry...">
+            </div>
+            <div class="form-field">
+              <label for="cMsg">Message <span>*</span></label>
+              <textarea id="cMsg" name="message" rows="6" placeholder="Tell me about your project or research idea..." required></textarea>
+              <span class="field-err" id="errMsg"></span>
+              <span class="char-count" id="charCount">0 / 500</span>
+            </div>
+            <button type="submit" class="form-submit" id="formSubmit">
+              <span class="btn-label">Send Message</span>
+              <i class="fas fa-paper-plane"></i>
+              <div class="btn-loader" id="btnLoader"></div>
+            </button>
+            <div class="form-success" id="formSuccess">
+              <i class="fas fa-check-circle"></i>
+              <span>Message sent! I'll get back to you soon.</span>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer id="footer">
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <div class="footer-logo">MH<span>.</span>SHUVO</div>
+        <p>AI Engineer & Researcher at AIUB. Building the future one model at a time.</p>
+        <div class="footer-socials">
+          <a href="https://github.com/MH-SHUVO20" target="_blank"><i class="fab fa-github"></i></a>
+          <a href="https://linkedin.com/in/mh-shuvo-aiub/" target="_blank"><i class="fab fa-linkedin"></i></a>
+          <a href="mailto:mdmehedihasanshuvo994@gmail.com"><i class="fas fa-envelope"></i></a>
+          <a href="https://mhshuvo.me/" target="_blank"><i class="fas fa-globe"></i></a>
+        </div>
+      </div>
+      <div class="footer-links-col">
+        <h5>Navigation</h5>
+        <ul>
+          <li><a href="#about">About</a></li>
+          <li><a href="#skills">Skills</a></li>
+          <li><a href="#research">Research</a></li>
+          <li><a href="#projects">Projects</a></li>
+          <li><a href="#contact">Contact</a></li>
+        </ul>
+      </div>
+      <div class="footer-links-col">
+        <h5>Research</h5>
+        <ul>
+          <li><a href="https://ieeexplore.ieee.org/document/11315447" target="_blank">AICCSA 2025</a></li>
+          <li><a href="https://ieeexplore.ieee.org/document/11013964" target="_blank">ECCE 2025</a></li>
+          <li><a href="https://github.com/MH-SHUVO20" target="_blank">GitHub</a></li>
+          <li><a href="https://mhshuvo.me/" target="_blank">Portfolio</a></li>
+        </ul>
+      </div>
+      <div class="footer-newsletter">
+        <h5>Let's Collaborate</h5>
+        <p>Interested in AI research or engineering projects?</p>
+        <a href="mailto:mdmehedihasanshuvo994@gmail.com" class="footer-cta">Get in Touch →</a>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>© 2025 Md. Mehedi Hasan Shuvo · IEEE Student Member · AIUB</span>
+      <span>Crafted with <i class="fas fa-heart"></i> & Python</span>
+    </div>
+  </footer>
+
+  <!-- PROJECT MODAL -->
+  <div class="modal-overlay" id="projectModal">
+    <div class="modal-box" id="projectModalBox">
+      <button class="modal-close" id="closeProjectModal"><i class="fas fa-times"></i></button>
+      <div class="modal-content" id="projectModalContent"></div>
+    </div>
+  </div>
+
+  <!-- RESUME MODAL -->
+  <div class="modal-overlay" id="resumeModal">
+    <div class="modal-box modal-resume" id="resumeModalBox">
+      <button class="modal-close" id="closeResumeModal"><i class="fas fa-times"></i></button>
+      <div class="modal-content" id="resumeModalContent"></div>
+    </div>
+  </div>
+
+  <!-- External JS -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
+
+  <!-- Our JS -->
+  <script src="js/data.js"></script>
+  <script src="js/canvas.js"></script>
+  <script src="js/cursor.js"></script>
+  <script src="js/animations.js"></script>
+  <script src="js/components.js"></script>
+  <script src="js/resume.js"></script>
+  <script src="js/main.js"></script>
+</body>
+</html>
