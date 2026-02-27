@@ -154,6 +154,30 @@ const PORTFOLIO_DATA = {
       title: "Research Skills",
       tags: ["Experimental Design", "Model Benchmarking", "IEEE Paper Writing", "Peer Review", "mAP/F1 Evaluation", "Reproducibility", "Systematic Benchmarking"]
     },
+    {
+      icon: "🏫",
+      cat: "tools",
+      category: "Teaching & Mentorship",
+      title: "Tutoring & Education",
+      tags: [
+        "6+ Years Teaching Experience",
+        "English Medium (4+ Years)",
+        "One-to-One & Group Tutoring",
+        "Online & In-Person",
+        "Physics · Chemistry · Biology",
+        "Mathematics & Higher Maths",
+        "Additional Mathematics",
+        "Computer Science & ICT",
+        "English & Bangla Literature",
+        "O Level & A Level Preparation",
+        "SSC & HSC Coaching",
+        "Class 6–12 All Subjects",
+        "Disciplined Study Habit Building",
+        "Goal Setting & Student Motivation",
+        "Coaching Center Co-Management (500+ Students)",
+        "Long-Term Student Mentorship"
+      ]
+    },
   ],
 
   // ── Skill Proficiency Bars ─────────────────────────────────
@@ -164,7 +188,8 @@ const PORTFOLIO_DATA = {
     { name: "LangChain / LangGraph", pct: 82 },
     { name: "BERT & NLP", pct: 80 },
     { name: "FastAPI & Docker", pct: 75 },
-    { name: "Research & Academic Writing", pct: 88 },
+    { name: "Research Skills",       pct: 88 },
+    { name: "Tutoring & Mentorship",  pct: 95 },
   ],
 
   // ── Publications ────────────────────────────────────────────
@@ -395,7 +420,7 @@ const PORTFOLIO_DATA = {
       courses: ["Data Structures & Algorithms", "Machine Learning", "NLP", "Computer Vision", "Software Engineering", "Database Systems", "Data Warehousing & Mining", "OOP", "Operating Systems"],
     },
     {
-      year: "2020",
+      year: "2018 — 2021",
       degree: "Higher Secondary Certificate (Science)",
       major: null,
       institution: "Govt. Keshab Chandra College, Jhenaidah",
@@ -404,13 +429,13 @@ const PORTFOLIO_DATA = {
       courses: ["Higher Mathematics", "Physics", "Chemistry", "Biology", "English", "Bangla", "ICT"],
     },
     {
-      year: "2018",
+      year: "2016 — 2018",
       degree: "Secondary School Certificate (Science)",
       major: null,
-      institution: "Garagonj Secondary School",
-      gpa: null,
+      institution: "Garagonj High School",
+      gpa: "GPA: 4.67 / 5.00",
       desc: "Completed secondary education in the science stream with a strong foundation in Mathematics, Physics, and Chemistry.",
-      courses: ["Mathematics", "Physics", "Chemistry", "Biology", "English", "Bangla", "ICT" ,"Higher Mathematics", "Bangladesh and Global Studies" , "Islamic Studies" ],
+      courses: ["Mathematics", "Physics", "Chemistry", "Biology", "English", "Bangla", "ICT", "Higher Mathematics", "Bangladesh and Global Studies", "Islamic Studies"],
     },
   ],
 

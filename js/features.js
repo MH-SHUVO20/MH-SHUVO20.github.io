@@ -136,12 +136,85 @@ function initLastUpdated() {
   el.textContent = display;
 }
 
+// ── 6. Time-Based Greeting ───────────────────────────────────
+function initGreeting() {
+  var toast   = document.getElementById('greetingToast');
+  var textEl  = document.getElementById('greetingText');
+  var iconEl  = document.getElementById('greetingIcon');
+  var closeBtn = document.getElementById('greetingClose');
+  if (!toast || !textEl) return;
+
+  var h = new Date().getHours();
+  var greeting, icon;
+  if (h >= 5 && h < 12)  { greeting = 'Good Morning!';   icon = '☀️'; }
+  else if (h >= 12 && h < 17) { greeting = 'Good Afternoon!'; icon = '🌤️'; }
+  else if (h >= 17 && h < 21) { greeting = 'Good Evening!';   icon = '🌆'; }
+  else                         { greeting = 'Good Night!';     icon = '🌙'; }
+
+  textEl.textContent = greeting;
+  iconEl.textContent = icon;
+
+  // Show after preloader fades (~2.5s)
+  setTimeout(function() {
+    toast.classList.add('greeting-show');
+    // Auto-dismiss after 5s
+    setTimeout(function() { dismissGreeting(); }, 5000);
+  }, 2500);
+
+  function dismissGreeting() {
+    toast.classList.remove('greeting-show');
+    toast.classList.add('greeting-hide');
+  }
+  if (closeBtn) closeBtn.addEventListener('click', dismissGreeting);
+}
+// ── 7. Live Clock & Topbar Greeting ───────────────────────────────
+function initLiveClock() {
+  var timeEl     = document.getElementById('topbarTime');
+  var dateEl     = document.getElementById('topbarDate');
+  var greetEl    = document.getElementById('topbarGreeting');
+  if (!timeEl) return;
+
+  function tick() {
+    var now = new Date();
+    var h   = now.getHours();
+    var m   = now.getMinutes();
+    var s   = now.getSeconds();
+    var pad = function(n) { return String(n).padStart(2,'0'); };
+
+    // Time in 12-hour format
+    var ampm    = h >= 12 ? 'PM' : 'AM';
+    var h12     = h % 12 || 12;
+    timeEl.textContent = pad(h12) + ':' + pad(m) + ':' + pad(s) + ' ' + ampm;
+
+    // Date
+    if (dateEl) {
+      dateEl.textContent = now.toLocaleDateString('en-US', {
+        weekday: 'short', year: 'numeric', month: 'short', day: 'numeric'
+      });
+    }
+
+    // Greeting (updates on the hour)
+    if (greetEl) {
+      var greeting;
+      if      (h >= 5  && h < 12) greeting = '\u2600\ufe0f Good Morning';
+      else if (h >= 12 && h < 17) greeting = '\ud83c\udf24\ufe0f Good Afternoon';
+      else if (h >= 17 && h < 21) greeting = '\ud83c\udf06 Good Evening';
+      else                         greeting = '\ud83c\udf19 Good Night';
+      greetEl.textContent = greeting;
+    }
+  }
+
+  tick();
+  setInterval(tick, 1000);
+}
 // ── Boot ──────────────────────────────────────────────────────
 document.addEventListener('DOMContentLoaded', function() {
   initVisitCounter();
   initGitHubStats();
   initLastUpdated();
   initTypingWpm();
+  initGreeting();
+  initLiveClock();
   // Contact copy buttons run after components.js renders the DOM
   setTimeout(initCopyButtons, 800);
 });

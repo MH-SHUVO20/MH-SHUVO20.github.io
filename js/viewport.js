@@ -115,7 +115,9 @@
   function setNavHeight() {
     const nav = document.getElementById('navbar');
     if (nav) {
-      html.style.setProperty('--navbar-h', nav.offsetHeight + 'px');
+      var tb  = document.getElementById('topbar');
+      var tbH  = tb ? tb.offsetHeight : 0;
+      html.style.setProperty('--navbar-h', (nav.offsetHeight + tbH) + 'px');
     }
   }
   setNavHeight();

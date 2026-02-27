@@ -187,7 +187,7 @@ function renderEducation() {
       <h3>${e.degree}</h3>
       ${majorHTML}
       <div class="edu-institution">${e.institution}</div>
-      <div class="edu-gpa">${e.gpa}</div>
+      ${e.gpa ? `<div class="edu-gpa">${e.gpa}</div>` : ''}
       ${descHTML}
       ${coursesHTML}
     `;
