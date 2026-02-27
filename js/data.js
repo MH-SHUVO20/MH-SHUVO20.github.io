@@ -37,14 +37,59 @@ const PORTFOLIO_DATA = {
       cat: "ai",
       category: "Deep Learning & CV",
       title: "Computer Vision",
-      tags: ["YOLO Models (v8–v12)", "CNN", "Transformers", "Object Detection", "Image Classification", "Transfer Learning", "Model Optimization"]
+      tags: ["YOLO Models", "CNN", "Transformers", "Object Detection", "Image Classification", "Transfer Learning", "Model Optimization"]
+    },
+    {
+      icon: "🕹️",
+      cat: "ai",
+      category: "Neural Networks",
+      title: "Deep Neural Networks",
+      tags: [
+        "Feedforward Neural Networks (FNN)",
+        "Convolutional Neural Networks (CNN)",
+        "Recurrent Neural Networks (RNN)",
+        "Long Short-Term Memory (LSTM)",
+        "Gated Recurrent Unit (GRU)",
+        "Transformer Architecture",
+        "Vision Transformer (ViT)",
+        "Generative Adversarial Networks (GAN)",
+        "Variational Autoencoders (VAE)",
+        "Graph Neural Networks (GNN)",
+        "Attention Mechanisms & Self-Attention",
+        "Batch Normalization & Dropout",
+        "Residual Networks (ResNet)",
+        "Backpropagation & Gradient Descent",
+        "Multi-Task Learning"
+      ]
+    },
+    {
+      icon: "💬",
+      cat: "ai",
+      category: "NLP & Text AI",
+      title: "Natural Language Processing",
+      tags: [
+        "Tokenization & Text Preprocessing",
+        "Word Embeddings (Word2Vec · GloVe · FastText)",
+        "BERT & Transformer Fine-tuning",
+        "Sentiment Analysis",
+        "Named Entity Recognition (NER)",
+        "Text Classification",
+        "Question Answering Systems",
+        "Sequence-to-Sequence Models",
+        "Retrieval-Augmented Generation (RAG)",
+        "Semantic Search & Embeddings",
+        "Topic Modeling (LDA)",
+        "Text Summarization",
+        "Language Model Evaluation (BLEU · ROUGE)",
+        "Multilingual NLP"
+      ]
     },
     {
       icon: "🤖",
       cat: "ai",
       category: "LLMs & Agents",
-      title: "Language & Agents",
-      tags: ["LangChain", "LangGraph", "BERT Fine-tuning", "RAG", "Prompt Engineering", "OpenAI API", "Ollama", "Multi-Agent Systems"]
+      title: "LLM & Agent Systems",
+      tags: ["LangChain", "LangGraph", "Prompt Engineering", "OpenAI API", "Ollama", "Multi-Agent Systems", "Tool Calling", "ReAct Agents", "Memory Management", "Chain-of-Thought Prompting"]
     },
     {
       icon: "📊",
