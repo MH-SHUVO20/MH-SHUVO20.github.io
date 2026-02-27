@@ -1530,8 +1530,32 @@ section { padding: 120px 0; position: relative; z-index: 10; }
   #navbar { padding: 0 24px; }
   #hero { padding: 0 24px; }
   section { padding: 80px 0; }
-  .hero-container { grid-template-columns: 1fr; padding-top: 100px; padding-bottom: 60px; gap: 40px; }
-  .hero-right { display: none; }
+  .hero-container {
+    grid-template-columns: 1fr;
+    padding-top: 90px;
+    padding-bottom: 60px;
+    gap: 40px;
+    /* Show photo ABOVE the text on mobile */
+    display: flex;
+    flex-direction: column-reverse;
+  }
+  /* Show the photo on mobile, but smaller */
+  .hero-right { display: block; }
+  .hero-visual-wrap { padding: 40px 20px 20px; }
+  .avatar-frame { width: 180px; height: 180px; margin: 0 auto; }
+  .avatar-img-wrap { width: 150px; height: 150px; }
+  .avatar-placeholder { font-size: 48px; }
+  .ring-1 { width: 160px; height: 160px; }
+  .ring-2 { width: 190px; height: 190px; }
+  .ring-3 { width: 220px; height: 220px; }
+  .stat-chips { display: none; }
+  .hero-badge {
+    position: static;
+    transform: none;
+    margin: 16px auto 0;
+    display: inline-flex;
+    max-width: fit-content;
+  }
   .about-grid, .contact-grid, .resume-wrapper { grid-template-columns: 1fr; }
   .about-cards { grid-template-columns: 1fr 1fr; }
   .skills-grid, .projects-grid { grid-template-columns: repeat(2, 1fr); }
@@ -1562,8 +1586,17 @@ section { padding: 120px 0; position: relative; z-index: 10; }
   .hero-title { font-size: clamp(44px, 13vw, 80px); }
   .hero-bio { font-size: 15px; }
   .hero-sub { font-size: 14px; }
-  .hero-actions { flex-direction: column; align-items: flex-start; gap: 10px; }
+  .hero-actions { flex-direction: column; align-items: stretch; gap: 10px; }
   .cta-primary, .cta-secondary, .cta-resume { width: 100%; justify-content: center; }
+
+  /* Avatar smaller on small phones */
+  .hero-visual-wrap { padding: 30px 16px 6px; }
+  .avatar-frame { width: 150px; height: 150px; }
+  .avatar-img-wrap { width: 130px; height: 130px; }
+  .avatar-placeholder { font-size: 40px; }
+  .ring-1 { width: 140px; height: 140px; }
+  .ring-2 { width: 165px; height: 165px; }
+  .ring-3 { width: 190px; height: 190px; }
 
   /* About */
   .about-cards { grid-template-columns: 1fr; }
