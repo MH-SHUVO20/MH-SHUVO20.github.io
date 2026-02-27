@@ -51,7 +51,21 @@ const PORTFOLIO_DATA = {
       cat: "ai",
       category: "Machine Learning",
       title: "Classical ML",
-      tags: ["KNN", "Decision Trees", "SVM", "XGBoost", "Ensemble Methods", "Cross-Validation", "Feature Engineering", "LSTM", "RNN"]
+      tags: [
+        "Supervised & Unsupervised Learning",
+        "XGBoost / LightGBM / CatBoost",
+        "SVM & Kernel Methods",
+        "Bayesian Optimization",
+        "Ensemble & Boosting Methods",
+        "Dimensionality Reduction (PCA · t-SNE · UMAP)",
+        "Anomaly Detection",
+        "Hyperparameter Tuning (Optuna)",
+        "Cross-Validation & Regularization",
+        "Feature Engineering & Selection",
+        "Time Series Forecasting (LSTM · ARIMA)",
+        "Class Imbalance Handling (SMOTE)",
+        "AutoML Pipelines"
+      ]
     },
     {
       icon: "⚡",
@@ -343,14 +357,6 @@ const PORTFOLIO_DATA = {
       gpa: "GPA: 5.00 / 5.00",
       desc: "Achieved perfect GPA in the science stream, with strong foundation in Mathematics and Physics.",
       courses: ["Higher Mathematics", "Physics", "Chemistry", "Biology", "English", "Bangla", "ICT"],
-    },
-    {
-      year: "2018",
-      degree: "Secondary School Certificate (Science)",
-      major: null,
-      institution: "Garagonj Secondary School",
-      desc: null,
-      courses: [],
     },
   ],
 
