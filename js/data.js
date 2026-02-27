@@ -358,6 +358,15 @@ const PORTFOLIO_DATA = {
       desc: "Achieved perfect GPA in the science stream, with strong foundation in Mathematics and Physics.",
       courses: ["Higher Mathematics", "Physics", "Chemistry", "Biology", "English", "Bangla", "ICT"],
     },
+    {
+      year: "2018",
+      degree: "Secondary School Certificate (Science)",
+      major: null,
+      institution: "Garagonj Secondary School",
+      gpa: null,
+      desc: "Completed secondary education in the science stream with a strong foundation in Mathematics, Physics, and Chemistry.",
+      courses: ["Mathematics", "Physics", "Chemistry", "Biology", "English", "Bangla", "ICT" ,"Higher Mathematics", "Bangladesh and Global Studies" , "Islamic Studies" ],
+    },
   ],
 
   // ── Contact ───────────────────────────────────────────────
