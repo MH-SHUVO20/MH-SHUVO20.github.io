@@ -128,28 +128,49 @@
     e.preventDefault();
     if (!validate()) return;
 
+    const name    = document.getElementById('cName').value.trim();
+    const email   = document.getElementById('cEmail').value.trim();
+    const subject = document.getElementById('cSubject').value.trim();
+    const msg     = document.getElementById('cMsg').value.trim();
+
     submitBtn.classList.add('loading');
     submitBtn.disabled = true;
 
-    // Simulate send (replace with real API call e.g. formspree, emailjs)
-    await new Promise(r => setTimeout(r, 1500));
+    try {
+      const res = await fetch('https://api.web3forms.com/submit', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
+        body: JSON.stringify({
+          access_key: '015002c0-b6bc-4eb0-92c9-4a1baf53e418',
+          name,
+          email,
+          subject: subject || 'Portfolio Contact from ' + name,
+          message: msg,
+          from_name: 'MH Shuvo Portfolio',
+          botcheck: false,
+        }),
+      });
 
-    submitBtn.classList.remove('loading');
-    submitBtn.disabled = false;
-    if (successEl) successEl.classList.add('show');
-    form.reset();
-    if (charCount) charCount.textContent = '0 / 500';
+      const data = await res.json();
 
-    // Use mailto as fallback
-    const name = document.getElementById('cName').value;
-    const email = document.getElementById('cEmail').value;
-    const subject = document.getElementById('cSubject').value;
-    const msg = document.getElementById('cMsg').value;
-    // Uncomment below to open mail client:
-    // window.location.href = `mailto:mdmehedihasanshuvo994@gmail.com?subject=${encodeURIComponent(subject||'Portfolio Contact')}&body=${encodeURIComponent('From: '+name+' <'+email+'>\n\n'+msg)}`;
+      submitBtn.classList.remove('loading');
+      submitBtn.disabled = false;
 
-    if (window.showToast) showToast('Message sent! I will get back to you soon.', 'success');
-    setTimeout(() => successEl?.classList.remove('show'), 5000);
+      if (data.success) {
+        if (successEl) successEl.classList.add('show');
+        form.reset();
+        if (charCount) charCount.textContent = '0 / 500';
+        if (window.showToast) showToast('Message sent! I\'ll get back to you soon.', 'success');
+        setTimeout(() => successEl?.classList.remove('show'), 5000);
+      } else {
+        throw new Error(data.message || 'Submission failed');
+      }
+    } catch (err) {
+      submitBtn.classList.remove('loading');
+      submitBtn.disabled = false;
+      if (window.showToast) showToast('Failed to send. Please email me directly.', 'error');
+      console.error('Web3Forms error:', err);
+    }
   });
 })();
 
