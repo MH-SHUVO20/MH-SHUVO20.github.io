@@ -583,6 +583,7 @@ section { padding: 120px 0; position: relative; z-index: 10; }
   overflow: hidden;
   border: 3px solid var(--accent);
   -webkit-mask-image: -webkit-radial-gradient(white, black);
+  mask-image: radial-gradient(white, black);
   transform: translateZ(0);
 }
 .mobile-avatar-img {

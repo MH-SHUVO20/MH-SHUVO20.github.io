@@ -99,7 +99,8 @@ const PORTFOLIO_DATA = {
 
   // ── Skill Proficiency Bars ─────────────────────────────────
   proficiency: [
-    { name: "Computer Vision (YOLO/CNN)", pct: 92 },
+    { name: "Computer Vision", pct: 92 },
+    { name: "Machine Learning", pct: 91 },
     { name: "Python & PyTorch", pct: 90 },
     { name: "LangChain / LangGraph", pct: 82 },
     { name: "BERT & NLP", pct: 80 },
@@ -331,7 +332,7 @@ const PORTFOLIO_DATA = {
       major: "Major: Information Systems",
       institution: "American International University–Bangladesh (AIUB), Dhaka",
       gpa: "CGPA: 3.75 / 4.00",
-      desc: "Pursuing undergraduate studies with a focus on AI, Computer Vision, and Deep Learning. Active researcher and IEEE student member throughout the program.",
+      desc: "Pursuing undergraduate studies with a focus on AI, Machine Learning, Computer Vision, and Deep Learning. Active researcher and IEEE student member throughout the program.",
       courses: ["Data Structures & Algorithms", "Machine Learning", "NLP", "Computer Vision", "Software Engineering", "Database Systems", "Data Warehousing & Mining", "OOP", "Operating Systems"],
     },
     {
@@ -341,14 +342,13 @@ const PORTFOLIO_DATA = {
       institution: "Govt. Keshab Chandra College, Jhenaidah",
       gpa: "GPA: 5.00 / 5.00",
       desc: "Achieved perfect GPA in the science stream, with strong foundation in Mathematics and Physics.",
-      courses: ["Mathematics", "Physics", "Chemistry", "Biology"],
+      courses: ["Higher Mathematics", "Physics", "Chemistry", "Biology", "English", "Bangla", "ICT"],
     },
     {
       year: "2018",
       degree: "Secondary School Certificate (Science)",
       major: null,
       institution: "Garagonj Secondary School",
-      gpa: "GPA: 4.67 / 5.00",
       desc: null,
       courses: [],
     },
@@ -362,23 +362,5 @@ const PORTFOLIO_DATA = {
     { icon: "fas fa-globe", label: "Portfolio", value: "mhshuvo.me", href: "https://mhshuvo.me/" },
     { icon: "fas fa-phone", label: "Phone", value: "+8801954-596854", href: "tel:+8801954596854" },
     { icon: "fab fa-facebook", label: "Facebook", value: "mh.shuvo.7370", href: "https://www.facebook.com/mh.shuvo.7370" },
-  ],
-
-  // ── References ────────────────────────────────────────────
-  references: [
-    {
-      name: "AMINUN NAHAR",
-      title: "Assistant Professor",
-      org: "Department of Computer Science, AIUB",
-      email: "aminun.nahar@aiub.edu",
-      website: null,
-    },
-    {
-      name: "Md Monayem Islam",
-      title: "Senior Software Engineer",
-      org: "Nybsys (Pvt.) Ltd.",
-      email: "contact@monayemislam.me",
-      website: "https://monayemislam.me",
-    },
   ],
 };
