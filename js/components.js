@@ -195,6 +195,35 @@ function renderEducation() {
   });
 }
 
+// ── Experience Grid ───────────────────────────────────────────
+function renderExperience() {
+  const grid = document.getElementById('expGrid');
+  if (!grid || !PORTFOLIO_DATA || !PORTFOLIO_DATA.experience) return;
+
+  PORTFOLIO_DATA.experience.forEach((exp, i) => {
+    const card = document.createElement('div');
+    card.className = 'exp-card';
+    card.setAttribute('data-aos', 'fade-up');
+    card.setAttribute('data-aos-delay', String(i * 100));
+
+    const hlHTML = exp.highlights.map(h => `<li>${h}</li>`).join('');
+    card.innerHTML = `
+      <div class="exp-icon ${exp.colorClass}">
+        <i class="${exp.icon}"></i>
+      </div>
+      <div class="exp-header">
+        <h3 class="exp-role">${exp.role}</h3>
+        <span class="exp-type">${exp.type}</span>
+      </div>
+      <div class="exp-org">${exp.org}</div>
+      <div class="exp-period"><i class="fas fa-calendar-alt"></i> ${exp.period}</div>
+      <p class="exp-desc">${exp.desc}</p>
+      <ul class="exp-highlights">${hlHTML}</ul>
+    `;
+    grid.appendChild(card);
+  });
+}
+
 // ── Contact Links ─────────────────────────────────────────────
 function renderContact() {
   const linksContainer = document.getElementById('contactLinks');
@@ -320,6 +349,7 @@ document.addEventListener('DOMContentLoaded', () => {
   renderResearch();
   renderProjects();
   renderEducation();
+  renderExperience();
   renderContact();
   initProjectModal();
 });

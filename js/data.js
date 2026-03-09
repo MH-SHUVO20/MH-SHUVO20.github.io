@@ -421,7 +421,7 @@ const PORTFOLIO_DATA = {
       courses: ["Data Structures & Algorithms", "Machine Learning", "NLP", "Computer Vision", "Software Engineering", "Database Systems", "Data Warehousing & Mining", "OOP", "Operating Systems"],
     },
     {
-      year: "2018 — 2021",
+      year: "2018 — 2020",
       degree: "Higher Secondary Certificate (Science)",
       major: "",
       institution: "Govt. Keshab Chandra College, Jhenaidah",
@@ -437,6 +437,55 @@ const PORTFOLIO_DATA = {
       gpa: "GPA: 4.67 / 5.00",
       desc: "Completed secondary education in the science stream with a strong foundation in Mathematics, Physics, and Chemistry.",
       courses: ["Mathematics", "Physics", "Chemistry", "Biology", "English", "Bangla", "ICT", "Higher Mathematics", "Bangladesh and Global Studies", "Islamic Studies"],
+    },
+  ],
+
+  // ── Experience ────────────────────────────────────────────
+  experience: [
+    {
+      role: "AI Researcher",
+      org: "American International University–Bangladesh (AIUB)",
+      period: "2023 — Present",
+      type: "Research",
+      icon: "fas fa-flask",
+      colorClass: "exp-color-blue",
+      desc: "Conducting independent and collaborative research in Computer Vision and Deep Learning at AIUB. Published 5 IEEE papers at internationally ranked conference venues within 2 years, covering YOLO-based systems, medical imaging, and driver behavior analysis.",
+      highlights: [
+        "5 IEEE publications at CORE-ranked & international venues",
+        "Presented at AICCSA 2025, ECCE 2025, RAAICON 2025, ICCIT 2025",
+        "Research areas: YOLO, LLMs, NLP, Medical AI, Driver AI",
+        "Collaborated with faculty advisors on deep learning projects",
+      ],
+    },
+    {
+      role: "IEEE Conference Reviewer",
+      org: "IEEE — 3ICT 2025 & FET'26",
+      period: "2025 — Present",
+      type: "Academic Service",
+      icon: "fas fa-search",
+      colorClass: "exp-color-purple",
+      desc: "Serving as an active peer reviewer for IEEE international conferences, evaluating manuscript quality, technical rigor, novelty, and research contributions in deep learning, intelligent systems, and applied AI domains.",
+      highlights: [
+        "Reviewer for IEEE 3ICT 2025 (International Conference on Innovation and Intelligence)",
+        "Assigned to IEEE FET'26 review committee",
+        "Domains: Deep Learning, AI Systems, Computer Vision, IoT",
+      ],
+    },
+    {
+      role: "Private Tutor & Education Consultant",
+      org: "Independent · Jhenaidah & Dhaka, Bangladesh",
+      period: "2018 — Present",
+      type: "Teaching",
+      icon: "fas fa-chalkboard-teacher",
+      colorClass: "exp-color-green",
+      desc: "Providing comprehensive academic tutoring for students from Class 6 through HSC and O/A Level programs for 6+ years. Co-managed a coaching center serving 500+ students. Specialized in science subjects, mathematics, and computer science.",
+      highlights: [
+        "6+ years of full-time and part-time teaching experience",
+        "4+ years in English medium instruction",
+        "Co-managed coaching center with 500+ enrolled students",
+        "O Level, A Level, SSC & HSC exam preparation",
+        "Subjects: Physics, Chemistry, Math, Biology, CS, English, Bangla",
+      ],
     },
   ],
 
