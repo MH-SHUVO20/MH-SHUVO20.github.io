@@ -103,8 +103,59 @@ body a { cursor: none; }
     radial-gradient(circle, rgba(79, 70, 229, 0.09) 1px, transparent 1px);
 }
 
-/* Canvas bg */
-#bgCanvas { position: fixed; inset: 0; z-index: 0; opacity: 1; }
+/* ── CSS Aurora Background ──────────────────────────────────── */
+#bg-orbs {
+  position: fixed; inset: 0;
+  z-index: 0;
+  overflow: hidden;
+  pointer-events: none;
+}
+.bg-orb {
+  position: absolute;
+  border-radius: 50%;
+  filter: blur(90px);
+  will-change: transform, opacity;
+}
+.orb-1 {
+  width: 700px; height: 700px;
+  top: -250px; left: -200px;
+  background: radial-gradient(circle, rgba(96,165,250,0.22) 0%, transparent 65%);
+  animation: orb-drift-1 24s ease-in-out infinite alternate;
+}
+.orb-2 {
+  width: 600px; height: 600px;
+  bottom: -200px; right: -200px;
+  background: radial-gradient(circle, rgba(167,139,250,0.20) 0%, transparent 65%);
+  animation: orb-drift-2 30s ease-in-out infinite alternate;
+}
+.orb-3 {
+  width: 520px; height: 520px;
+  top: 38%; left: 45%;
+  background: radial-gradient(circle, rgba(52,211,153,0.11) 0%, transparent 65%);
+  filter: blur(110px);
+  animation: orb-drift-3 36s ease-in-out infinite alternate;
+}
+@keyframes orb-drift-1 {
+  from { transform: translate(0,0)         scale(1);    opacity: 0.85; }
+  to   { transform: translate(65px,50px)   scale(1.12); opacity: 1;    }
+}
+@keyframes orb-drift-2 {
+  from { transform: translate(0,0)          scale(1);    opacity: 0.75; }
+  to   { transform: translate(-55px,-65px)  scale(1.18); opacity: 1;    }
+}
+@keyframes orb-drift-3 {
+  from { transform: translate(0,0)          scale(1);    opacity: 0.55; }
+  to   { transform: translate(-85px,60px)   scale(1.28); opacity: 0.85; }
+}
+[data-theme="light"] .orb-1 {
+  background: radial-gradient(circle, rgba(99,102,241,0.13) 0%, transparent 65%);
+}
+[data-theme="light"] .orb-2 {
+  background: radial-gradient(circle, rgba(139,92,246,0.11) 0%, transparent 65%);
+}
+[data-theme="light"] .orb-3 {
+  background: radial-gradient(circle, rgba(16,185,129,0.07) 0%, transparent 65%);
+}
 
 /* â”€â”€ Greeting Toast â”€â”€ */
 .greeting-toast {

@@ -1,10 +1,4 @@
-﻿/* ============================================================
-   canvas.js -- Deep Space Neural Network background (optimised)
-   ============================================================ */
-
-(function () {
-  var canvas = document.getElementById('bgCanvas');
-  if (!canvas) return;
+﻿/* canvas.js — background handled by CSS aurora orbs (#bg-orbs) */
   var ctx = canvas.getContext('2d');
 
   var W, H, nodes = [];
