@@ -289,7 +289,7 @@ body a { cursor: none; }
 @media (max-width: 480px) {
   .topbar-status { display: none; }
   .topbar-greeting { font-size: 10px; }
-  .topbar-time { font-size: 11px; }
+  .topbar-time { font-size: 12px; letter-spacing: 1px; }
 }
 
 /* â”€â”€ Greeting Toast â”€â”€ */

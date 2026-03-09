@@ -184,7 +184,10 @@ function initLiveClock() {
     // Time in 12-hour format
     var ampm    = h >= 12 ? 'PM' : 'AM';
     var h12     = h % 12 || 12;
-    timeEl.textContent = pad(h12) + ':' + pad(m) + ':' + pad(s) + ' ' + ampm;
+    var isMobile = window.innerWidth <= 480;
+    timeEl.textContent = isMobile
+      ? pad(h12) + ':' + pad(m) + ' ' + ampm
+      : pad(h12) + ':' + pad(m) + ':' + pad(s) + ' ' + ampm;
 
     // Date
     if (dateEl) {
