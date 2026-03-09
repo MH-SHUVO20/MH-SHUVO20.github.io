@@ -12,7 +12,7 @@
   const steps = ['LOADING NEURAL NETWORK...', 'INITIALIZING AI ENGINE...', 'RENDERING PORTFOLIO...', 'READY.'];
   let pct = 0;
   const interval = setInterval(() => {
-    pct = Math.min(pct + Math.random() * 18 + 5, 100);
+    pct = Math.min(pct + Math.random() * 28 + 18, 100);
     if (fill) fill.style.width = pct + '%';
     if (text) text.textContent = steps[Math.floor((pct / 100) * (steps.length - 1))];
     if (pct >= 100) {
@@ -24,9 +24,9 @@
         if (typeof AOS !== 'undefined') {
           AOS.init({ once: true, duration: 700, offset: 80 });
         }
-      }, 400);
+      }, 250);
     }
-  }, 80);
+  }, 50);
 })();
 
 // ── Hamburger / Mobile Nav ────────────────────────────────────

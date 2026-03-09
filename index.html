@@ -20,35 +20,41 @@
   <meta property="og:description" content="IEEE published AI researcher specializing in Computer Vision, Deep Learning & LLMs">
   <meta property="og:url" content="https://mhshuvo.me/">
   <meta property="og:type" content="website">
-  <!-- DNS prefetch for performance -->
-  <link rel="dns-prefetch" href="https://fonts.googleapis.com">
-  <link rel="dns-prefetch" href="https://cdnjs.cloudflare.com">
+  <!-- DNS prefetch + preconnect for faster CDN lookups -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" crossorigin>
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="preconnect" href="https://cdnjs.cloudflare.com" crossorigin>
+  <link rel="preconnect" href="https://unpkg.com" crossorigin>
+  <link rel="dns-prefetch" href="https://cdn.tailwindcss.com">
 
-  <!-- Tailwind CSS -->
-  <script src="https://cdn.tailwindcss.com"></script>
+  <!-- Tailwind config — defined on window BEFORE async CDN script executes -->
   <script>
-    tailwind.config = {
-      darkMode: 'class',
-      theme: {
-        extend: {
-          colors: {
-            accent:  '#00d4ff',
-            accent2: '#7c3aed',
-            accent3: '#10b981',
-            accent4: '#f59e0b',
-            bg:      '#040608',
-            bg2:     '#080c10',
-            surface: '#0c1118',
-          },
-          fontFamily: {
-            display: ['Bebas Neue', 'cursive'],
-            body:    ['Outfit', 'sans-serif'],
-            mono:    ['JetBrains Mono', 'monospace'],
-          },
+    window.tailwind = {
+      config: {
+        darkMode: 'class',
+        theme: {
+          extend: {
+            colors: {
+              accent:  '#60a5fa',
+              accent2: '#a78bfa',
+              accent3: '#34d399',
+              accent4: '#f59e0b',
+              bg:      '#030b18',
+              bg2:     '#051020',
+              surface: '#071428',
+            },
+            fontFamily: {
+              display: ['Bebas Neue', 'cursive'],
+              body:    ['Outfit', 'sans-serif'],
+              mono:    ['JetBrains Mono', 'monospace'],
+            },
+          }
         }
       }
-    }
+    };
   </script>
+  <!-- Tailwind CSS (async = non-render-blocking) -->
+  <script async src="https://cdn.tailwindcss.com"></script>
 
   <!-- Alpine.js for lightweight interactions -->
   <script defer src="https://unpkg.com/alpinejs@3.x.x/dist/cdn.min.js"></script>
@@ -57,9 +63,11 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Outfit:wght@300;400;500;600;700&family=JetBrains+Mono:wght@300;400;500;700&display=swap" rel="stylesheet">
 
-  <!-- External CSS libs -->
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.css">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+  <!-- External CSS libs — loaded non-blocking via print trick -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.css" media="print" onload="this.media='all'">
+  <noscript><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.css"></noscript>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" media="print" onload="this.media='all'">
+  <noscript><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"></noscript>
 
   <!-- Our CSS -->
   <link rel="stylesheet" href="css/style.css">
