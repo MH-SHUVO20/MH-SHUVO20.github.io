@@ -712,7 +712,7 @@ section { padding: 120px 0; position: relative; z-index: 10; }
 }
 .chip:hover { transform: scale(1.05) !important; }
 .chip-1 { top: 0; right: -20px; }
-.chip-2 { top: 50%; right: -10px; transform: translateY(-50%); }
+.chip-2 { top: 50%; right: -40px; transform: translateY(-50%); }
 .chip-3 { bottom: 20px; right: -10px; }
 .chip-4 { bottom: 0; left: -20px; }
 .chip-num {

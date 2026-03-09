@@ -93,7 +93,7 @@ function buildResumeHTML() {
           <div class="res-edu-school">Govt. Keshab Chandra College, Jhenaidah</div>
         </div>
         <div>
-          <div class="res-edu-year">2021</div>
+          <div class="res-edu-year">2018 – 2020</div>
           <div class="res-edu-gpa">GPA: 5.00/5.00</div>
         </div>
       </div>
