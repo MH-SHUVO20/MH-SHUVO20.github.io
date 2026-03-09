@@ -28,6 +28,8 @@
       this.vy = (Math.random() - 0.5) * 0.35;
       this.r = Math.random() * 1.5 + 0.5;
       this.alpha = Math.random() * 0.5 + 0.2;
+      // 0=indigo, 1=violet, 2=emerald (rare)
+      this.colorIdx = Math.random() < 0.15 ? 2 : (Math.random() < 0.5 ? 0 : 1);
     }
     update() {
       this.x += this.vx;
@@ -51,9 +53,14 @@
       const dark = isDark();
       ctx.beginPath();
       ctx.arc(this.x, this.y, this.r, 0, Math.PI * 2);
+      const darkColors = [
+        `rgba(129, 140, 248, ${this.alpha})`,   // indigo
+        `rgba(167, 139, 250, ${this.alpha})`,   // violet
+        `rgba(52, 211, 153, ${this.alpha * 0.7})`,// emerald
+      ];
       ctx.fillStyle = dark
-        ? `rgba(0, 212, 255, ${this.alpha})`
-        : `rgba(0, 102, 204, ${this.alpha * 0.7})`;
+        ? darkColors[this.colorIdx]
+        : `rgba(99, 102, 241, ${this.alpha * 0.7})`;
       ctx.fill();
     }
   }
@@ -79,8 +86,8 @@
           ctx.moveTo(nodes[i].x, nodes[i].y);
           ctx.lineTo(nodes[j].x, nodes[j].y);
           ctx.strokeStyle = dark
-            ? `rgba(0, 212, 255, ${alpha})`
-            : `rgba(0, 102, 204, ${alpha})`;
+            ? `rgba(129, 140, 248, ${alpha})`
+            : `rgba(99, 102, 241, ${alpha})`;
           ctx.lineWidth = 0.6;
           ctx.stroke();
         }
@@ -97,8 +104,8 @@
         ctx.moveTo(n.x, n.y);
         ctx.lineTo(mouse.x, mouse.y);
         ctx.strokeStyle = dark
-          ? `rgba(0, 212, 255, ${alpha})`
-          : `rgba(0, 102, 204, ${alpha})`;
+          ? `rgba(167, 139, 250, ${alpha})`
+          : `rgba(99, 102, 241, ${alpha * 1.4})`;
         ctx.lineWidth = 0.8;
         ctx.stroke();
       }
