@@ -1419,7 +1419,7 @@ section { padding: 120px 0; position: relative; z-index: 10; }
   line-height: 1.5;
 }
 .exp-highlights li::before {
-  content: 'â€º';
+  content: '\203A';
   position: absolute; left: 0;
   color: var(--accent);
   font-size: 14px;
@@ -1826,7 +1826,7 @@ section { padding: 120px 0; position: relative; z-index: 10; }
   margin-bottom: 8px;
 }
 .pm-highlights li::before {
-  content: 'â–¸';
+  content: '\25B8';
   position: absolute; left: 0;
   color: var(--accent);
 }
