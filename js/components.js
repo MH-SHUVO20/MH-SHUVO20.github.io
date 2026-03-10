@@ -363,7 +363,6 @@ function initCertModal() {
   const modal = document.getElementById('certModal');
   const frame = document.getElementById('certModalFrame');
   const header = document.getElementById('certModalHeader');
-  const dlBtn = document.getElementById('certModalDownload');
   const closeBtn = document.getElementById('closeCertModal');
   if (!modal) return;
 
@@ -374,12 +373,28 @@ function initCertModal() {
     const title = trigger.dataset.title;
     const issuer = trigger.dataset.issuer;
     const year = trigger.dataset.year;
+    const isImage = /\.(jpg|jpeg|png|gif|webp|svg)$/i.test(file);
     header.innerHTML = `
       <div class="cert-modal-title">${title}</div>
       <div class="cert-modal-meta"><i class="fas fa-building"></i> ${issuer} &nbsp;·&nbsp; <i class="fas fa-calendar-alt"></i> ${year}</div>
     `;
-    frame.src = file;
-    dlBtn.href = file;
+    if (isImage) {
+      frame.style.display = 'none';
+      let img = modal.querySelector('#certModalImg');
+      if (!img) {
+        img = document.createElement('img');
+        img.id = 'certModalImg';
+        img.className = 'cert-modal-img';
+        frame.parentNode.insertBefore(img, frame);
+      }
+      img.src = file;
+      img.style.display = 'block';
+    } else {
+      frame.style.display = 'block';
+      const img = modal.querySelector('#certModalImg');
+      if (img) img.style.display = 'none';
+      frame.src = file;
+    }
     modal.classList.add('open');
     document.body.style.overflow = 'hidden';
   });
@@ -391,7 +406,12 @@ function initCertModal() {
   function closeCertModal() {
     modal.classList.remove('open');
     document.body.style.overflow = '';
-    setTimeout(() => { frame.src = ''; }, 300);
+    setTimeout(() => {
+      frame.src = '';
+      const img = modal.querySelector('#certModalImg');
+      if (img) { img.src = ''; img.style.display = 'none'; }
+      frame.style.display = 'block';
+    }, 300);
   }
 }
 

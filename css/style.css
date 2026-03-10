@@ -1956,22 +1956,13 @@ section { padding: 120px 0; position: relative; z-index: 10; }
   border: none;
   background: #fff;
 }
-.cert-modal-dl {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  gap: 8px;
-  padding: 12px;
-  font-family: var(--font-mono);
-  font-size: 12px;
-  color: var(--accent);
-  background: rgba(34,211,238,0.05);
-  border-top: 1px solid var(--border);
-  text-decoration: none;
-  transition: background 0.2s;
-  flex-shrink: 0;
+.cert-modal-img {
+  width: 100%;
+  max-height: 600px;
+  object-fit: contain;
+  background: #fff;
+  display: none;
 }
-.cert-modal-dl:hover { background: rgba(34,211,238,0.12); }
 .modal-close {
   position: absolute; top: 20px; right: 20px; z-index: 10;
   width: 36px; height: 36px;
