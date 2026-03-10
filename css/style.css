@@ -728,8 +728,10 @@ section { padding: 120px 0; position: relative; z-index: 10; }
 /* Hero right */
 .hero-visual-wrap {
   position: relative;
-  display: flex; justify-content: center;
+  display: flex; flex-direction: column; align-items: center;
+  justify-content: center;
   padding: 60px;
+  gap: 16px;
 }
 .avatar-frame {
   position: relative;
