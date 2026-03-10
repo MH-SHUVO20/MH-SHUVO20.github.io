@@ -358,6 +358,34 @@ window.showToast = function(msg, type = 'info') {
   toast._timer = setTimeout(() => toast.classList.remove('show'), 3200);
 };
 
+// ── Certifications Grid ───────────────────────────────────────
+function renderCerts() {
+  const grid = document.getElementById('certsGrid');
+  if (!grid || !PORTFOLIO_DATA || !PORTFOLIO_DATA.certs) return;
+
+  PORTFOLIO_DATA.certs.forEach((c, i) => {
+    const card = document.createElement('div');
+    card.className = 'cert-card';
+    card.setAttribute('data-aos', 'fade-up');
+    card.setAttribute('data-aos-delay', String(i % 3 * 100));
+    card.innerHTML = `
+      <div class="cert-icon-wrap ${c.color}">
+        <i class="${c.icon}"></i>
+      </div>
+      <div class="cert-body">
+        <span class="cert-category">${c.category}</span>
+        <h3 class="cert-title">${c.title}</h3>
+        <p class="cert-issuer"><i class="fas fa-building"></i> ${c.issuer}</p>
+        <p class="cert-year"><i class="fas fa-calendar-alt"></i> ${c.year}</p>
+      </div>
+      <a href="${c.file}" target="_blank" rel="noopener noreferrer" class="cert-view-btn">
+        <i class="fas fa-external-link-alt"></i> View
+      </a>
+    `;
+    grid.appendChild(card);
+  });
+}
+
 // Init all
 document.addEventListener('DOMContentLoaded', () => {
   renderSkills();
@@ -365,6 +393,7 @@ document.addEventListener('DOMContentLoaded', () => {
   renderProjects();
   renderEducation();
   renderExperience();
+  renderCerts();
   renderContact();
   initProjectModal();
 });

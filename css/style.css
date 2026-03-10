@@ -1,4 +1,4 @@
-/* ============================================================
+﻿/* ============================================================
    MH SHUVO PORTFOLIO â€” style.css
    Aesthetic: Neural-Noir â€” dark, technical, editorial
    ============================================================ */
@@ -1652,6 +1652,104 @@ section { padding: 120px 0; position: relative; z-index: 10; }
 .res-skill-row span:first-child { font-weight: 600; font-size: 12px; color: var(--text); }
 .res-skill-row span:last-child { font-size: 12px; color: var(--text2); }
 
+
+/* -- Certifications -- */
+.certs-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 20px;
+}
+.cert-card {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 24px 20px 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  position: relative;
+  transition: border-color 0.3s, transform 0.3s, box-shadow 0.3s;
+  overflow: hidden;
+}
+.cert-card::before {
+  content: '';
+  position: absolute;
+  top: 0; left: 0; right: 0;
+  height: 2px;
+  border-radius: 2px 2px 0 0;
+  background: var(--border);
+  transition: background 0.3s;
+}
+.cert-card:hover {
+  border-color: var(--border-hover);
+  transform: translateY(-5px);
+  box-shadow: var(--shadow), var(--glow);
+}
+.cert-card:hover::before { background: var(--accent); }
+.cert-icon-wrap {
+  width: 44px; height: 44px;
+  border-radius: 10px;
+  display: flex; align-items: center; justify-content: center;
+  font-size: 18px;
+  margin-bottom: 16px;
+  flex-shrink: 0;
+}
+.cert-blue   { background: rgba(34,211,238,0.1);  border: 1px solid rgba(34,211,238,0.2);  color: var(--accent); }
+.cert-purple { background: rgba(167,139,250,0.1); border: 1px solid rgba(167,139,250,0.2); color: var(--accent2); }
+.cert-green  { background: rgba(52,211,153,0.1);  border: 1px solid rgba(52,211,153,0.2);  color: var(--accent3); }
+.cert-amber  { background: rgba(251,191,36,0.1);  border: 1px solid rgba(251,191,36,0.2);  color: var(--accent4); }
+.cert-body { flex: 1; width: 100%; }
+.cert-category {
+  font-family: var(--font-mono);
+  font-size: 10px;
+  padding: 2px 7px;
+  border-radius: 4px;
+  background: rgba(34,211,238,0.08);
+  color: var(--accent);
+  border: 1px solid rgba(34,211,238,0.18);
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  margin-bottom: 8px;
+  display: inline-block;
+}
+.cert-title {
+  font-family: var(--font-display);
+  font-size: 17px;
+  letter-spacing: 0.4px;
+  color: var(--text);
+  line-height: 1.3;
+  margin-bottom: 10px;
+}
+.cert-issuer, .cert-year {
+  font-family: var(--font-mono);
+  font-size: 12px;
+  color: var(--text2);
+  margin-bottom: 4px;
+  display: flex; align-items: center; gap: 6px;
+}
+.cert-issuer i, .cert-year i { color: var(--accent); font-size: 11px; }
+.cert-view-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  margin-top: 14px;
+  padding: 7px 14px;
+  border-radius: 6px;
+  font-family: var(--font-mono);
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 0.5px;
+  background: rgba(34,211,238,0.07);
+  color: var(--accent);
+  border: 1px solid rgba(34,211,238,0.2);
+  text-decoration: none;
+  transition: background 0.2s, border-color 0.2s;
+}
+.cert-view-btn:hover {
+  background: rgba(34,211,238,0.16);
+  border-color: rgba(34,211,238,0.45);
+}
+
 /* â”€â”€ Contact â”€â”€ */
 .contact-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 60px; }
 .contact-links { display: flex; flex-direction: column; gap: 12px; margin-bottom: 36px; }
@@ -2077,6 +2175,7 @@ section { padding: 120px 0; position: relative; z-index: 10; }
   .skills-grid { grid-template-columns: repeat(2, 1fr); }
   .projects-grid { grid-template-columns: repeat(2, 1fr); }
   .exp-grid { grid-template-columns: repeat(2, 1fr); }
+  .certs-grid { grid-template-columns: repeat(2, 1fr); }
 }
 
 @media (max-width: 900px) {
@@ -2115,6 +2214,7 @@ section { padding: 120px 0; position: relative; z-index: 10; }
   .skills-grid, .projects-grid { grid-template-columns: repeat(2, 1fr); }
   .exp-grid { grid-template-columns: 1fr; }
   .bars-grid { grid-template-columns: 1fr; }
+  .certs-grid { grid-template-columns: repeat(2, 1fr); }
   .paper-card { grid-template-columns: 1fr; gap: 16px; padding: 20px 24px; }
   .paper-idx { display: none; }
   .paper-link { align-self: flex-start; }
@@ -2185,6 +2285,7 @@ section { padding: 120px 0; position: relative; z-index: 10; }
   .exp-grid { grid-template-columns: 1fr; }
   .exp-header { flex-direction: column; align-items: flex-start; gap: 4px; }
 
+  .certs-grid { grid-template-columns: 1fr; }
   /* About */
   .about-cards { grid-template-columns: 1fr; }
 
