@@ -358,6 +358,43 @@ window.showToast = function(msg, type = 'info') {
   toast._timer = setTimeout(() => toast.classList.remove('show'), 3200);
 };
 
+// ── Certificate Modal ────────────────────────────────────────
+function initCertModal() {
+  const modal = document.getElementById('certModal');
+  const frame = document.getElementById('certModalFrame');
+  const header = document.getElementById('certModalHeader');
+  const dlBtn = document.getElementById('certModalDownload');
+  const closeBtn = document.getElementById('closeCertModal');
+  if (!modal) return;
+
+  document.addEventListener('click', e => {
+    const trigger = e.target.closest('.open-cert-modal');
+    if (!trigger) return;
+    const file = trigger.dataset.file;
+    const title = trigger.dataset.title;
+    const issuer = trigger.dataset.issuer;
+    const year = trigger.dataset.year;
+    header.innerHTML = `
+      <div class="cert-modal-title">${title}</div>
+      <div class="cert-modal-meta"><i class="fas fa-building"></i> ${issuer} &nbsp;·&nbsp; <i class="fas fa-calendar-alt"></i> ${year}</div>
+    `;
+    frame.src = file;
+    dlBtn.href = file;
+    modal.classList.add('open');
+    document.body.style.overflow = 'hidden';
+  });
+
+  closeBtn?.addEventListener('click', closeCertModal);
+  modal.addEventListener('click', e => { if (e.target === modal) closeCertModal(); });
+  document.addEventListener('keydown', e => { if (e.key === 'Escape') closeCertModal(); });
+
+  function closeCertModal() {
+    modal.classList.remove('open');
+    document.body.style.overflow = '';
+    setTimeout(() => { frame.src = ''; }, 300);
+  }
+}
+
 // ── Certifications Grid ───────────────────────────────────────
 function renderCerts() {
   const grid = document.getElementById('certsGrid');
@@ -378,11 +415,25 @@ function renderCerts() {
         <p class="cert-issuer"><i class="fas fa-building"></i> ${c.issuer}</p>
         <p class="cert-year"><i class="fas fa-calendar-alt"></i> ${c.year}</p>
       </div>
-      <a href="${c.file}" target="_blank" rel="noopener noreferrer" class="cert-view-btn">
-        <i class="fas fa-external-link-alt"></i> View
-      </a>
+      <button class="cert-view-btn open-cert-modal" data-file="${c.file}" data-title="${c.title}" data-issuer="${c.issuer}" data-year="${c.year}">
+        <i class="fas fa-expand-alt"></i> View
+      </button>
     `;
     grid.appendChild(card);
+  });
+}
+
+// ── Project card media click → open modal ────────────────────
+function initProjectMediaClick() {
+  document.addEventListener('click', e => {
+    const media = e.target.closest('.project-media');
+    if (!media) return;
+    // Don't double-fire if the details button itself was clicked
+    if (e.target.closest('.open-project-modal')) return;
+    const card = media.closest('.project-card');
+    if (!card) return;
+    const btn = card.querySelector('.open-project-modal');
+    if (btn) btn.click();
   });
 }
 
@@ -396,4 +447,6 @@ document.addEventListener('DOMContentLoaded', () => {
   renderCerts();
   renderContact();
   initProjectModal();
+  initCertModal();
+  initProjectMediaClick();
 });
