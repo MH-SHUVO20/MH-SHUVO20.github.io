@@ -620,7 +620,7 @@ const PORTFOLIO_DATA = {
     },
     {
       role: "Private Tutor & Education Consultant",
-      org: "Independent · Jhenaidah & Dhaka, Bangladesh",
+      org: "Independent · Dhaka, Bangladesh",
       period: "2018 — Present",
       type: "Teaching",
       icon: "fas fa-chalkboard-teacher",
