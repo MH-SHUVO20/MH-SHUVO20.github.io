@@ -638,6 +638,27 @@ const PORTFOLIO_DATA = {
       github: "https://github.com/MH-SHUVO20/Sentiment-Analysis-on-IMDB-Movie-Reviews",
       demo: null,
     },
+    {
+      id: "passport-agent",
+      title: "Amar Passport AI Agent",
+      cat: "llm",
+      catLabel: "LLM / NLP",
+      emoji: "🛂",
+      image: "assets/img/projects/passport-agent.svg",
+      video: "https://drive.google.com/file/d/1noGCWW2l9jAl3twMRyJqBXnrWxIW6xmK/preview",
+      description: "Autonomous 4-agent CrewAI system that acts as a smart Bangladesh e-passport assistant. Delivers eligibility verification, exact 2026 fee calculation, personalized document checklist, and a full bilingual report in English & Bangla (বাংলা).",
+      fullDesc: "Built a fully autonomous Multi-Agent AI System using CrewAI with a sequential 4-agent pipeline: (1) Policy Guardian verifies age-based eligibility and flags invalid requests (e.g. minor requesting 10-year passport); (2) Fee Calculator computes the exact VAT-inclusive BDT fee from a hardcoded 2026 official fee schedule, preventing hallucination; (3) Document Architect generates a numbered, profession-specific checklist (NOC for govt. employees, Marriage Certificate for name changes, parents' NID for minors); (4) Bilingual Report Compiler produces a structured Markdown report in both English and Bangla. All 5 test scenarios passed with 100% accuracy. Powered by Meta-Llama-4-Scout-17B via Groq.",
+      highlights: [
+        "4-agent sequential pipeline: Policy Guardian → Fee Calculator → Doc Architect → Report Compiler",
+        "100% pass rate across 5 diverse test scenarios including edge cases",
+        "Hardcoded 2026 BDT fee DB prevents LLM hallucination of official figures",
+        "Bilingual output: full English + Bangla (বাংলা) structured Markdown tables",
+        "Eligibility flags auto-correct invalid requests (minors & seniors capped at 5-year validity)",
+      ],
+      stack: ["CrewAI", "LangChain", "Groq", "Llama 4", "Python", "Jupyter"],
+      github: "https://github.com/MH-SHUVO20/Amar-Passport-AI-Agent",
+      demo: null,
+    },
   ],
 
   // ── Education ─────────────────────────────────────────────
