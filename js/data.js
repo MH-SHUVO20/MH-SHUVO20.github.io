@@ -288,7 +288,7 @@ const PORTFOLIO_DATA = {
       catLabel: "LLM / NLP",
       emoji: "📄",
       image: "assets/img/projects/llm-pipeline.jpg",
-      video: null,
+      video: "https://drive.google.com/file/d/1nuUUoH8o-r7B2mCnu4G__QLSFpus0GyL/preview",
       description: "Multi-stage automated AI workflow: Streamlit → FastAPI → n8n → LLM → Google Sheets → Gmail. Fully automated document analysis with structured output generation.",
       fullDesc: "Designed an end-to-end automated article analysis pipeline integrating multiple services. Documents are submitted via Streamlit UI, processed by a FastAPI backend, orchestrated through n8n workflow automation, analyzed by an LLM with optimized prompts, and results are automatically saved to Google Sheets and emailed via Gmail integration.",
       highlights: [
@@ -414,7 +414,7 @@ const PORTFOLIO_DATA = {
       catLabel: "LLM / NLP",
       emoji: "💼",
       image: "assets/img/projects/linkedin-agent.jpg",
-      video: null,
+      video: "https://drive.google.com/file/d/1BxXIwrdv0m5u0ceLG21UqOKZtxE-Q5id/preview",
       description: "Multi-agent LangChain system with intelligent routing — classifies topics (Tech vs General) and delegates to specialized writer agents for professional, engagement-optimized LinkedIn posts in any language.",
       fullDesc: "Built an AI-powered LinkedIn content generation system using LangChain and OpenAI GPT. The architecture features a routing agent that categorizes the user's topic into Tech or General, then delegates to the appropriate specialized writer agent. Each writer produces polished, publication-ready posts with consistent quality, structured length (2–4 paragraphs), and a compelling call-to-action. Supports multiple languages including English and Bengali.",
       highlights: [

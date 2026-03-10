@@ -100,6 +100,19 @@ function renderProjects() {
             <div class="project-overlay"></div>
             <span class="project-cat-chip">${p.catLabel}</span>
           </div>`;
+      } else if (p.video.includes('drive.google.com')) {
+        const thumbInner = p.image
+          ? `<img src="${p.image}" alt="${p.title}" class="project-thumb" onerror="this.style.display='none'">`
+          : `<div class="project-media-placeholder">${p.emoji}</div>`;
+        mediaHTML = `
+          <div class="project-media">
+            <div class="project-thumb" style="overflow:hidden">${thumbInner}</div>
+            <div class="project-play-btn">
+              <div class="play-icon"><i class="fas fa-play"></i></div>
+            </div>
+            <div class="project-overlay"></div>
+            <span class="project-cat-chip">${p.catLabel}</span>
+          </div>`;
       } else {
         mediaHTML = `
           <div class="project-media">
@@ -286,6 +299,8 @@ function initProjectModal() {
       if (project.video.includes('youtube') || project.video.includes('youtu.be')) {
         const videoId = project.video.split('v=')[1]?.split('&')[0] || project.video.split('/').pop();
         mediaHTML = `<div class="pm-media"><div class="pm-video-wrap"><iframe src="https://www.youtube.com/embed/${videoId}?autoplay=1&mute=1" allowfullscreen></iframe></div></div>`;
+      } else if (project.video.includes('drive.google.com')) {
+        mediaHTML = `<div class="pm-media"><div class="pm-video-wrap"><iframe src="${project.video}" allowfullscreen allow="autoplay"></iframe></div></div>`;
       } else {
         mediaHTML = `<div class="pm-media"><div class="pm-video-wrap"><video autoplay muted loop controls><source src="${project.video}" type="video/mp4"></video></div></div>`;
       }
