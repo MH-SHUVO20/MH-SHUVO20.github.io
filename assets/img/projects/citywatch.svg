@@ -1,0 +1,29 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 450" width="800" height="450">
+  <defs>
+    <linearGradient id="bar" x1="0" y1="0" x2="1" y2="0"><stop offset="0%" stop-color="#0c4a6e"/><stop offset="100%" stop-color="#0ea5e9"/></linearGradient>
+    <linearGradient id="orb" x1="0" y1="0" x2="1" y2="1"><stop offset="0%" stop-color="#0c4a6e"/><stop offset="100%" stop-color="#0ea5e9"/></linearGradient>
+    <filter id="gl" x="-100%" y="-100%" width="300%" height="300%"><feGaussianBlur stdDeviation="60"/></filter>
+    <filter id="sr" x="-30%" y="-30%" width="160%" height="160%"><feGaussianBlur stdDeviation="10"/></filter>
+    <pattern id="dt" width="28" height="28" patternUnits="userSpaceOnUse"><circle cx="14" cy="14" r="0.75" fill="white" fill-opacity="0.07"/></pattern>
+    <radialGradient id="vg" cx="50%" cy="50%" r="65%"><stop offset="0%" stop-color="transparent"/><stop offset="100%" stop-color="#070c18" stop-opacity="0.6"/></radialGradient>
+  </defs>
+  <rect width="800" height="450" fill="#070c18"/>
+  <ellipse cx="400" cy="200" rx="300" ry="260" fill="url(#orb)" fill-opacity="0.11" filter="url(#gl)"/>
+  <ellipse cx="640" cy="80" rx="220" ry="190" fill="#0ea5e9" fill-opacity="0.07" filter="url(#gl)"/>
+  <ellipse cx="160" cy="380" rx="180" ry="150" fill="#0c4a6e" fill-opacity="0.06" filter="url(#gl)"/>
+  <rect width="800" height="450" fill="url(#dt)"/>
+  <rect width="800" height="450" fill="url(#vg)"/>
+  <circle cx="400" cy="182" r="72" fill="#0c4a6e" fill-opacity="0.13" filter="url(#sr)"/>
+  <circle cx="400" cy="182" r="72" stroke="#0c4a6e" stroke-width="1.2" fill="none" stroke-opacity="0.3"/>
+  <circle cx="400" cy="182" r="56" stroke="#0ea5e9" stroke-width="0.8" fill="none" stroke-opacity="0.22"/>
+  <circle cx="400" cy="182" r="86" stroke="#0c4a6e" stroke-width="0.5" fill="none" stroke-opacity="0.11"/>
+  <text x="400" y="208" text-anchor="middle" font-size="52" font-family="Apple Color Emoji,Segoe UI Emoji,Noto Color Emoji,sans-serif">🌆</text>
+  <circle cx="368" cy="264" r="2" fill="#0c4a6e" fill-opacity="0.55"/>
+  <circle cx="400" cy="264" r="2.8" fill="#0ea5e9" fill-opacity="0.7"/>
+  <circle cx="432" cy="264" r="2" fill="#0c4a6e" fill-opacity="0.55"/>
+  <text x="400" y="300" text-anchor="middle" font-family="Trebuchet MS,Verdana,Arial,sans-serif" font-size="22" font-weight="700" fill="white" fill-opacity="0.95" letter-spacing="1.8">CITYWATCH PLATFORM</text>
+  <text x="400" y="330" text-anchor="middle" font-family="Courier New,Courier,monospace" font-size="11" fill="#0ea5e9" fill-opacity="0.78" letter-spacing="2.5">PHP · MYSQL · FULL-STACK</text>
+  <rect x="0" y="441" width="800" height="9" fill="url(#bar)" opacity="0.85"/>
+  <circle cx="24" cy="24" r="3" fill="#0c4a6e" fill-opacity="0.4"/>
+  <circle cx="776" cy="24" r="3" fill="#0ea5e9" fill-opacity="0.4"/>
+</svg>
