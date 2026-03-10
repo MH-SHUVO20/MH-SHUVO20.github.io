@@ -189,6 +189,12 @@ function initLiveClock() {
       ? pad(h12) + ':' + pad(m) + ' ' + ampm
       : pad(h12) + ':' + pad(m) + ':' + pad(s) + ' ' + ampm;
 
+    // Hero local time badge
+    var heroTimeEl = document.getElementById('heroLocalTime');
+    if (heroTimeEl) {
+      heroTimeEl.textContent = pad(h12) + ':' + pad(m) + ' ' + ampm;
+    }
+
     // Date
     if (dateEl) {
       dateEl.textContent = now.toLocaleDateString('en-US', {

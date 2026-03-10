@@ -2,6 +2,269 @@
    components.css — reusable UI components
    ============================================================ */
 
+/* ── Marquee Ticker ─────────────────────────────────────────── */
+.marquee-ticker {
+  width: 100%;
+  background: linear-gradient(90deg, rgba(34,211,238,0.06) 0%, rgba(167,139,250,0.06) 100%);
+  border-top: 1px solid rgba(34,211,238,0.12);
+  border-bottom: 1px solid rgba(34,211,238,0.12);
+  overflow: hidden;
+  white-space: nowrap;
+  height: 34px;
+  display: flex;
+  align-items: center;
+}
+.marquee-track {
+  display: inline-flex;
+  align-items: center;
+  gap: 0;
+  animation: marquee-scroll 38s linear infinite;
+  will-change: transform;
+}
+.marquee-track span {
+  font-family: var(--font-mono);
+  font-size: 10px;
+  letter-spacing: 1.5px;
+  color: var(--text2);
+  padding: 0 18px;
+}
+.marquee-track .tsep {
+  color: var(--accent);
+  font-size: 8px;
+  padding: 0 2px;
+  opacity: 0.6;
+}
+@keyframes marquee-scroll {
+  0%   { transform: translateX(0); }
+  100% { transform: translateX(-50%); }
+}
+.marquee-ticker:hover .marquee-track {
+  animation-play-state: paused;
+}
+
+/* ── Nav CTA Button ─────────────────────────────────────────── */
+.nav-cta-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+  padding: 8px 18px;
+  background: linear-gradient(135deg, var(--accent), var(--accent2));
+  color: #060912 !important;
+  font-family: var(--font-body);
+  font-size: 13px;
+  font-weight: 600;
+  border-radius: 999px;
+  text-decoration: none;
+  letter-spacing: 0.3px;
+  transition: all 0.25s;
+  white-space: nowrap;
+  margin-right: 6px;
+}
+.nav-cta-btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 24px rgba(34,211,238,0.35);
+  opacity: 0.92;
+}
+.nav-cta-btn i {
+  font-size: 11px;
+  transition: transform 0.25s;
+}
+.nav-cta-btn:hover i {
+  transform: translateX(3px);
+}
+@media (max-width: 900px) {
+  .nav-cta-btn { display: none; }
+}
+
+/* ── Hero Collaborate CTA ───────────────────────────────────── */
+.cta-collab {
+  display: inline-flex;
+  align-items: center;
+  gap: 9px;
+  padding: 14px 28px;
+  background: transparent;
+  border: 1px solid rgba(167,139,250,0.45);
+  color: var(--accent2);
+  font-family: var(--font-body);
+  font-size: 15px;
+  font-weight: 500;
+  border-radius: 10px;
+  text-decoration: none;
+  transition: all 0.3s;
+  cursor: none;
+}
+.cta-collab:hover {
+  background: rgba(167,139,250,0.1);
+  border-color: var(--accent2);
+  transform: translateY(-2px);
+  box-shadow: 0 8px 28px rgba(167,139,250,0.2);
+}
+.cta-collab i { font-size: 14px; }
+
+/* ── Hero Local Time Badge ──────────────────────────────────── */
+.hero-localtime {
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+  margin-top: 10px;
+  padding: 6px 14px;
+  background: rgba(34,211,238,0.05);
+  border: 1px solid rgba(34,211,238,0.15);
+  border-radius: 8px;
+  font-family: var(--font-mono);
+  font-size: 11px;
+  color: var(--text2);
+  letter-spacing: 0.5px;
+}
+.hero-localtime i {
+  color: var(--accent);
+  font-size: 10px;
+}
+.hero-localtime strong {
+  color: var(--accent);
+  font-weight: 600;
+}
+
+/* ── Stats Strip ─────────────────────────────────────────────── */
+.stats-strip {
+  background: var(--surface);
+  border-top: 1px solid var(--border);
+  border-bottom: 1px solid var(--border);
+  padding: 32px 0;
+}
+.stats-strip-inner {
+  max-width: 1000px;
+  margin: 0 auto;
+  padding: 0 24px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 0;
+}
+.sstat {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 4px;
+  padding: 0 40px;
+  text-align: center;
+}
+.sstat-num {
+  font-family: var(--font-display);
+  font-size: 42px;
+  line-height: 1;
+  background: linear-gradient(135deg, var(--accent), var(--accent2));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+.sstat-label {
+  font-family: var(--font-mono);
+  font-size: 10px;
+  letter-spacing: 1.5px;
+  color: var(--text2);
+  text-transform: uppercase;
+}
+.sstat-divider {
+  width: 1px;
+  height: 44px;
+  background: var(--border);
+  flex-shrink: 0;
+}
+@media (max-width: 700px) {
+  .stats-strip-inner { gap: 12px; }
+  .sstat { padding: 10px 16px; }
+  .sstat-divider { display: none; }
+  .sstat-num { font-size: 32px; }
+}
+
+/* ── Testimonials Section ───────────────────────────────────── */
+#testimonials { padding: 80px 0; }
+.testimonials-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 24px;
+  margin-top: 48px;
+}
+.tcard {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 28px;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  transition: border-color 0.3s, transform 0.3s, box-shadow 0.3s;
+  position: relative;
+  overflow: hidden;
+}
+.tcard::before {
+  content: '"';
+  position: absolute;
+  top: -10px;
+  left: 20px;
+  font-size: 100px;
+  font-family: Georgia, serif;
+  color: var(--accent);
+  opacity: 0.07;
+  line-height: 1;
+  pointer-events: none;
+}
+.tcard:hover {
+  border-color: rgba(34,211,238,0.3);
+  transform: translateY(-4px);
+  box-shadow: 0 16px 48px rgba(0,0,0,0.4);
+}
+.tcard-stars {
+  color: var(--accent4);
+  font-size: 14px;
+  letter-spacing: 2px;
+}
+.tcard-text {
+  font-size: 14px;
+  line-height: 1.75;
+  color: var(--text2);
+  flex: 1;
+  font-style: italic;
+}
+.tcard-author {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding-top: 12px;
+  border-top: 1px solid var(--border);
+}
+.tcard-avatar {
+  width: 42px;
+  height: 42px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, var(--accent), var(--accent2));
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: var(--font-mono);
+  font-size: 12px;
+  font-weight: 700;
+  color: #060912;
+  flex-shrink: 0;
+}
+.tcard-meta {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+.tcard-meta strong {
+  font-size: 13px;
+  color: var(--text);
+  font-weight: 600;
+}
+.tcard-meta span {
+  font-size: 11px;
+  color: var(--muted);
+  font-family: var(--font-mono);
+}
+
 /* Toast notification */
 .toast {
   position: fixed;
