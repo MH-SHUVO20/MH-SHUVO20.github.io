@@ -917,6 +917,10 @@ section { padding: 120px 0; position: relative; z-index: 10; }
 }
 .scroll-arrow { color: var(--muted); font-size: 14px; }
 @keyframes bounce { 0%,100%{transform:translateX(-50%) translateY(0)} 50%{transform:translateX(-50%) translateY(6px)} }
+@keyframes navSlideDown {
+  from { opacity: 0; transform: translateY(-10px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
 
 /* â”€â”€ About â”€â”€ */
 .about-grid {
@@ -2091,6 +2095,7 @@ section { padding: 120px 0; position: relative; z-index: 10; }
   /* Center eyebrow on mobile */
   .hero-eyebrow { justify-content: center; }
   .hero-bio { margin-left: auto; margin-right: auto; }
+  .hero-actions { justify-content: center; }
   .hero-socials { justify-content: center; }
   /* Hide the complex desktop visual */
   .hero-right { display: none; }
@@ -2112,6 +2117,37 @@ section { padding: 120px 0; position: relative; z-index: 10; }
   .footer-grid { grid-template-columns: 1fr 1fr; }
   .nav-menu { display: none; }
   .hamburger { display: flex; }
+  /* Mobile nav dropdown */
+  .nav-menu.open {
+    display: flex;
+    flex-direction: column;
+    align-items: stretch;
+    gap: 0;
+    position: fixed;
+    top: calc(var(--topbar-h, 34px) + var(--navbar-h, 70px));
+    left: 0; right: 0;
+    background: rgba(3, 11, 24, 0.98);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    border-bottom: 1px solid var(--border);
+    padding: 8px 0 16px;
+    z-index: 499;
+    box-shadow: 0 16px 48px rgba(0,0,0,0.6);
+    animation: navSlideDown 0.22s cubic-bezier(0.16,1,0.3,1);
+  }
+  .nav-menu.open li { border-bottom: 1px solid rgba(96,165,250,0.06); }
+  .nav-menu.open li:last-child { border-bottom: none; }
+  .nav-menu.open .nav-link {
+    padding: 14px 24px;
+    font-size: 14px;
+    border-radius: 0;
+    min-height: 48px;
+    display: flex;
+    align-items: center;
+    letter-spacing: 0.5px;
+    width: 100%;
+  }
+  .nav-menu.open .nav-link::after { display: none; }
   .footer-bottom { flex-direction: column; gap: 8px; text-align: center; }
   #footer { padding: 48px 24px 20px; }
   .form-row { grid-template-columns: 1fr; }
@@ -2176,6 +2212,7 @@ section { padding: 120px 0; position: relative; z-index: 10; }
 
   /* Contact */
   .contact-grid { gap: 40px; }
+  .form-submit { align-self: stretch; width: 100%; justify-content: center; }
 
   /* Modals */
   .modal-overlay { padding: 12px; }
@@ -2193,8 +2230,6 @@ section { padding: 120px 0; position: relative; z-index: 10; }
   .paper-card { padding: 16px; }
   .paper-meta { flex-direction: column; align-items: flex-start; gap: 6px; }
 
-  /* Nav menu */
-  .nav-menu.open { padding: 16px; }
 }
 
 @media (max-width: 400px) {
