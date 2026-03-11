@@ -325,6 +325,21 @@ function renderContact() {
   }
 }
 
+// ── Video Facade ─────────────────────────────────────────────
+function renderVideoFacade(videoUrl) {
+  if (!videoUrl) return '';
+  return `
+    <div class="video-facade" data-src="${videoUrl}">
+      <div class="video-facade-inner">
+        <div class="video-play-btn">
+          <i class="fas fa-play"></i>
+        </div>
+        <p class="video-facade-label">Click to load demo video</p>
+      </div>
+    </div>
+  `;
+}
+
 // ── Project Modal ─────────────────────────────────────────────
 function initProjectModal() {
   const modal = document.getElementById('projectModal');
@@ -343,31 +358,7 @@ function initProjectModal() {
     // Build media
     let mediaHTML = '';
     if (project.video) {
-      if (project.video.includes('youtube') || project.video.includes('youtu.be')) {
-        const videoId = project.video.split('v=')[1]?.split('&')[0] || project.video.split('/').pop();
-        mediaHTML = `<div class="pm-media"><div class="pm-video-wrap"><iframe src="https://www.youtube.com/embed/${videoId}?autoplay=1&mute=1" allowfullscreen></iframe></div></div>`;
-      } else if (project.video.includes('drive.google.com')) {
-        // Facade pattern: show thumbnail + play button; load iframe on click
-        const facadeThumb = project.image
-          ? `<img src="${project.image}" alt="${project.title}" class="drive-facade-thumb" onerror="this.style.display='none'">`
-          : `<div class="drive-facade-emoji">${project.emoji}</div>`;
-        const driveOpenUrl = project.video.replace('/preview', '/view');
-        mediaHTML = `
-          <div class="pm-media">
-            <div class="drive-facade" data-drive-url="${project.video}">
-              ${facadeThumb}
-              <div class="drive-facade-overlay">
-                <button class="drive-play-btn" type="button"><i class="fas fa-play"></i> Play Demo</button>
-                <span class="drive-hint">Loads from Google Drive</span>
-              </div>
-            </div>
-            <a href="${driveOpenUrl}" target="_blank" rel="noopener noreferrer" class="drive-fallback-link">
-              <i class="fas fa-external-link-alt"></i> Open in Google Drive →
-            </a>
-          </div>`;
-      } else {
-        mediaHTML = `<div class="pm-media"><div class="pm-video-wrap"><video autoplay muted loop controls><source src="${project.video}" type="video/mp4"></video></div></div>`;
-      }
+      mediaHTML = `<div class="pm-media">${renderVideoFacade(project.video)}</div>`;
     } else if (project.image) {
       mediaHTML = `<div class="pm-media"><img src="${project.image}" alt="${project.title}" class="pm-media-img" onerror="this.parentElement.innerHTML='<div class=pm-media-placeholder>${project.emoji}</div>'"></div>`;
     } else {
@@ -405,25 +396,22 @@ function initProjectModal() {
     document.body.style.overflow = 'hidden';
   });
 
-  // Drive facade: load iframe on play click
+  // Video facade: load iframe on click
   document.addEventListener('click', e => {
-    const playBtn = e.target.closest('.drive-play-btn');
-    if (!playBtn) return;
-    const facade = playBtn.closest('.drive-facade');
+    const facade = e.target.closest('.video-facade');
     if (!facade) return;
-    const url = facade.dataset.driveUrl;
-    const wrap = document.createElement('div');
-    wrap.className = 'pm-video-wrap';
-    wrap.innerHTML = `
-      <div class="drive-loading"><i class="fas fa-spinner fa-spin"></i><span>Loading video…</span></div>
-      <iframe src="${url}" width="100%" style="aspect-ratio:16/9;border:none;display:block" allowfullscreen allow="autoplay"></iframe>
+    const src = facade.dataset.src;
+    facade.outerHTML = `
+      <div class="video-frame-wrap">
+        <iframe src="${src}"
+          width="100%" style="aspect-ratio:16/9; border:none; border-radius:8px;"
+          allow="autoplay; encrypted-media" allowfullscreen loading="lazy">
+        </iframe>
+        <a href="${src.replace('/preview', '')}" target="_blank" class="video-drive-fallback">
+          <i class="fas fa-external-link-alt"></i> Open in Google Drive
+        </a>
+      </div>
     `;
-    const iframe = wrap.querySelector('iframe');
-    iframe.addEventListener('load', () => {
-      const spinner = wrap.querySelector('.drive-loading');
-      if (spinner) spinner.remove();
-    });
-    facade.replaceWith(wrap);
   });
 
   closeBtn?.addEventListener('click', closeProjectModal);
