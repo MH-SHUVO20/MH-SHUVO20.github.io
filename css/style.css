@@ -1122,19 +1122,22 @@ section { padding: 120px 0; position: relative; z-index: 10; }
   display: grid;
   grid-template-columns: repeat(4, 1fr);
   gap: 16px;
+  align-items: stretch;
 }
 .acad-card {
   display: flex;
   align-items: center;
   gap: 16px;
   padding: 20px 22px;
-  background: var(--surface);
-  border: 1px solid var(--border);
-  border-radius: var(--radius);
+  background: #0e1929;
+  border: 1px solid rgba(34,211,238,0.25);
+  border-radius: 12px;
   text-decoration: none;
   transition: border-color 0.25s, box-shadow 0.25s, transform 0.25s;
   position: relative;
   overflow: hidden;
+  height: 100%;
+  box-sizing: border-box;
 }
 .acad-card::before {
   content: '';
@@ -1145,9 +1148,9 @@ section { padding: 120px 0; position: relative; z-index: 10; }
   transition: opacity 0.25s;
 }
 .acad-card:hover {
-  border-color: rgba(34,211,238,0.5);
-  box-shadow: 0 0 20px rgba(34,211,238,0.12), 0 4px 20px rgba(0,0,0,0.3);
-  transform: translateY(-3px);
+  border-color: rgba(34,211,238,0.6);
+  box-shadow: 0 0 20px rgba(34,211,238,0.1), 0 4px 20px rgba(0,0,0,0.3);
+  transform: translateY(-2px);
 }
 .acad-card:hover::before { opacity: 1; }
 .acad-icon {
@@ -1166,13 +1169,13 @@ section { padding: 120px 0; position: relative; z-index: 10; }
   font-family: var(--font-body);
   font-size: 14px;
   font-weight: 600;
-  color: var(--text);
+  color: #f1f5f9;
   white-space: nowrap;
 }
 .acad-cta {
   font-family: var(--font-mono);
   font-size: 11px;
-  color: var(--accent);
+  color: #22d3ee;
   letter-spacing: 0.5px;
   transition: color 0.2s;
 }
