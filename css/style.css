@@ -52,9 +52,23 @@
 [data-theme="light"] .cursor-outline {
   display: none;
 }
-[data-theme="light"] body,
-[data-theme="light"] body * {
-  cursor: auto !important;
+[data-theme="light"] body {
+  cursor: auto;
+}
+[data-theme="light"] a,
+[data-theme="light"] button,
+[data-theme="light"] select,
+[data-theme="light"] [role="button"],
+[data-theme="light"] input[type="submit"],
+[data-theme="light"] .nav-link,
+[data-theme="light"] .skill-tab,
+[data-theme="light"] .proj-filter,
+[data-theme="light"] .proj-btn,
+[data-theme="light"] .theme-toggle,
+[data-theme="light"] .hamburger,
+[data-theme="light"] .cert-view-btn,
+[data-theme="light"] .modal-close {
+  cursor: pointer;
 }
 [data-theme="light"] #navbar.scrolled {
   background: rgba(255,255,255,0.95);
@@ -66,6 +80,107 @@
   color: #0d1117;
 }
 [data-theme="light"] .brand-name { color: var(--accent); }
+
+/* ── Light mode interactive element overrides ───────────────── */
+/* Fix cyan-tinted backgrounds/borders → indigo tints for light theme */
+[data-theme="light"] .hero-socials a:hover {
+  background: rgba(79, 70, 229, 0.07);
+  border-color: var(--accent);
+}
+[data-theme="light"] .ic-icon {
+  background: rgba(79, 70, 229, 0.08);
+}
+[data-theme="light"] .skill-tab:hover,
+[data-theme="light"] .skill-tab.active {
+  background: rgba(79, 70, 229, 0.06);
+}
+[data-theme="light"] .sc-tag {
+  background: rgba(79, 70, 229, 0.06);
+  border-color: rgba(79, 70, 229, 0.13);
+}
+[data-theme="light"] .sc-tag:hover {
+  background: rgba(79, 70, 229, 0.1);
+  border-color: var(--accent);
+}
+[data-theme="light"] .proj-filter:hover,
+[data-theme="light"] .proj-filter.active {
+  background: rgba(79, 70, 229, 0.06);
+}
+[data-theme="light"] .proj-btn.primary {
+  background: rgba(79, 70, 229, 0.08);
+  border-color: rgba(79, 70, 229, 0.2);
+}
+[data-theme="light"] .proj-btn:hover {
+  border-color: var(--accent);
+}
+[data-theme="light"] .paper-link {
+  border-color: rgba(79, 70, 229, 0.2);
+}
+[data-theme="light"] .paper-link:hover {
+  background: rgba(79, 70, 229, 0.1);
+}
+[data-theme="light"] .acad-card {
+  border-color: rgba(79, 70, 229, 0.25);
+}
+[data-theme="light"] .acad-card:hover {
+  border-color: rgba(79, 70, 229, 0.6);
+  box-shadow: 0 0 20px rgba(79, 70, 229, 0.1), 0 4px 20px rgba(0,0,0,0.08);
+}
+[data-theme="light"] .acad-card::before {
+  background: linear-gradient(135deg, rgba(79, 70, 229, 0.05) 0%, transparent 60%);
+}
+[data-theme="light"] .acad-icon--ieee {
+  background: rgba(79, 70, 229, 0.10);
+}
+[data-theme="light"] .footer-cta {
+  background: rgba(79, 70, 229, 0.08);
+  border-color: rgba(79, 70, 229, 0.25);
+}
+[data-theme="light"] .footer-cta:hover {
+  background: rgba(79, 70, 229, 0.15);
+}
+[data-theme="light"] .nav-btn:hover {
+  box-shadow: 0 6px 24px rgba(79, 70, 229, 0.35);
+}
+[data-theme="light"] .cta-primary:hover {
+  background: #6d5fcc;
+  border-color: #6d5fcc;
+  color: #fff;
+  box-shadow: 0 0 24px rgba(79, 70, 229, 0.4);
+}
+[data-theme="light"] .cta-resume:hover {
+  box-shadow: 0 0 20px rgba(79, 70, 229, 0.35);
+}
+[data-theme="light"] .video-facade:hover {
+  border-color: rgba(79, 70, 229, 0.7);
+}
+[data-theme="light"] .video-play-btn {
+  box-shadow: none;
+}
+[data-theme="light"] .video-facade:hover .video-play-btn {
+  box-shadow: 0 0 24px rgba(79, 70, 229, 0.4);
+}
+[data-theme="light"] .proj-avail-badge--demo {
+  background: rgba(79, 70, 229, 0.12);
+  border-color: rgba(79, 70, 229, 0.35);
+}
+[data-theme="light"] .pab-dot {
+  background: var(--accent);
+}
+[data-theme="light"] .contact-link-item:hover {
+  border-color: var(--border-hover);
+}
+[data-theme="light"] .exp-color-blue {
+  background: rgba(79, 70, 229, 0.1);
+  border-color: rgba(79, 70, 229, 0.2);
+}
+[data-theme="light"] .cert-blue {
+  background: rgba(79, 70, 229, 0.1);
+  border-color: rgba(79, 70, 229, 0.2);
+}
+[data-theme="light"] body a {
+  cursor: pointer;
+}
 
 * { margin: 0; padding: 0; box-sizing: border-box; }
 html { scroll-behavior: smooth; font-size: 16px; -webkit-text-size-adjust: 100%; }
