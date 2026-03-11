@@ -261,7 +261,7 @@ const PORTFOLIO_DATA = {
       catLabel: "LLM / NLP",
       emoji: "🤖",
       image: "assets/img/projects/agent-bd.svg",   // add your screenshot here
-      video: null,
+      video: null, // TODO: add demo video URL
       description: "LangChain & LangGraph-based AI agent integrating multiple SQLite databases and web search APIs. Features dynamic SQL tool-calling, memory management, and structured prompt pipelines tailored for Bangladesh-specific data.",
       fullDesc: "Built a sophisticated multi-tool AI agent using LangChain and LangGraph that integrates multiple SQLite databases and web search APIs. The agent dynamically selects and calls appropriate SQL tools based on user queries, maintains conversation memory, and generates structured responses using carefully designed prompt pipelines. This project demonstrates practical LLM orchestration for domain-specific data retrieval.",
       highlights: [
@@ -282,7 +282,7 @@ const PORTFOLIO_DATA = {
       catLabel: "Computer Vision",
       emoji: "⚡",
       image: "assets/img/projects/yolo-api.svg",
-      video: null,
+      video: null, // TODO: add demo video URL
       description: "Production-ready FastAPI microservice exposing a custom-trained YOLOv11 model for Bangladeshi taka note & coin detection. Returns denomination labels, confidence scores, and bounding boxes. Docker Compose bundles API with Redis caching.",
       fullDesc: "Designed and deployed a complete currency detection microservice using a custom-trained YOLOv11 model specifically for Bangladeshi taka notes and coins. The system uses FastAPI for high-performance HTTP endpoints, Redis for response caching to reduce redundant inference, and Docker Compose for one-command deployment. The live service is deployed on Render with an interactive Swagger UI for direct testing.",
       highlights: [
@@ -324,7 +324,7 @@ const PORTFOLIO_DATA = {
       catLabel: "LLM / NLP",
       emoji: "🧠",
       image: "assets/img/projects/bert-nlp.svg",
-      video: null,
+      video: null, // TODO: add demo video URL
       description: "Fine-tuned BERT (bert-base-uncased) on SQuAD v1.1 achieving 71.15% Exact Match and 80.97% F1. Full pipeline: tokenization, span prediction, evaluation with HuggingFace Transformers and PyTorch.",
       fullDesc: "Fine-tuned a BERT (bert-base-uncased) transformer model on the Stanford Question Answering Dataset (SQuAD v1.1) for extractive question answering. The project covers the complete NLP pipeline: data preprocessing and tokenization with offset mapping, fine-tuning with the AdamW optimizer and linear scheduling, span-based answer extraction, and rigorous evaluation using Exact Match and F1-score metrics from the official SQuAD evaluation script.",
       highlights: [
@@ -345,7 +345,7 @@ const PORTFOLIO_DATA = {
       catLabel: "Web / Systems",
       emoji: "🌆",
       image: "assets/img/projects/citywatch.svg",
-      video: null,
+      video: null, // TODO: add demo video URL
       description: "Full-stack MVC web app with multi-role auth (Citizen, Authority, Admin), AJAX operations, RBAC, secure session handling, and relational database design.",
       fullDesc: "Built a comprehensive smart city issue reporting platform. Citizens can submit infrastructure problems with photo evidence and location tagging. Authorities can manage, respond to, and resolve reported issues. An admin panel provides full oversight. The system implements secure authentication, role-based access control, and a real-time AJAX interface for smooth user experience without full page reloads.",
       highlights: [
@@ -366,7 +366,7 @@ const PORTFOLIO_DATA = {
       catLabel: "Computer Vision",
       emoji: "🏥",
       image: "assets/img/projects/medical.svg",
-      video: null,
+      video: null, // TODO: add demo video URL
       description: "ML/DL-based diagnostic tools for bone fracture detection (lumbar spine) and tomato leaf disease classification using enhanced YOLO frameworks.",
       fullDesc: "Developed two medical/agricultural AI systems. The first detects and classifies lumbar spine levels in X-ray images using an enhanced YOLOv11 architecture (the subject of an IEEE ICCIT paper). The second system (TOM-YOLO, IEEE RAAICON paper) classifies tomato leaf diseases in real-time using an enhanced YOLOv12 framework with custom data augmentation and transfer learning.",
       highlights: [
@@ -387,7 +387,7 @@ const PORTFOLIO_DATA = {
       catLabel: "Machine Learning",
       emoji: "🏠",
       image: "assets/img/projects/house.svg",
-      video: null,
+      video: null, // TODO: add demo video URL
       description: "Regression-based predictive system for rental price estimation using feature engineering and cross-validation techniques in Python.",
       fullDesc: "Built a machine learning pipeline for predicting rental prices in Bangladesh. The project involves comprehensive EDA, feature engineering (location encoding, property type, amenities scoring), model selection across linear regression, Random Forest, and XGBoost, and thorough cross-validation to prevent overfitting.",
       highlights: [
@@ -408,7 +408,7 @@ const PORTFOLIO_DATA = {
       catLabel: "Web / Systems",
       emoji: "🚌",
       image: "assets/img/projects/shuttle.svg",
-      video: null,
+      video: null, // TODO: add demo video URL
       description: "Desktop scheduling and route management system built with C# and MySQL. CRUD operations, relational schema design, user authentication, and query optimization.",
       fullDesc: "Developed a comprehensive shuttle management system for AIUB campus transportation. The system handles route planning, schedule management, user reservations, and administrative oversight. Built with C# Windows Forms, MySQL backend, and features optimized database queries for fast lookups across large scheduling datasets.",
       highlights: [
@@ -450,7 +450,7 @@ const PORTFOLIO_DATA = {
       catLabel: "Machine Learning",
       emoji: "📊",
       image: "assets/img/projects/churn-prediction.svg",
-      video: null,
+      video: null, // TODO: add demo video URL
       description: "End-to-end ML pipeline comparing 4 classifiers (Logistic Regression, KNN, Decision Tree, Random Forest) on IBM Telco churn data (7,043 records). Random Forest achieves ~80% accuracy and 0.84 ROC-AUC.",
       fullDesc: "Built a complete churn prediction pipeline on the IBM Telco Customer Churn dataset. Performed comprehensive EDA, preprocessing (label encoding, feature scaling, stratified split), then trained and evaluated Logistic Regression, KNN, Decision Tree, and Random Forest. Used combined ROC curve plots and feature importance charts to identify contract type, tenure, and monthly charges as the top churn drivers.",
       highlights: [
@@ -471,7 +471,7 @@ const PORTFOLIO_DATA = {
       catLabel: "Machine Learning",
       emoji: "🌸",
       image: "assets/img/projects/iris-clustering.svg",
-      video: null,
+      video: null, // TODO: add demo video URL
       description: "Comprehensive unsupervised learning study applying K-Means, PCA, Hierarchical Clustering, and DBSCAN on the Iris dataset. PCA reduces 4D to 2D while retaining 95.81% of variance.",
       fullDesc: "Applied four unsupervised learning techniques on the Iris dataset. Used the Elbow Method to confirm K=3 as optimal, visualised K-Means cluster separation, reduced dimensionality via PCA (95.81% variance in 2D), compared Ward's Hierarchical clustering vs K-Means boundary quality, and tested DBSCAN for noise point detection across multiple parameter configurations. Setosa was perfectly isolated by all three algorithms.",
       highlights: [
@@ -492,7 +492,7 @@ const PORTFOLIO_DATA = {
       catLabel: "Machine Learning",
       emoji: "🚢",
       image: "assets/img/projects/titanic-eda.svg",
-      video: null,
+      video: null, // TODO: add demo video URL
       description: "Structured end-to-end EDA on 891 Titanic passenger records. Gender emerged as the top survival predictor (females: 74.2% vs males: 18.9%), followed by passenger class and age.",
       fullDesc: "Conducted a systematic exploratory data analysis on the classic Titanic dataset. Workflow covered data loading, missing value treatment (median for Age, mode for Embarked, dropped Cabin at 77% missing), univariate analysis, and bivariate/multivariate cross-tabulations. Key finding: survival was strongly driven by gender (women-and-children-first protocol), socioeconomic class, and age.",
       highlights: [
@@ -513,7 +513,7 @@ const PORTFOLIO_DATA = {
       catLabel: "Machine Learning",
       emoji: "🧪",
       image: "assets/img/projects/data-foundations.svg",
-      video: null,
+      video: null, // TODO: add demo video URL
       description: "Hands-on foundations project covering NumPy array operations, Pandas data manipulation, and binary classification evaluation with Logistic Regression on the Iris dataset (~73.3% accuracy).",
       fullDesc: "A comprehensive, end-to-end data science foundations notebook with 5 structured tasks. Part 1: NumPy array creation, statistical ops, broadcasting, and reshaping. Part 2: Pandas DataFrame construction, column transforms, groupby analysis, and real-world data cleaning on a 1,338-row medical insurance dataset. Part 3: binary Logistic Regression classifier on Iris with full confusion matrix and precision/recall/F1 evaluation.",
       highlights: [
@@ -534,7 +534,7 @@ const PORTFOLIO_DATA = {
       catLabel: "Machine Learning",
       emoji: "🏡",
       image: "assets/img/projects/california-housing.svg",
-      video: null,
+      video: null, // TODO: add demo video URL
       description: "Comparative regression study on the sklearn California Housing dataset. Linear, Ridge, and Lasso models compared — Lasso achieved best performance (R²=0.58, RMSE=0.74) and zeroed Population as a redundant predictor via L1 regularisation.",
       fullDesc: "Built a regression pipeline on the California Housing dataset (20,640 samples, 8 features). Applied StandardScaler preprocessing then trained and compared three models: Simple Linear Regression, Ridge (L2, alpha=1.0), and Lasso (L1, alpha=0.01). Lasso outperformed the others and zeroed out the Population coefficient — demonstrating L1's built-in feature selection capability.",
       highlights: [
@@ -555,7 +555,7 @@ const PORTFOLIO_DATA = {
       catLabel: "Web / Systems",
       emoji: "🎓",
       image: "assets/img/projects/student-mgmt.svg",
-      video: null,
+      video: null, // TODO: add demo video URL
       description: "Java Swing desktop application with teacher authentication, full student CRUD (Add/Update/Delete/Search by 6 fields), interactive JTable UI, and file-based data persistence. Demonstrates core OOP principles.",
       fullDesc: "Developed a Java Swing-based desktop student management system as an OOP1 course project. Features include teacher registration and login with file-based credential storage, a dashboard for managing student records, full CRUD operations with multi-field search and click-to-edit table rows, and a report submission module. The project demonstrates encapsulation, inheritance, polymorphism, event handling, and ArrayList-based data structures.",
       highlights: [
@@ -576,7 +576,7 @@ const PORTFOLIO_DATA = {
       catLabel: "Computer Vision",
       emoji: "🇧🇩",
       image: "assets/img/projects/taka-yolo.svg",
-      video: null,
+      video: null, // TODO: add demo video URL
       description: "End-to-end object detection project fine-tuning YOLOv11n on 11 denominations of Bangladeshi currency (notes & coins). Achieves 97.16% mAP@0.50 on ~1,490 real-world images annotated via Roboflow.",
       fullDesc: "Built a complete computer vision pipeline for real-time Bangladeshi currency recognition. Collected and annotated ~1,490 images of all 11 Taka denominations using Roboflow, then fine-tuned YOLOv11n (pretrained on COCO) for 100 epochs on a GPU (NVIDIA T4). The best checkpoint at epoch 54 achieved 97.16% mAP@0.50 with near-perfect per-class accuracy on all banknote classes. The model generalizes robustly to raw real-world mobile camera images under diverse lighting, angles, and backgrounds — making it viable for edge and mobile deployment.",
       highlights: [
@@ -597,7 +597,7 @@ const PORTFOLIO_DATA = {
       catLabel: "Computer Vision",
       emoji: "🔢",
       image: "assets/img/projects/cifar10.svg",
-      video: null,
+      video: null, // TODO: add demo video URL
       description: "Deep MLP (Dense Neural Network) trained on CIFAR-10 to classify 60K images across 10 categories. Achieves 48.14% test accuracy using Batch Normalization and Dropout — a foundational baseline study in deep learning.",
       fullDesc: "Designed and trained a 4-layer Dense Neural Network (MLP) on the CIFAR-10 benchmark to establish a baseline accuracy for fully-connected architectures on image data. The model uses 512→256→128→64 hidden layers with Batch Normalization after each layer and Dropout regularization (0.3, 0.3, 0.2) to reduce overfitting. Trained for 20 epochs with Adam optimizer. The 48.14% test accuracy confirms the theoretical ceiling for MLPs on spatial image data, motivating the need for convolutional architectures.",
       highlights: [
@@ -618,7 +618,7 @@ const PORTFOLIO_DATA = {
       catLabel: "Computer Vision",
       emoji: "⚔️",
       image: "assets/img/projects/nn-vs-cnn.svg",
-      video: null,
+      video: null, // TODO: add demo video URL
       description: "Head-to-head experiment training a plain Neural Network (48.27%) against a CNN (69.12%) on CIFAR-10 under identical conditions — demonstrating the +20.85 pp advantage of spatial feature learning over flattened pixels.",
       fullDesc: "Designed a controlled experiment to quantify the performance gap between a fully-connected Neural Network and a Convolutional Neural Network on the CIFAR-10 image classification benchmark. Both models are trained under identical conditions (Adam optimizer, 15 epochs, batch 64, 20% validation split). The NN flattens images to 3,072-dimensional vectors losing all spatial structure; the CNN preserves the 32×32×3 shape and learns local edges, textures, and shapes via convolutions. The 20.85 percentage-point gap directly demonstrates why CNNs were invented for image data.",
       highlights: [
@@ -639,7 +639,7 @@ const PORTFOLIO_DATA = {
       catLabel: "LLM / NLP",
       emoji: "🎬",
       image: "assets/img/projects/imdb-sentiment.svg",
-      video: null,
+      video: null, // TODO: add demo video URL
       description: "Comprehensive comparative study of 4 sentiment models on 50K IMDB reviews: TF-IDF + LogReg, Word2Vec, BERT Embeddings, and Fine-tuned BERT. Benchmarks accuracy, F1, and computational trade-offs across all approaches.",
       fullDesc: "Conducted a rigorous comparative analysis of sentiment classification techniques on the IMDB movie reviews dataset (50,000 samples). Four distinct approaches are evaluated: (1) TF-IDF with Logistic Regression — fast CPU-only baseline; (2) Word2Vec averaged embeddings with Logistic Regression; (3) BERT (bert-base-uncased) CLS token features with Logistic Regression; (4) End-to-end fine-tuned BERT for sequence classification. Results show fine-tuned BERT achieves the highest accuracy and F1, while TF-IDF provides a compelling production-ready baseline with dramatically lower compute cost.",
       highlights: [

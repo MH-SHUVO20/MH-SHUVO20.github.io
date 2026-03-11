@@ -115,6 +115,16 @@ function renderProjects() {
     card.setAttribute('data-aos-delay', String(i % 3 * 80));
 
     // Media section
+    // Availability badge (Part 3 — card hover indicator)
+    let availBadge = '';
+    if (p.video) {
+      availBadge = '<div class="proj-avail-badge proj-avail-badge--demo"><span class="pab-dot"></span> Demo</div>';
+    } else if (p.demo) {
+      availBadge = '<div class="proj-avail-badge proj-avail-badge--live">🚀 Live</div>';
+    } else if (p.github) {
+      availBadge = '<div class="proj-avail-badge proj-avail-badge--github">⭐ Code</div>';
+    }
+
     let mediaHTML;
     if (p.video) {
       if (p.video.includes('youtube') || p.video.includes('youtu.be')) {
@@ -129,6 +139,7 @@ function renderProjects() {
             </div>
             <div class="project-overlay"></div>
             <span class="project-cat-chip">${p.catLabel}</span>
+            ${availBadge}
           </div>`;
       } else if (p.video.includes('drive.google.com')) {
         const thumbInner = p.image
@@ -142,6 +153,7 @@ function renderProjects() {
             </div>
             <div class="project-overlay"></div>
             <span class="project-cat-chip">${p.catLabel}</span>
+            ${availBadge}
           </div>`;
       } else {
         mediaHTML = `
@@ -154,6 +166,7 @@ function renderProjects() {
             </div>
             <div class="project-overlay"></div>
             <span class="project-cat-chip">${p.catLabel}</span>
+            ${availBadge}
           </div>`;
       }
     } else if (p.image) {
@@ -162,6 +175,7 @@ function renderProjects() {
           <img src="${p.image}" alt="${p.title}" class="project-thumb" onerror="this.parentElement.innerHTML='<div class=project-media-placeholder>${p.emoji}</div><div class=project-overlay></div><span class=project-cat-chip>${p.catLabel}</span>'">
           <div class="project-overlay"></div>
           <span class="project-cat-chip">${p.catLabel}</span>
+          ${availBadge}
         </div>`;
     } else {
       mediaHTML = `
@@ -169,6 +183,7 @@ function renderProjects() {
           <div class="project-media-placeholder">${p.emoji}</div>
           <div class="project-overlay"></div>
           <span class="project-cat-chip">${p.catLabel}</span>
+          ${availBadge}
         </div>`;
     }
 
@@ -332,7 +347,24 @@ function initProjectModal() {
         const videoId = project.video.split('v=')[1]?.split('&')[0] || project.video.split('/').pop();
         mediaHTML = `<div class="pm-media"><div class="pm-video-wrap"><iframe src="https://www.youtube.com/embed/${videoId}?autoplay=1&mute=1" allowfullscreen></iframe></div></div>`;
       } else if (project.video.includes('drive.google.com')) {
-        mediaHTML = `<div class="pm-media"><div class="pm-video-wrap"><iframe src="${project.video}" allowfullscreen allow="autoplay"></iframe></div></div>`;
+        // Facade pattern: show thumbnail + play button; load iframe on click
+        const facadeThumb = project.image
+          ? `<img src="${project.image}" alt="${project.title}" class="drive-facade-thumb" onerror="this.style.display='none'">`
+          : `<div class="drive-facade-emoji">${project.emoji}</div>`;
+        const driveOpenUrl = project.video.replace('/preview', '/view');
+        mediaHTML = `
+          <div class="pm-media">
+            <div class="drive-facade" data-drive-url="${project.video}">
+              ${facadeThumb}
+              <div class="drive-facade-overlay">
+                <button class="drive-play-btn" type="button"><i class="fas fa-play"></i> Play Demo</button>
+                <span class="drive-hint">Loads from Google Drive</span>
+              </div>
+            </div>
+            <a href="${driveOpenUrl}" target="_blank" rel="noopener noreferrer" class="drive-fallback-link">
+              <i class="fas fa-external-link-alt"></i> Open in Google Drive →
+            </a>
+          </div>`;
       } else {
         mediaHTML = `<div class="pm-media"><div class="pm-video-wrap"><video autoplay muted loop controls><source src="${project.video}" type="video/mp4"></video></div></div>`;
       }
@@ -345,6 +377,15 @@ function initProjectModal() {
     const stackHTML = project.stack.map(s => `<span class="stack-tag">${s}</span>`).join('');
     const hlHTML = project.highlights.map(h => `<li>${h}</li>`).join('');
 
+    // CTA links: primary = demo if exists, else github; secondary = the other
+    let primaryLink = '', secondaryLink = '';
+    if (project.demo) {
+      primaryLink = `<a href="${project.demo}" target="_blank" class="pm-link primary"><i class="fas fa-external-link-alt"></i> Live Demo →</a>`;
+      if (project.github) secondaryLink = `<a href="${project.github}" target="_blank" class="pm-link ghost"><i class="fab fa-github"></i> View Code</a>`;
+    } else if (project.github) {
+      primaryLink = `<a href="${project.github}" target="_blank" class="pm-link primary"><i class="fab fa-github"></i> View on GitHub →</a>`;
+    }
+
     content.innerHTML = `
       ${mediaHTML}
       <div class="pm-title">${project.title}</div>
@@ -355,13 +396,34 @@ function initProjectModal() {
         <ul>${hlHTML}</ul>
       </div>
       <div class="pm-links">
-        ${project.github ? `<a href="${project.github}" target="_blank" class="pm-link primary"><i class="fab fa-github"></i> View Code</a>` : ''}
-        ${project.demo ? `<a href="${project.demo}" target="_blank" class="pm-link ghost"><i class="fas fa-external-link-alt"></i> Live Demo</a>` : ''}
+        ${primaryLink}
+        ${secondaryLink}
       </div>
     `;
 
     modal.classList.add('open');
     document.body.style.overflow = 'hidden';
+  });
+
+  // Drive facade: load iframe on play click
+  document.addEventListener('click', e => {
+    const playBtn = e.target.closest('.drive-play-btn');
+    if (!playBtn) return;
+    const facade = playBtn.closest('.drive-facade');
+    if (!facade) return;
+    const url = facade.dataset.driveUrl;
+    const wrap = document.createElement('div');
+    wrap.className = 'pm-video-wrap';
+    wrap.innerHTML = `
+      <div class="drive-loading"><i class="fas fa-spinner fa-spin"></i><span>Loading video…</span></div>
+      <iframe src="${url}" width="100%" style="aspect-ratio:16/9;border:none;display:block" allowfullscreen allow="autoplay"></iframe>
+    `;
+    const iframe = wrap.querySelector('iframe');
+    iframe.addEventListener('load', () => {
+      const spinner = wrap.querySelector('.drive-loading');
+      if (spinner) spinner.remove();
+    });
+    facade.replaceWith(wrap);
   });
 
   closeBtn?.addEventListener('click', closeProjectModal);
