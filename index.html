@@ -226,8 +226,8 @@
         <li><a href="#education" class="nav-link" data-section="education">Education</a></li>
         <li><a href="#experience" class="nav-link" data-section="experience">Experience</a></li>
         <li><a href="#certifications" class="nav-link" data-section="certifications">Certifications</a></li>
+        <li><a href="#resume" class="nav-link" data-section="resume">Resume</a></li>
         <li><a href="#contact" class="nav-link" data-section="contact">Contact</a></li>
-        <!-- Resume nav btn — hidden until real CV PDF is uploaded to assets/resume/ -->
       </ul>
       <div class="nav-right">
         <a href="#contact" class="nav-cta-btn">Let's Collaborate <i class="fas fa-arrow-right"></i></a>
@@ -439,7 +439,21 @@
         </div>
       </div>
 
-      <!-- Video Introduction — hidden until a real intro video is recorded -->
+      <!-- Video Introduction -->
+      <div class="about-video-wrap" data-aos="fade-up">
+        <div class="about-video-header">
+          <h3 class="about-video-title">Video <span>CV</span></h3>
+          <p class="about-video-sub">// a quick introduction about me</p>
+        </div>
+        <div class="about-video-frame">
+          <iframe
+            src="https://www.youtube-nocookie.com/embed/7HPndjpxDjY"
+            title="Mehedi Hasan Shuvo — Video CV"
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+            loading="lazy"
+            allowfullscreen></iframe>
+        </div>
+      </div>
     </div>
   </section>
 
@@ -868,7 +882,6 @@
     </div>
   </section>
 
-  <!-- ★ RESUME SECTION — DRAFT, uncomment when ready ★
   <section id="resume" class="dark-section">
     <div class="container">
       <div class="section-header" data-aos="fade-up">
@@ -886,11 +899,9 @@
           </div>
         </div>
         <div class="resume-actions" data-aos="fade-up" data-aos-delay="200">
-          <button type="button" class="btn-dl btn-dl--unavailable"
-            title="PDF coming soon — contact me directly"
-            onclick="(function(b){var t=b.parentNode.querySelector('.pdf-toast');if(t)return;t=document.createElement('div');t.className='pdf-toast';t.innerHTML='Resume PDF is being updated. Please email <a href=&quot;mailto:mdmehedihasanshuvo994@gmail.com&quot;>mdmehedihasanshuvo994@gmail.com</a>';b.insertAdjacentElement('afterend',t);setTimeout(function(){t.remove();},8000);})(this)">
+          <a href="assets/resume/Md__Mehedi_Hasan_Shuvo_Engineer_Resume.pdf" download class="btn-dl">
             <i class="fas fa-download"></i> Download PDF
-          </button>
+          </a>
           <button class="btn-view" id="openResumeModal2">
             <i class="fas fa-eye"></i> View Online
           </button>
@@ -898,7 +909,6 @@
       </div>
     </div>
   </section>
-  -->
 
   <!-- EXPERIENCE -->
   <section id="experience" class="dark-section">

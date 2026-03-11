@@ -19,8 +19,8 @@ const PORTFOLIO_DATA = {
     facebook: "https://www.facebook.com/mh.shuvo.7370",
     // Place your photo at assets/img/avatar.jpg
     avatar: "assets/img/mehedi.jpg",
-    // Place your resume PDF at assets/resume/
-    resumePDF: "assets/resume/Md__Mehedi_Hasan_Shuvo_Engineer_Resume.pdf",
+    // Place your resume PDF at assets/resume/Md_Mehedi_Hasan_Shuvo_Resume.pdf
+    resumePDF: "assets/resume/Md_Mehedi_Hasan_Shuvo_Resume.pdf",
     typedStrings: [
       "Computer Vision Engineer",
       "Deep Learning Researcher",
