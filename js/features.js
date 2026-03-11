@@ -217,13 +217,17 @@ function initLiveClock() {
   setInterval(tick, 1000);
 }
 // ── Boot ──────────────────────────────────────────────────────
+// Clock starts immediately — DOM is fully parsed by the time scripts
+// at end of <body> execute, so getElementById works without waiting
+// for the DOMContentLoaded event. This prevents any --:-- -- flash.
+initLiveClock();
+
 document.addEventListener('DOMContentLoaded', function() {
   initVisitCounter();
   initGitHubStats();
   initLastUpdated();
   initTypingWpm();
   initGreeting();
-  initLiveClock();
   // Contact copy buttons run after components.js renders the DOM
   setTimeout(initCopyButtons, 800);
 });
