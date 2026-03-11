@@ -16,7 +16,16 @@
   let mx = 0, my = 0, ox = 0, oy = 0;
   let raf;
 
-  document.addEventListener('mousemove', e => { mx = e.clientX; my = e.clientY; });
+  // Only reveal cursor after first mouse movement
+  let cursorVisible = false;
+  document.addEventListener('mousemove', e => {
+    mx = e.clientX; my = e.clientY;
+    if (!cursorVisible) {
+      dot.style.opacity = '1';
+      outline.style.opacity = '1';
+      cursorVisible = true;
+    }
+  });
 
   function animate() {
     ox += (mx - ox) * 0.14;

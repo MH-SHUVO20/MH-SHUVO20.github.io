@@ -212,12 +212,19 @@ body a { cursor: none; }
 }
 
 /* â”€â”€ Custom cursor â”€â”€ */
+.cursor-dot,
+.cursor-outline {
+  pointer-events: none;
+  will-change: transform;
+  opacity: 0;
+  transition: opacity 0.3s ease, transform 0.1s ease;
+}
 .cursor-dot {
   position: fixed; top: 0; left: 0;
   width: 6px; height: 6px;
   background: var(--accent);
   border-radius: 50%;
-  pointer-events: none; z-index: 9990;
+  z-index: 9990;
   transform: translate(-50%, -50%);
 }
 .cursor-outline {
@@ -225,9 +232,9 @@ body a { cursor: none; }
   width: 32px; height: 32px;
   border: 1.5px solid rgba(34, 211, 238,0.5);
   border-radius: 50%;
-  pointer-events: none; z-index: 9989;
+  z-index: 9989;
   transform: translate(-50%, -50%);
-  transition: width 0.3s, height 0.3s, border-color 0.3s;
+  transition: opacity 0.3s ease, transform 0.1s ease, width 0.3s, height 0.3s, border-color 0.3s;
 }
 .cursor-outline.hovering {
   width: 52px; height: 52px;
