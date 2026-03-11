@@ -989,6 +989,61 @@ section { padding: 120px 0; position: relative; z-index: 10; }
 }
 .ic-body span { font-size: 12px; color: var(--text2); line-height: 1.4; }
 
+/* ── About — Video Introduction ───────────────────────────── */
+.about-video-wrap {
+  margin-top: 72px;
+  padding: 40px;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  position: relative;
+  overflow: hidden;
+}
+.about-video-wrap::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(ellipse at top left, rgba(34,211,238,0.05) 0%, transparent 65%);
+  pointer-events: none;
+}
+.about-video-header {
+  text-align: center;
+  margin-bottom: 32px;
+}
+.about-video-title {
+  font-family: var(--font-display);
+  font-size: clamp(28px, 4vw, 42px);
+  letter-spacing: 2px;
+  color: var(--text);
+  margin-bottom: 10px;
+}
+.about-video-title span { color: var(--accent); }
+.about-video-sub {
+  font-size: 15px;
+  color: var(--text2);
+  font-family: var(--font-mono);
+}
+.about-video-frame {
+  position: relative;
+  width: 100%;
+  padding-top: 56.25%; /* 16:9 */
+  border-radius: 10px;
+  overflow: hidden;
+  border: 1px solid rgba(34,211,238,0.15);
+  box-shadow: 0 8px 40px rgba(0,0,0,0.45);
+}
+.about-video-frame iframe {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  border: none;
+}
+@media (max-width: 640px) {
+  .about-video-wrap { padding: 24px 18px; margin-top: 48px; }
+  .about-video-sub { font-size: 13px; }
+}
+
 /* â”€â”€ Skills â”€â”€ */
 .skill-tabs {
   display: flex; gap: 8px; margin-bottom: 40px;
