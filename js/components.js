@@ -86,8 +86,13 @@ function renderUpcomingResearch() {
     card.setAttribute('data-aos', 'fade-up');
     card.setAttribute('data-aos-delay', String(i * 80));
     const isUnderReview = p.status === 'under-review';
-    const badgeClass = isUnderReview ? 'badge-upcoming badge-upcoming--inline' : 'badge-upcoming badge-upcoming--inline badge-upcoming--amber';
-    const badgeLabel = isUnderReview ? 'Under Review' : 'Coming Soon';
+    const isAccepted = p.status === 'accepted';
+    const badgeClass = isAccepted
+      ? 'badge-upcoming badge-upcoming--inline'
+      : isUnderReview
+        ? 'badge-upcoming badge-upcoming--inline'
+        : 'badge-upcoming badge-upcoming--inline badge-upcoming--amber';
+    const badgeLabel = isAccepted ? 'Accepted' : isUnderReview ? 'Under Review' : 'Coming Soon';
     card.innerHTML = `
       <div class="paper-idx">${p.num}</div>
       <div class="paper-body">

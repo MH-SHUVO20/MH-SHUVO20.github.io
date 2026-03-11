@@ -237,15 +237,15 @@ const PORTFOLIO_DATA = {
   upcomingResearch: [
     {
       num: "06",
-      title: "Multi-Modal Emotion Recognition Using Vision-Language Models for Human-Computer Interaction",
-      venue: "Target Venue: IEEE Access",
-      status: "under-review",
+      title: "Proactive AI and Machine Learning Strategies for Network Threat Detection with Adaptive Explainable Intelligence",
+      venue: "Target Venue: IEEE FET'26",
+      status: "accepted",
     },
     {
       num: "07",
-      title: "Lightweight Skin Lesion Classification on Resource-Constrained Edge Devices Using Efficient CNN Architectures",
-      venue: "Target Venue: IEEE EMBC 2026",
-      status: "coming-soon",
+      title: "MS-YOLO: An Enhanced Real-Time Recyclable Waste Detection and Classification Framework",
+      venue: "Target Venue: IEEE FET'26",
+      status: "accepted",
     },
   ],
 
