@@ -253,7 +253,6 @@ document.addEventListener('DOMContentLoaded', function() {
   initGitHubStats();
   initLastUpdated();
   initTypingWpm();
-  initGreeting();
   // Contact copy buttons run after components.js renders the DOM
   setTimeout(initCopyButtons, 800);
 });
