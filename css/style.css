@@ -387,17 +387,17 @@ body a { cursor: none; }
   font-weight: 600;
   padding: 8px 18px;
   background: transparent;
-  border: 2px solid #22d3ee;
+  border: 2px solid var(--accent);
   border-radius: 999px;
-  color: #22d3ee;
+  color: var(--accent);
   text-decoration: none;
   transition: all 0.25s ease;
   display: flex; align-items: center; gap: 6px;
   white-space: nowrap;
 }
 .nav-btn:hover {
-  background: #22d3ee;
-  color: #060912;
+  background: var(--accent);
+  color: var(--bg);
   box-shadow: 0 6px 24px rgba(34,211,238,0.35);
 }
 .nav-btn--unavailable {
@@ -406,7 +406,7 @@ body a { cursor: none; }
 }
 .nav-btn--unavailable:hover {
   background: transparent;
-  color: #22d3ee;
+  color: var(--accent);
   box-shadow: none;
   transform: none;
 }
@@ -590,11 +590,11 @@ section { padding: 120px 0; position: relative; z-index: 10; }
 .cta-primary {
   display: inline-flex; align-items: center; gap: 8px;
   padding: 10px 20px;
-  background: #a78bfa;
-  color: #060912;
+  background: var(--accent2);
+  color: var(--bg);
   font-size: 0.875rem;
   font-weight: 600;
-  border: 2px solid #a78bfa;
+  border: 2px solid var(--accent2);
   border-radius: 50px;
   text-decoration: none;
   cursor: pointer;
@@ -629,7 +629,7 @@ section { padding: 120px 0; position: relative; z-index: 10; }
   display: inline-flex; align-items: center; gap: 8px;
   padding: 10px 20px;
   border: 2px solid rgba(167, 139, 250, 0.4);
-  color: #a78bfa;
+  color: var(--accent2);
   font-size: 0.875rem;
   font-weight: 600;
   border-radius: 50px;
@@ -639,7 +639,7 @@ section { padding: 120px 0; position: relative; z-index: 10; }
   white-space: nowrap;
 }
 .cta-collab:hover {
-  border-color: #a78bfa;
+  border-color: var(--accent2);
   background: rgba(167, 139, 250, 0.08);
   transform: translateY(-1px);
 }
@@ -649,8 +649,8 @@ section { padding: 120px 0; position: relative; z-index: 10; }
   gap: 8px;
   padding: 10px 20px;
   background: transparent;
-  border: 2px solid #22d3ee;
-  color: #22d3ee;
+  border: 2px solid var(--accent);
+  color: var(--accent);
   border-radius: 50px;
   font-size: 0.875rem;
   font-weight: 600;
@@ -660,8 +660,8 @@ section { padding: 120px 0; position: relative; z-index: 10; }
   white-space: nowrap;
 }
 .cta-resume:hover {
-  background: #22d3ee;
-  color: #060912;
+  background: var(--accent);
+  color: var(--bg);
   box-shadow: 0 0 20px rgba(34, 211, 238, 0.35);
   transform: translateY(-1px);
 }
@@ -1232,7 +1232,7 @@ section { padding: 120px 0; position: relative; z-index: 10; }
 .acad-cta {
   font-family: var(--font-mono);
   font-size: 11px;
-  color: #22d3ee;
+  color: var(--accent);
   letter-spacing: 0.5px;
   transition: color 0.2s;
 }
@@ -1533,7 +1533,7 @@ section { padding: 120px 0; position: relative; z-index: 10; }
 .proj-avail-badge--demo {
   background: rgba(34,211,238,0.12);
   border: 1px solid rgba(34,211,238,0.35);
-  color: #22d3ee;
+  color: var(--accent);
 }
 .proj-avail-badge--live {
   background: rgba(251,191,36,0.12);
@@ -1543,11 +1543,11 @@ section { padding: 120px 0; position: relative; z-index: 10; }
 .proj-avail-badge--github {
   background: rgba(167,139,250,0.12);
   border: 1px solid rgba(167,139,250,0.3);
-  color: #a78bfa;
+  color: var(--accent2);
 }
 .pab-dot {
   width: 6px; height: 6px; border-radius: 50%;
-  background: #22d3ee; flex-shrink: 0;
+  background: var(--accent); flex-shrink: 0;
   animation: pab-pulse 1.8s ease-in-out infinite;
 }
 @keyframes pab-pulse {
@@ -1575,10 +1575,10 @@ section { padding: 120px 0; position: relative; z-index: 10; }
 }
 .video-play-btn {
   width: 60px; height: 60px;
-  background: #22d3ee;
+  background: var(--accent);
   border-radius: 50%;
   display: flex; align-items: center; justify-content: center;
-  color: #060912;
+  color: var(--bg);
   font-size: 1.2rem;
   margin-bottom: 12px;
   transition: transform 0.2s ease, box-shadow 0.2s ease;
@@ -1605,7 +1605,7 @@ section { padding: 120px 0; position: relative; z-index: 10; }
 }
 .video-drive-fallback {
   display: block; text-align: center; margin-top: 8px;
-  color: #22d3ee; font-size: 0.8rem; text-decoration: none;
+  color: var(--accent); font-size: 0.8rem; text-decoration: none;
   opacity: 0.7; transition: opacity 0.2s ease;
 }
 .video-drive-fallback:hover { opacity: 1; }
@@ -1633,7 +1633,7 @@ section { padding: 120px 0; position: relative; z-index: 10; }
   background: rgba(124,58,237,0.1);
   border: 1px solid rgba(124,58,237,0.2);
   border-radius: 3px;
-  color: #a78bfa;
+  color: var(--accent2);
 }
 .project-footer {
   display: flex; gap: 8px;
@@ -2566,7 +2566,7 @@ section { padding: 120px 0; position: relative; z-index: 10; }
 }
 .wpm-badge:hover {
   opacity: 0.85;
-  color: #22d3ee;
+  color: var(--accent);
 }
 .wpm-value {
   font-weight: 700;

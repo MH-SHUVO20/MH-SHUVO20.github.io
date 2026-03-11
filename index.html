@@ -34,7 +34,8 @@
     form-action 'self';
   ">
   <!-- ─────────────────────────────────────────────────────── -->
-  <title>mhshuvo.me</title>
+  <title>Md. Mehedi Hasan Shuvo | AI Engineer & Researcher</title>
+  <link rel="canonical" href="https://mhshuvo.me/">
   <meta name="description" content="Md. Mehedi Hasan Shuvo — AI Researcher, Computer Vision Engineer, Deep Learning Specialist, IEEE Published Author">
   <meta name="keywords" content="AI Engineer, Computer Vision, Deep Learning, YOLO, LLM, AIUB, IEEE, Bangladesh">
   <meta name="author" content="Md. Mehedi Hasan Shuvo">
@@ -71,6 +72,31 @@
   <link rel="dns-prefetch" href="https://cdn.tailwindcss.com">
 
   <!-- Tailwind config — defined on window BEFORE async CDN script executes -->
+  <!-- Schema.org Structured Data -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Person",
+    "name": "Md. Mehedi Hasan Shuvo",
+    "url": "https://mhshuvo.me/",
+    "jobTitle": "AI Engineer & Researcher",
+    "affiliation": {
+      "@type": "CollegeOrUniversity",
+      "name": "American International University-Bangladesh (AIUB)"
+    },
+    "sameAs": [
+      "https://github.com/MH-SHUVO20",
+      "https://linkedin.com/in/mh-shuvo-aiub/",
+      "https://scholar.google.com/citations?user=yZ4wglYAAAAJ&hl=en",
+      "https://orcid.org/0009-0002-9979-106X",
+      "https://www.researchgate.net/profile/Mehedi-Hasan-Shuvo-5"
+    ],
+    "knowsAbout": ["Computer Vision", "Deep Learning", "YOLO", "LLMs", "IEEE Research"],
+    "image": "https://mhshuvo.me/assets/img/mehedi.jpg",
+    "email": "mdmehedihasanshuvo994@gmail.com"
+  }
+  </script>
+
   <script>
     window.tailwind = {
       config: {
@@ -195,21 +221,13 @@
         <li><a href="#hero" class="nav-link" data-section="hero">Home</a></li>
         <li><a href="#about" class="nav-link" data-section="about">About</a></li>
         <li><a href="#skills" class="nav-link" data-section="skills">Skills</a></li>
-        <li><a href="#coursework" class="nav-link" data-section="coursework">Coursework</a></li>
         <li><a href="#research" class="nav-link" data-section="research">Research</a></li>
         <li><a href="#projects" class="nav-link" data-section="projects">Projects</a></li>
         <li><a href="#education" class="nav-link" data-section="education">Education</a></li>
         <li><a href="#experience" class="nav-link" data-section="experience">Experience</a></li>
         <li><a href="#certifications" class="nav-link" data-section="certifications">Certifications</a></li>
         <li><a href="#contact" class="nav-link" data-section="contact">Contact</a></li>
-        <!-- Resume nav btn — DRAFT, re-enable when ready -->
-        <li>
-          <button type="button" class="nav-btn nav-btn--unavailable" id="resumeNavBtn"
-            title="CV coming soon — contact me directly"
-            onclick="(function(b){var t=document.getElementById('nav-cv-toast');if(t){clearTimeout(t._tid);t.remove();}t=document.createElement('div');t.id='nav-cv-toast';t.className='cv-toast nav-cv-toast';t.innerHTML='CV is being updated. Please email <a href=&quot;mailto:mdmehedihasanshuvo994@gmail.com&quot;>mdmehedihasanshuvo994@gmail.com</a>';b.closest('li').appendChild(t);t._tid=setTimeout(function(){t.remove();},7000);})(this)">
-            <i class="fas fa-file-alt"></i> Download CV
-          </button>
-        </li>
+        <!-- Resume nav btn — hidden until real CV PDF is uploaded to assets/resume/ -->
       </ul>
       <div class="nav-right">
         <a href="#contact" class="nav-cta-btn">Let's Collaborate <i class="fas fa-arrow-right"></i></a>
@@ -246,7 +264,7 @@
           <span class="wpm-unit">WPM rendering speed</span>
         </div>
         <p class="hero-bio">
-          IEEE published author · Computer Vision specialist · Building real-time AI systems with YOLO, Transformers &amp; LLMs at AIUB, Bangladesh. Open to <strong>internships</strong> &amp; <strong>full-time opportunities</strong>.
+          5× IEEE-published researcher with 2 papers in indexed conferences — building production-grade Computer Vision and LLM systems. Open to <strong>AI/ML engineering roles</strong> &amp; <strong>research collaborations</strong>.
         </p>
         <div class="hero-actions">
           <a href="#research" class="cta-primary">
@@ -265,7 +283,7 @@
           <a href="https://github.com/MH-SHUVO20" target="_blank" title="GitHub"><i class="fab fa-github"></i></a>
           <a href="https://linkedin.com/in/mh-shuvo-aiub/" target="_blank" title="LinkedIn"><i class="fab fa-linkedin"></i></a>
           <a href="mailto:mdmehedihasanshuvo994@gmail.com" title="Email"><i class="fas fa-envelope"></i></a>
-          <a href="https://www.facebook.com/mh.shuvo.7370" target="_blank" title="Facebook"><i class="fab fa-facebook"></i></a>
+          <a href="https://scholar.google.com/citations?user=yZ4wglYAAAAJ&amp;hl=en" target="_blank" title="Google Scholar"><i class="fas fa-graduation-cap"></i></a>
         </div>
       </div>
 
@@ -421,22 +439,7 @@
         </div>
       </div>
 
-      <!-- Video Introduction -->
-      <div class="about-video-wrap" data-aos="fade-up" data-aos-delay="100">
-        <div class="about-video-header">
-          <h3 class="about-video-title">Meet Me <span>in Person</span></h3>
-          <p class="about-video-sub">A quick introduction to who I am and what I do</p>
-        </div>
-        <div class="about-video-frame">
-          <iframe
-            src="https://www.youtube.com/embed/dQw4w9WgXcQ"
-            title="Md. Mehedi Hasan Shuvo — Video Introduction"
-            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-            allowfullscreen
-            loading="lazy"
-          ></iframe>
-        </div>
-      </div>
+      <!-- Video Introduction — hidden until a real intro video is recorded -->
     </div>
   </section>
 
@@ -472,21 +475,7 @@
         <div class="skill-card seo-static" data-cat="tools"><div class="sc-icon">🏫</div><div class="sc-cat">Teaching &amp; Mentorship</div><div class="sc-title">Tutoring &amp; Education</div><div class="sc-tags"><span class="sc-tag">6+ Years Teaching</span><span class="sc-tag">English Medium 4+ Years</span><span class="sc-tag">O Level &amp; A Level</span><span class="sc-tag">Physics · Chemistry · Math · CS</span><span class="sc-tag">500+ Students Coached</span></div></div>
       </div>
 
-      <!-- Skill proficiency bars -->
-      <div class="skill-bars" data-aos="fade-up">
-        <h3 class="bars-title">Core Proficiency</h3>
-        <div class="bars-grid" id="skillBars">
-          <!-- Static fallback for SEO; cleared and replaced by initSkillBars() -->
-          <div class="bar-item seo-static"><div class="bar-header"><span class="bar-name">Computer Vision</span><span class="bar-pct">92%</span></div><div class="bar-track"><div class="bar-fill" style="width:92%"></div></div></div>
-          <div class="bar-item seo-static"><div class="bar-header"><span class="bar-name">Machine Learning</span><span class="bar-pct">91%</span></div><div class="bar-track"><div class="bar-fill" style="width:91%"></div></div></div>
-          <div class="bar-item seo-static"><div class="bar-header"><span class="bar-name">Python &amp; PyTorch</span><span class="bar-pct">90%</span></div><div class="bar-track"><div class="bar-fill" style="width:90%"></div></div></div>
-          <div class="bar-item seo-static"><div class="bar-header"><span class="bar-name">LangChain / LangGraph</span><span class="bar-pct">82%</span></div><div class="bar-track"><div class="bar-fill" style="width:82%"></div></div></div>
-          <div class="bar-item seo-static"><div class="bar-header"><span class="bar-name">BERT &amp; NLP</span><span class="bar-pct">80%</span></div><div class="bar-track"><div class="bar-fill" style="width:80%"></div></div></div>
-          <div class="bar-item seo-static"><div class="bar-header"><span class="bar-name">FastAPI &amp; Docker</span><span class="bar-pct">75%</span></div><div class="bar-track"><div class="bar-fill" style="width:75%"></div></div></div>
-          <div class="bar-item seo-static"><div class="bar-header"><span class="bar-name">Research Skills</span><span class="bar-pct">88%</span></div><div class="bar-track"><div class="bar-fill" style="width:88%"></div></div></div>
-          <div class="bar-item seo-static"><div class="bar-header"><span class="bar-name">Tutoring &amp; Mentorship</span><span class="bar-pct">95%</span></div><div class="bar-track"><div class="bar-fill" style="width:95%"></div></div></div>
-        </div>
-      </div>
+      <!-- Skill proficiency bars — removed per audit (subjective percentages hurt credibility) -->
     </div>
   </section>
 
@@ -689,7 +678,7 @@
               <span class="paper-badge">Presented</span>
             </div>
           </div>
-          <span class="paper-link disabled">Processing</span>
+          <span class="paper-link disabled">Pending DOI</span>
         </div>
         <div class="paper-card seo-static">
           <div class="paper-idx">04</div>
@@ -700,7 +689,7 @@
               <span class="paper-badge">Presented</span>
             </div>
           </div>
-          <span class="paper-link disabled">Processing</span>
+          <span class="paper-link disabled">Pending DOI</span>
         </div>
         <div class="paper-card seo-static">
           <div class="paper-idx">05</div>
@@ -711,7 +700,7 @@
               <span class="paper-badge">Presented</span>
             </div>
           </div>
-          <span class="paper-link disabled">Processing</span>
+          <span class="paper-link disabled">Pending DOI</span>
         </div>
       </div>
 
@@ -1058,7 +1047,6 @@
           <li><a href="#research">Research</a></li>
           <li><a href="#projects">Projects</a></li>
           <li><a href="#education">Education</a></li>
-          <li><a href="#coursework">Coursework</a></li>
           <li><a href="#experience">Experience</a></li>
           <li><a href="#certifications">Certifications</a></li>
           <li><a href="#contact">Contact</a></li>
@@ -1082,8 +1070,6 @@
 
     <!-- Live site stats bar -->
     <div class="footer-meta">
-      <span class="fm-item"><i class="fas fa-eye"></i> <span data-visit-count>…</span>&nbsp;visits</span>
-      <span class="fm-sep">·</span>
       <span class="fm-item"><i class="fab fa-github"></i> <span data-gh-repos>…</span>&nbsp;public repos</span>
       <span class="fm-sep">·</span>
       <span class="fm-item"><i class="fas fa-star"></i> <span data-gh-stars>…</span>&nbsp;GitHub stars</span>
