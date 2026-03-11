@@ -368,28 +368,31 @@ body a { cursor: none; }
 .nav-btn {
   font-family: var(--font-mono);
   font-size: 12px;
+  font-weight: 600;
   padding: 8px 18px;
   background: transparent;
-  border: 1px solid var(--accent);
-  border-radius: 6px;
-  color: var(--accent);
+  border: 2px solid #22d3ee;
+  border-radius: 999px;
+  color: #22d3ee;
   text-decoration: none;
-  transition: all 0.2s;
+  transition: all 0.25s ease;
   display: flex; align-items: center; gap: 6px;
+  white-space: nowrap;
 }
 .nav-btn:hover {
-  background: var(--accent);
-  color: var(--bg);
-  box-shadow: var(--glow);
+  background: #22d3ee;
+  color: #060912;
+  box-shadow: 0 6px 24px rgba(34,211,238,0.35);
 }
 .nav-btn--unavailable {
-  opacity: 0.45;
+  opacity: 0.6;
   cursor: not-allowed !important;
 }
 .nav-btn--unavailable:hover {
   background: transparent;
-  color: var(--accent);
+  color: #22d3ee;
   box-shadow: none;
+  transform: none;
 }
 .nav-cv-toast {
   position: absolute;
