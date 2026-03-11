@@ -864,7 +864,6 @@ const PORTFOLIO_DATA = {
     { icon: "fab fa-github", label: "GitHub", value: "github.com/MH-SHUVO20", href: "https://github.com/MH-SHUVO20" },
     { icon: "fas fa-globe", label: "Portfolio", value: "mhshuvo.me", href: "https://mhshuvo.me/" },
     { icon: "fas fa-phone", label: "Phone", value: "+8801954-596854", href: "tel:+8801954596854" },
-    { icon: "fab fa-facebook", label: "Facebook", value: "mh.shuvo.7370", href: "https://www.facebook.com/mh.shuvo.7370" },
     { icon: "fas fa-graduation-cap", label: "Google Scholar", value: "scholar.google.com", href: "https://scholar.google.com/citations?user=yZ4wglYAAAAJ&hl=en" },
     { icon: "fas fa-flask", label: "ResearchGate", value: "researchgate.net/profile/Mehedi-Hasan-Shuvo-5", href: "https://www.researchgate.net/profile/Mehedi-Hasan-Shuvo-5" },
     { icon: "fab fa-orcid", label: "ORCID", value: "0009-0002-9979-106X", href: "https://orcid.org/0009-0002-9979-106X" },
