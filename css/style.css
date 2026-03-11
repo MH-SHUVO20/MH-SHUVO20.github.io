@@ -512,6 +512,7 @@ section { padding: 120px 0; position: relative; z-index: 10; }
   justify-content: center;
   align-items: center;
   position: relative;
+  overflow: visible;
 }
 .hero-eyebrow {
   display: flex; align-items: center; gap: 12px;
@@ -538,10 +539,10 @@ section { padding: 120px 0; position: relative; z-index: 10; }
 
 .hero-title {
   font-family: var(--font-display);
-  font-size: clamp(2.4rem, 4.5vw, 4.2rem);
-  letter-spacing: 3px;
-  line-height: 1.05;
-  margin-bottom: 28px;
+  font-size: clamp(1.8rem, 2.8vw, 3rem);
+  letter-spacing: 1px;
+  line-height: 1.08;
+  margin-bottom: 16px;
   overflow: visible;
 }
 .title-line {
@@ -566,10 +567,10 @@ section { padding: 120px 0; position: relative; z-index: 10; }
 }
 .hero-sub {
   font-family: var(--font-mono);
-  font-size: 17px;
+  font-size: 15px;
   color: var(--accent);
-  margin-bottom: 16px;
-  min-height: 28px;
+  margin-bottom: 8px;
+  min-height: 24px;
   max-width: 100%;
   word-break: break-word;
 }
@@ -797,10 +798,10 @@ section { padding: 120px 0; position: relative; z-index: 10; }
   transition: transform 0.3s;
 }
 .chip:hover { transform: scale(1.05) !important; }
-.chip-1 { top: 5%;  right: -10%; }
-.chip-2 { bottom: 15%; right: -10%; }
-.chip-3 { top: 5%;  left: -10%; }
-.chip-4 { bottom: 15%; left: -10%; }
+.chip-1 { top: 2%;  right: -12%; }
+.chip-2 { bottom: 10%; right: -12%; }
+.chip-3 { top: 2%;  left: -12%; }
+.chip-4 { bottom: 10%; left: -12%; }
 .chip-num {
   display: block;
   font-family: var(--font-mono);
