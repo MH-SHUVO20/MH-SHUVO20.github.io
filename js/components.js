@@ -74,7 +74,34 @@ function renderResearch() {
   });
 }
 
-// ── Projects Grid ─────────────────────────────────────────────
+// ── Upcoming Research ─────────────────────────────────────────
+function renderUpcomingResearch() {
+  const list = document.getElementById('upcomingResearchList');
+  if (!list || !PORTFOLIO_DATA || !PORTFOLIO_DATA.upcomingResearch) return;
+  list.innerHTML = '';
+
+  PORTFOLIO_DATA.upcomingResearch.forEach((p, i) => {
+    const card = document.createElement('div');
+    card.className = 'paper-card paper-card--upcoming';
+    card.setAttribute('data-aos', 'fade-up');
+    card.setAttribute('data-aos-delay', String(i * 80));
+    const isUnderReview = p.status === 'under-review';
+    const badgeClass = isUnderReview ? 'badge-upcoming badge-upcoming--inline' : 'badge-upcoming badge-upcoming--inline badge-upcoming--amber';
+    const badgeLabel = isUnderReview ? 'Under Review' : 'Coming Soon';
+    card.innerHTML = `
+      <div class="paper-idx">${p.num}</div>
+      <div class="paper-body">
+        <h3>${p.title}</h3>
+        <div class="paper-meta">
+          <span class="paper-venue">${p.venue}</span>
+          <span class="${badgeClass}">${badgeLabel}</span>
+        </div>
+      </div>
+      <span class="coming-soon-btn" aria-disabled="true">Coming Soon</span>
+    `;
+    list.appendChild(card);
+  });
+}
 function renderProjects() {
   const grid = document.getElementById('projectsGrid');
   if (!grid || !PORTFOLIO_DATA) return;
@@ -467,6 +494,7 @@ function initProjectMediaClick() {
 document.addEventListener('DOMContentLoaded', () => {
   renderSkills();
   renderResearch();
+  renderUpcomingResearch();
   renderProjects();
   renderEducation();
   renderExperience();

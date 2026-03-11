@@ -234,6 +234,21 @@ const PORTFOLIO_DATA = {
     },
   ],
 
+  upcomingResearch: [
+    {
+      num: "06",
+      title: "Multi-Modal Emotion Recognition Using Vision-Language Models for Human-Computer Interaction",
+      venue: "Target Venue: IEEE Access",
+      status: "under-review",
+    },
+    {
+      num: "07",
+      title: "Lightweight Skin Lesion Classification on Resource-Constrained Edge Devices Using Efficient CNN Architectures",
+      venue: "Target Venue: IEEE EMBC 2026",
+      status: "coming-soon",
+    },
+  ],
+
   // ── Projects ─────────────────────────────────────────────
   // For each project:
   // image: put file at assets/img/projects/<filename>
