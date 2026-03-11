@@ -27,13 +27,14 @@ function initVisitCounter() {
   }
   var count = parseInt(localStorage.getItem('_vc') || '1');
   document.querySelectorAll('[data-visit-count]').forEach(function(el) {
-    // Animate when element enters the viewport
+    el.textContent = '\u2026'; // show loading state immediately
+    // threshold: 0.1 — fire as soon as any part of the footer is visible
     var obs = new IntersectionObserver(function(entries) {
       if (entries[0].isIntersecting) {
         animNum(el, count, 1200);
         obs.disconnect();
       }
-    }, { threshold: 0.5 });
+    }, { threshold: 0.1 });
     obs.observe(el);
   });
 }
@@ -41,14 +42,43 @@ function initVisitCounter() {
 // ── 2. GitHub Live Stats ──────────────────────────────────────
 // Fetches real public repo count, star count and followers from
 // the GitHub REST API — no auth token required for public data.
+var GH_SELECTORS = ['[data-gh-repos]', '[data-gh-stars]', '[data-gh-followers]'];
+
 function initGitHubStats() {
+  var GH_API = 'https://api.github.com';
+  var GH_HEADERS = { 'Accept': 'application/vnd.github+json' };
+
+  // Show a loading ellipsis while we wait
+  GH_SELECTORS.forEach(function(sel) {
+    document.querySelectorAll(sel).forEach(function(el) {
+      el.textContent = '\u2026';
+    });
+  });
+
+  function safeFetch(url) {
+    return fetch(url, { headers: GH_HEADERS }).then(function(r) {
+      if (!r.ok) throw new Error('GitHub API ' + r.status);
+      return r.json();
+    });
+  }
+
+  function showFallback() {
+    GH_SELECTORS.forEach(function(sel) {
+      document.querySelectorAll(sel).forEach(function(el) {
+        el.textContent = '\u2014'; // em-dash
+      });
+    });
+  }
+
   Promise.all([
-    fetch('https://api.github.com/users/MH-SHUVO20').then(function(r) { return r.json(); }),
-    fetch('https://api.github.com/users/MH-SHUVO20/repos?per_page=100').then(function(r) { return r.json(); })
+    safeFetch(GH_API + '/users/MH-SHUVO20'),
+    safeFetch(GH_API + '/users/MH-SHUVO20/repos?per_page=100&sort=updated')
   ]).then(function(results) {
     var user  = results[0];
     var repos = results[1];
-    if (!user || !user.login) return;
+
+    // Validate we got a real user object (not a rate-limit error body)
+    if (!user || !user.login) { showFallback(); return; }
 
     var stars = Array.isArray(repos)
       ? repos.reduce(function(s, r) { return s + (r.stargazers_count || 0); }, 0)
@@ -65,7 +95,7 @@ function initGitHubStats() {
         animNum(el, map[sel], 1000);
       });
     });
-  }).catch(function() { /* fail silently if API rate-limited */ });
+  }).catch(showFallback);
 }
 
 // ── 3. Copy to Clipboard ──────────────────────────────────────
