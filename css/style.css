@@ -382,6 +382,24 @@ body a { cursor: none; }
   color: var(--bg);
   box-shadow: var(--glow);
 }
+.nav-btn--unavailable {
+  opacity: 0.45;
+  cursor: not-allowed !important;
+}
+.nav-btn--unavailable:hover {
+  background: transparent;
+  color: var(--accent);
+  box-shadow: none;
+}
+.nav-cv-toast {
+  position: absolute;
+  top: calc(100% + 8px);
+  right: 0;
+  white-space: normal;
+  min-width: 260px;
+  z-index: 999;
+}
+.nav-menu li:has(.nav-btn--unavailable) { position: relative; }
 .nav-right { display: flex; align-items: center; gap: 12px; }
 .theme-toggle {
   width: 36px; height: 36px;
