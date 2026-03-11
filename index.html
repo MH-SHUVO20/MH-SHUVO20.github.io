@@ -16,14 +16,17 @@
     script-src  'self' 'unsafe-inline'
                 https://cdn.tailwindcss.com
                 https://unpkg.com
-                https://cdnjs.cloudflare.com;
+                https://cdnjs.cloudflare.com
+                https://www.youtube.com;
     style-src   'self' 'unsafe-inline'
                 https://fonts.googleapis.com
                 https://cdnjs.cloudflare.com;
     font-src    'self' data:
                 https://fonts.gstatic.com
                 https://cdnjs.cloudflare.com;
-    img-src     'self' data: blob:;
+    img-src     'self' data: blob:
+                https://img.youtube.com
+                https://i.ytimg.com;
     connect-src 'self' https://api.github.com;
     frame-src   'self'
                 https://www.youtube.com
@@ -445,13 +448,20 @@
           <h3 class="about-video-title">Watch My <span>Introduction</span></h3>
           <p class="about-video-sub">Get to know me, my research journey, and what drives my work in AI</p>
         </div>
-        <div class="about-video-frame">
-          <iframe
-            src="https://www.youtube-nocookie.com/embed/7HPndjpxDjY"
-            title="Md. Mehedi Hasan Shuvo — Video Introduction"
-            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-            loading="lazy"
-            allowfullscreen></iframe>
+        <div class="about-video-frame" id="introVideoFrame">
+          <div class="intro-video-facade" id="introVideoFacade">
+            <img src="https://img.youtube.com/vi/7HPndjpxDjY/maxresdefault.jpg"
+                 alt="Video Introduction Thumbnail"
+                 class="intro-video-thumb"
+                 loading="lazy">
+            <button class="intro-video-play" aria-label="Play video introduction">
+              <svg viewBox="0 0 68 48" width="68" height="48">
+                <path d="M66.52 7.74c-.78-2.93-2.49-5.41-5.42-6.19C55.79.13 34 0 34 0S12.21.13 6.9 1.55c-2.93.78-4.63 3.26-5.42 6.19C.06 13.05 0 24 0 24s.06 10.95 1.48 16.26c.78 2.93 2.49 5.41 5.42 6.19C12.21 47.87 34 48 34 48s21.79-.13 27.1-1.55c2.93-.78 4.64-3.26 5.42-6.19C67.94 34.95 68 24 68 24s-.06-10.95-1.48-16.26z" fill="#212121" fill-opacity=".8"></path>
+                <path d="M45 24L27 14v20" fill="#fff"></path>
+              </svg>
+            </button>
+          </div>
+          <div class="intro-video-player" id="introVideoPlayer"></div>
         </div>
       </div>
     </div>
@@ -1126,5 +1136,58 @@
   <script src="js/resume.js"></script>
   <script src="js/main.js"></script>
   <script src="js/features.js"></script>
+
+  <!-- YouTube IFrame API (for intro video facade) -->
+  <script>
+  (function() {
+    var facade = document.getElementById('introVideoFacade');
+    var playerDiv = document.getElementById('introVideoPlayer');
+    var frame = document.getElementById('introVideoFrame');
+    if (!facade || !playerDiv) return;
+
+    var player = null;
+    var YT_ID = '7HPndjpxDjY';
+
+    function loadYTAPI() {
+      if (window.YT && window.YT.Player) { createPlayer(); return; }
+      var tag = document.createElement('script');
+      tag.src = 'https://www.youtube.com/iframe_api';
+      document.head.appendChild(tag);
+    }
+
+    window.onYouTubeIframeAPIReady = function() { createPlayer(); };
+
+    function createPlayer() {
+      player = new YT.Player('introVideoPlayer', {
+        videoId: YT_ID,
+        host: 'https://www.youtube-nocookie.com',
+        playerVars: {
+          autoplay: 1,
+          modestbranding: 1,
+          rel: 0,
+          playsinline: 1
+        },
+        events: {
+          onStateChange: function(e) {
+            if (e.data === YT.PlayerState.ENDED) resetToFacade();
+          }
+        }
+      });
+    }
+
+    function resetToFacade() {
+      if (player) { player.destroy(); player = null; }
+      playerDiv.innerHTML = '';
+      facade.style.display = '';
+      frame.classList.remove('playing');
+    }
+
+    facade.addEventListener('click', function() {
+      facade.style.display = 'none';
+      frame.classList.add('playing');
+      loadYTAPI();
+    });
+  })();
+  </script>
 </body>
 </html>
