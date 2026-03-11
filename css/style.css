@@ -1748,6 +1748,43 @@ section { padding: 120px 0; position: relative; z-index: 10; }
   border: none;
 }
 .btn-dl:hover { background: #34d399; box-shadow: 0 0 20px rgba(16,185,129,0.3); }
+.btn-dl--unavailable {
+  opacity: 0.45;
+  cursor: not-allowed !important;
+  background: var(--accent3) !important;
+  color: var(--bg) !important;
+  box-shadow: none !important;
+}
+.btn-dl--unavailable:hover { background: var(--accent3); box-shadow: none; }
+.resume-pdf-notice {
+  display: flex;
+  align-items: flex-start;
+  gap: 10px;
+  padding: 14px 18px;
+  margin-bottom: 24px;
+  background: rgba(34,211,238,0.05);
+  border: 1px solid rgba(34,211,238,0.2);
+  border-radius: 8px;
+  font-family: var(--font-mono);
+  font-size: 12px;
+  color: var(--text2);
+  line-height: 1.6;
+}
+.resume-pdf-notice i { color: var(--accent); margin-top: 2px; flex-shrink: 0; }
+.resume-pdf-notice a { color: var(--accent); text-decoration: underline; }
+.pdf-toast {
+  margin-top: 8px;
+  padding: 10px 16px;
+  background: var(--surface);
+  border: 1px solid rgba(34,211,238,0.3);
+  border-radius: 8px;
+  font-family: var(--font-mono);
+  font-size: 12px;
+  color: var(--text2);
+  line-height: 1.5;
+  animation: cv-toast-in 0.25s ease;
+}
+.pdf-toast a { color: var(--accent); text-decoration: underline; }
 .btn-view {
   background: transparent;
   border: 1px solid var(--border);

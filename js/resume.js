@@ -124,15 +124,35 @@ document.addEventListener('DOMContentLoaded', () => {
   const html = buildResumeHTML();
   if (preview) preview.innerHTML = html;
   if (modalContent) {
-    modalContent.innerHTML = `
-      <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:24px;">
-        <h2 style="font-family:var(--font-display);font-size:32px;letter-spacing:2px">Resume</h2>
-        <a href="${PORTFOLIO_DATA.personal.resumePDF}" download class="btn-dl" style="text-decoration:none;font-family:var(--font-mono);font-size:12px;padding:10px 20px;background:var(--accent3);color:var(--bg);border-radius:6px;display:flex;align-items:center;gap:6px">
-          <i class="fas fa-download"></i> Download PDF
-        </a>
-      </div>
-      ${html}
-    `;
+    const pdfURL = PORTFOLIO_DATA.personal.resumePDF;
+    // Check if PDF exists before offering the download link
+    fetch(pdfURL, { method: 'HEAD' })
+      .then(r => {
+        if (!r.ok) throw new Error('not found');
+        return true;
+      })
+      .catch(() => false)
+      .then(available => {
+        const dlBtn = available
+          ? `<a href="${pdfURL}" download class="btn-dl" style="text-decoration:none;font-family:var(--font-mono);font-size:12px;padding:10px 20px;background:var(--accent3);color:var(--bg);border-radius:6px;display:flex;align-items:center;gap:6px"><i class="fas fa-download"></i> Download PDF</a>`
+          : `<button type="button" class="btn-dl btn-dl--unavailable" title="PDF coming soon — contact me directly" onclick="(function(b){var t=b.parentNode.querySelector('.pdf-toast');if(t)return;t=document.createElement('div');t.className='pdf-toast';t.innerHTML='Resume PDF is being updated. Please email <a href=\\&quot;mailto:mdmehedihasanshuvo994@gmail.com\\&quot;>mdmehedihasanshuvo994@gmail.com</a>';b.insertAdjacentElement('afterend',t);setTimeout(function(){t.remove();},8000);})(this)"><i class="fas fa-download"></i> Download PDF</button>`;
+
+        const banner = available ? '' : `
+          <div class="resume-pdf-notice">
+            <i class="fas fa-info-circle"></i>
+            Resume PDF is currently being updated.
+            Email <a href="mailto:mdmehedihasanshuvo994@gmail.com">mdmehedihasanshuvo994@gmail.com</a> for a copy.
+          </div>`;
+
+        modalContent.innerHTML = `
+          <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:24px;">
+            <h2 style="font-family:var(--font-display);font-size:32px;letter-spacing:2px">Resume</h2>
+            ${dlBtn}
+          </div>
+          ${banner}
+          ${html}
+        `;
+      });
   }
 
   function openModal() {

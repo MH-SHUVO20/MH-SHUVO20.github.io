@@ -905,9 +905,11 @@
           </div>
         </div>
         <div class="resume-actions" data-aos="fade-up" data-aos-delay="200">
-          <a href="assets/resume/Md_Mehedi_Hasan_Shuvo_Resume.pdf" download class="btn-dl">
+          <button type="button" class="btn-dl btn-dl--unavailable"
+            title="PDF coming soon — contact me directly"
+            onclick="(function(b){var t=b.parentNode.querySelector('.pdf-toast');if(t)return;t=document.createElement('div');t.className='pdf-toast';t.innerHTML='Resume PDF is being updated. Please email <a href=&quot;mailto:mdmehedihasanshuvo994@gmail.com&quot;>mdmehedihasanshuvo994@gmail.com</a>';b.insertAdjacentElement('afterend',t);setTimeout(function(){t.remove();},8000);})(this)">
             <i class="fas fa-download"></i> Download PDF
-          </a>
+          </button>
           <button class="btn-view" id="openResumeModal2">
             <i class="fas fa-eye"></i> View Online
           </button>
