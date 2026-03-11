@@ -565,22 +565,24 @@ section { padding: 120px 0; position: relative; z-index: 10; }
   margin-bottom: 36px;
 }
 .cta-primary {
-  display: flex; align-items: center; gap: 10px;
-  padding: 14px 28px;
-  background: var(--accent);
-  color: var(--bg);
-  font-family: var(--font-mono);
-  font-size: 13px;
-  font-weight: 700;
-  letter-spacing: 0.5px;
-  border-radius: 8px;
+  display: inline-flex; align-items: center; gap: 8px;
+  padding: 10px 20px;
+  background: #a78bfa;
+  color: #060912;
+  font-size: 0.875rem;
+  font-weight: 600;
+  border: 2px solid #a78bfa;
+  border-radius: 50px;
   text-decoration: none;
-  transition: all 0.2s;
+  cursor: pointer;
+  transition: all 0.25s ease;
+  white-space: nowrap;
 }
 .cta-primary:hover {
-  background: #67e8f9;
-  box-shadow: 0 0 30px rgba(34, 211, 238, 0.4);
-  transform: translateY(-2px);
+  background: #c4b5fd;
+  border-color: #c4b5fd;
+  box-shadow: 0 0 24px rgba(167, 139, 250, 0.4);
+  transform: translateY(-1px);
 }
 .cta-secondary {
   display: flex; align-items: center; gap: 10px;
@@ -600,23 +602,29 @@ section { padding: 120px 0; position: relative; z-index: 10; }
   transform: translateY(-2px);
 }
 .cta-resume {
-  display: flex; align-items: center; gap: 10px;
-  padding: 14px 24px;
-  border: 1px solid rgba(34,211,238,0.35);
-  color: var(--accent);
-  font-family: var(--font-mono);
-  font-size: 13px;
-  border-radius: 8px;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 10px 20px;
   background: transparent;
-  cursor: none;
-  transition: all 0.2s;
+  border: 2px solid #22d3ee;
+  color: #22d3ee;
+  border-radius: 50px;
+  font-size: 0.875rem;
+  font-weight: 600;
   text-decoration: none;
+  cursor: pointer;
+  transition: all 0.25s ease;
+  white-space: nowrap;
 }
 .cta-resume:hover {
-  border-color: var(--accent);
-  background: rgba(34,211,238,0.08);
-  box-shadow: 0 0 16px rgba(34,211,238,0.15);
-  transform: translateY(-2px);
+  background: #22d3ee;
+  color: #060912;
+  box-shadow: 0 0 20px rgba(34, 211, 238, 0.35);
+  transform: translateY(-1px);
+}
+.cta-resume i {
+  font-size: 0.8rem;
 }
 .cta-resume--unavailable {
   opacity: 0.5;
