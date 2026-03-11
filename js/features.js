@@ -149,7 +149,7 @@ function initTypingWpm() {
   var valEl = el.querySelector('.wpm-value');
   if (valEl) valEl.textContent = wpm;
   // Fade in after the first typed word appears (~2.4s after page load)
-  setTimeout(function() { el.classList.add('wpm-visible'); }, 2400);
+  setTimeout(function() { el.classList.add('wpm-visible'); }, 3000);
 }
 
 // ── 5. Last Updated Badge ─────────────────────────────────────
