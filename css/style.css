@@ -2513,18 +2513,28 @@ section { padding: 120px 0; position: relative; z-index: 10; }
 
 /* â”€â”€ WPM Typing Indicator â”€â”€ */
 .wpm-badge {
-  display: inline-flex; align-items: center; gap: 6px;
-  font-family: var(--font-mono); font-size: 10px;
-  color: var(--muted);
-  margin-bottom: 20px;
-  opacity: 0; transform: translateY(6px);
-  transition: opacity 0.6s ease, transform 0.6s ease;
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  margin-top: 6px;
+  font-size: 10px;
+  font-family: 'JetBrains Mono', monospace;
+  color: rgba(148, 163, 184, 0.5);
+  opacity: 0;
+  transition: opacity 0.3s ease;
   cursor: default;
+  user-select: none;
 }
-.wpm-badge.wpm-visible { opacity: 0.5; transform: translateY(0); }
-.wpm-badge.wpm-visible:hover { opacity: 0.9; }
-.wpm-value { color: var(--accent); font-weight: 700; }
-.wpm-label i { font-size: 10px; color: var(--accent); }
+.wpm-badge.wpm-visible {
+  opacity: 0.4;
+}
+.wpm-badge:hover {
+  opacity: 0.85;
+  color: #22d3ee;
+}
+.wpm-value {
+  font-weight: 700;
+}
 .wpm-unit { color: var(--muted); }
 
 /* â”€â”€ Copy Button â”€â”€ */
