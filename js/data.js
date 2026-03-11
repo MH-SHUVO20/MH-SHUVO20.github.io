@@ -18,7 +18,7 @@ const PORTFOLIO_DATA = {
     portfolio: "https://mhshuvo.me/",
     facebook: "https://www.facebook.com/mh.shuvo.7370",
     // Place your photo at assets/img/avatar.jpg
-    avatar: "assets/img/avatar.jpg",
+    avatar: "assets/img/mehedi.jpg",
     // Place your resume PDF at assets/resume/Md_Mehedi_Hasan_Shuvo_Resume.pdf
     resumePDF: "assets/resume/Md_Mehedi_Hasan_Shuvo_Resume.pdf",
     typedStrings: [
