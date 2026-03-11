@@ -75,6 +75,7 @@ function animateCounter(el, target, duration = 1200) {
 function initSkillBars() {
   const container = document.getElementById('skillBars');
   if (!container || !PORTFOLIO_DATA) return;
+  container.innerHTML = '';
 
   PORTFOLIO_DATA.proficiency.forEach(({ name, pct }) => {
     const item = document.createElement('div');

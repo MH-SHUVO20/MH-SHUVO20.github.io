@@ -6,6 +6,7 @@
 function renderSkills() {
   const grid = document.getElementById('skillsGrid');
   if (!grid || !PORTFOLIO_DATA) return;
+  grid.innerHTML = '';
 
   PORTFOLIO_DATA.skills.forEach((s, i) => {
     const card = document.createElement('div');
@@ -42,6 +43,7 @@ function renderSkills() {
 function renderResearch() {
   const list = document.getElementById('researchList');
   if (!list || !PORTFOLIO_DATA) return;
+  list.innerHTML = '';
 
   PORTFOLIO_DATA.research.forEach((p, i) => {
     const card = document.createElement('div');
@@ -76,6 +78,7 @@ function renderResearch() {
 function renderProjects() {
   const grid = document.getElementById('projectsGrid');
   if (!grid || !PORTFOLIO_DATA) return;
+  grid.innerHTML = '';
 
   PORTFOLIO_DATA.projects.forEach((p, i) => {
     const card = document.createElement('div');
@@ -181,6 +184,7 @@ function renderProjects() {
 function renderEducation() {
   const timeline = document.getElementById('eduTimeline');
   if (!timeline || !PORTFOLIO_DATA) return;
+  timeline.innerHTML = '';
 
   PORTFOLIO_DATA.education.forEach((e, i) => {
     const item = document.createElement('div');
@@ -212,6 +216,7 @@ function renderEducation() {
 function renderExperience() {
   const grid = document.getElementById('expGrid');
   if (!grid || !PORTFOLIO_DATA || !PORTFOLIO_DATA.experience) return;
+  grid.innerHTML = '';
 
   PORTFOLIO_DATA.experience.forEach((exp, i) => {
     const card = document.createElement('div');
@@ -419,6 +424,7 @@ function initCertModal() {
 function renderCerts() {
   const grid = document.getElementById('certsGrid');
   if (!grid || !PORTFOLIO_DATA || !PORTFOLIO_DATA.certs) return;
+  grid.innerHTML = '';
 
   PORTFOLIO_DATA.certs.forEach((c, i) => {
     const card = document.createElement('div');

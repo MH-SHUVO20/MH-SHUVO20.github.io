@@ -2442,13 +2442,5 @@ section { padding: 120px 0; position: relative; z-index: 10; }
   .title-line { opacity: 1 !important; transform: none !important; }
 }
 
-/* SEO-only noscript lists: visually hidden but fully readable by crawlers */
-.noscript-list {
-  position: absolute;
-  width: 1px; height: 1px;
-  padding: 0; margin: -1px;
-  overflow: hidden;
-  clip: rect(0,0,0,0);
-  white-space: nowrap;
-  border: 0;
-}
+/* Static SEO fallback content — visible in initial HTML, cleared by JS on DOMContentLoaded */
+/* No special hiding needed: JS render functions call innerHTML='' before injecting dynamic cards */

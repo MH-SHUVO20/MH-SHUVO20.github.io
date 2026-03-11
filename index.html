@@ -447,13 +447,35 @@
       </div>
 
       <div class="skills-grid" id="skillsGrid">
-        <!-- Cards injected by JS from data.js -->
+        <!-- Static fallback for SEO; cleared and replaced by renderSkills() -->
+        <div class="skill-card seo-static" data-cat="ai"><div class="sc-icon">🧠</div><div class="sc-cat">Deep Learning &amp; CV</div><div class="sc-title">Computer Vision</div><div class="sc-tags"><span class="sc-tag">YOLO Models</span><span class="sc-tag">CNN</span><span class="sc-tag">Transformers</span><span class="sc-tag">Object Detection</span><span class="sc-tag">Image Classification</span><span class="sc-tag">Transfer Learning</span><span class="sc-tag">Model Optimization</span></div></div>
+        <div class="skill-card seo-static" data-cat="ai"><div class="sc-icon">🕹️</div><div class="sc-cat">Neural Networks</div><div class="sc-title">Deep Neural Networks</div><div class="sc-tags"><span class="sc-tag">CNN</span><span class="sc-tag">RNN</span><span class="sc-tag">LSTM</span><span class="sc-tag">Transformer Architecture</span><span class="sc-tag">Vision Transformer (ViT)</span><span class="sc-tag">GAN</span><span class="sc-tag">Attention Mechanisms</span><span class="sc-tag">ResNet</span></div></div>
+        <div class="skill-card seo-static" data-cat="ai"><div class="sc-icon">💬</div><div class="sc-cat">NLP &amp; Text AI</div><div class="sc-title">Natural Language Processing</div><div class="sc-tags"><span class="sc-tag">BERT &amp; Transformer Fine-tuning</span><span class="sc-tag">Sentiment Analysis</span><span class="sc-tag">NER</span><span class="sc-tag">RAG</span><span class="sc-tag">Semantic Search</span><span class="sc-tag">Text Summarization</span><span class="sc-tag">Multilingual NLP</span></div></div>
+        <div class="skill-card seo-static" data-cat="ai"><div class="sc-icon">🤖</div><div class="sc-cat">LLMs &amp; Agents</div><div class="sc-title">LLM &amp; Agent Systems</div><div class="sc-tags"><span class="sc-tag">LangChain</span><span class="sc-tag">LangGraph</span><span class="sc-tag">Prompt Engineering</span><span class="sc-tag">OpenAI API</span><span class="sc-tag">Ollama</span><span class="sc-tag">Multi-Agent Systems</span><span class="sc-tag">ReAct Agents</span></div></div>
+        <div class="skill-card seo-static" data-cat="ai"><div class="sc-icon">📊</div><div class="sc-cat">Machine Learning</div><div class="sc-title">Classical ML</div><div class="sc-tags"><span class="sc-tag">XGBoost / LightGBM</span><span class="sc-tag">SVM</span><span class="sc-tag">Bayesian Optimization</span><span class="sc-tag">PCA / t-SNE / UMAP</span><span class="sc-tag">Time Series Forecasting</span><span class="sc-tag">AutoML Pipelines</span></div></div>
+        <div class="skill-card seo-static" data-cat="ai"><div class="sc-icon">⚡</div><div class="sc-cat">Frameworks</div><div class="sc-title">ML Libraries</div><div class="sc-tags"><span class="sc-tag">PyTorch</span><span class="sc-tag">TensorFlow</span><span class="sc-tag">Keras</span><span class="sc-tag">HuggingFace Transformers</span><span class="sc-tag">OpenCV</span><span class="sc-tag">Scikit-learn</span><span class="sc-tag">Pandas</span><span class="sc-tag">NumPy</span></div></div>
+        <div class="skill-card seo-static" data-cat="eng"><div class="sc-icon">🌐</div><div class="sc-cat">Web &amp; Backend</div><div class="sc-title">Engineering</div><div class="sc-tags"><span class="sc-tag">FastAPI</span><span class="sc-tag">Docker</span><span class="sc-tag">Redis</span><span class="sc-tag">REST APIs</span><span class="sc-tag">PHP</span><span class="sc-tag">MVC Architecture</span></div></div>
+        <div class="skill-card seo-static" data-cat="eng"><div class="sc-icon">🗄️</div><div class="sc-cat">Databases</div><div class="sc-title">Data &amp; Storage</div><div class="sc-tags"><span class="sc-tag">MySQL</span><span class="sc-tag">Oracle</span><span class="sc-tag">SQLite</span><span class="sc-tag">3NF Normalization</span><span class="sc-tag">SQL Injection Prevention</span></div></div>
+        <div class="skill-card seo-static" data-cat="lang"><div class="sc-icon">💻</div><div class="sc-cat">Programming</div><div class="sc-title">Languages</div><div class="sc-tags"><span class="sc-tag">Python (Primary)</span><span class="sc-tag">C#</span><span class="sc-tag">Java</span><span class="sc-tag">R</span><span class="sc-tag">C++</span><span class="sc-tag">JavaScript</span><span class="sc-tag">LaTeX</span></div></div>
+        <div class="skill-card seo-static" data-cat="tools"><div class="sc-icon">🛠️</div><div class="sc-cat">Dev Tools</div><div class="sc-title">Tools &amp; Platforms</div><div class="sc-tags"><span class="sc-tag">Jupyter Notebook</span><span class="sc-tag">Google Colab</span><span class="sc-tag">Git</span><span class="sc-tag">GitHub</span><span class="sc-tag">Docker</span><span class="sc-tag">Kaggle</span><span class="sc-tag">VS Code</span></div></div>
+        <div class="skill-card seo-static" data-cat="tools"><div class="sc-icon">🔬</div><div class="sc-cat">Research Practices</div><div class="sc-title">Research Skills</div><div class="sc-tags"><span class="sc-tag">Experimental Design</span><span class="sc-tag">Model Benchmarking</span><span class="sc-tag">IEEE Paper Writing</span><span class="sc-tag">mAP/F1 Evaluation</span><span class="sc-tag">Reproducibility</span></div></div>
+        <div class="skill-card seo-static" data-cat="tools"><div class="sc-icon">🏫</div><div class="sc-cat">Teaching &amp; Mentorship</div><div class="sc-title">Tutoring &amp; Education</div><div class="sc-tags"><span class="sc-tag">6+ Years Teaching</span><span class="sc-tag">English Medium 4+ Years</span><span class="sc-tag">O Level &amp; A Level</span><span class="sc-tag">Physics · Chemistry · Math · CS</span><span class="sc-tag">500+ Students Coached</span></div></div>
       </div>
 
       <!-- Skill proficiency bars -->
       <div class="skill-bars" data-aos="fade-up">
         <h3 class="bars-title">Core Proficiency</h3>
-        <div class="bars-grid" id="skillBars"></div>
+        <div class="bars-grid" id="skillBars">
+          <!-- Static fallback for SEO; cleared and replaced by initSkillBars() -->
+          <div class="bar-item seo-static"><div class="bar-header"><span class="bar-name">Computer Vision</span><span class="bar-pct">92%</span></div><div class="bar-track"><div class="bar-fill" style="width:92%"></div></div></div>
+          <div class="bar-item seo-static"><div class="bar-header"><span class="bar-name">Machine Learning</span><span class="bar-pct">91%</span></div><div class="bar-track"><div class="bar-fill" style="width:91%"></div></div></div>
+          <div class="bar-item seo-static"><div class="bar-header"><span class="bar-name">Python &amp; PyTorch</span><span class="bar-pct">90%</span></div><div class="bar-track"><div class="bar-fill" style="width:90%"></div></div></div>
+          <div class="bar-item seo-static"><div class="bar-header"><span class="bar-name">LangChain / LangGraph</span><span class="bar-pct">82%</span></div><div class="bar-track"><div class="bar-fill" style="width:82%"></div></div></div>
+          <div class="bar-item seo-static"><div class="bar-header"><span class="bar-name">BERT &amp; NLP</span><span class="bar-pct">80%</span></div><div class="bar-track"><div class="bar-fill" style="width:80%"></div></div></div>
+          <div class="bar-item seo-static"><div class="bar-header"><span class="bar-name">FastAPI &amp; Docker</span><span class="bar-pct">75%</span></div><div class="bar-track"><div class="bar-fill" style="width:75%"></div></div></div>
+          <div class="bar-item seo-static"><div class="bar-header"><span class="bar-name">Research Skills</span><span class="bar-pct">88%</span></div><div class="bar-track"><div class="bar-fill" style="width:88%"></div></div></div>
+          <div class="bar-item seo-static"><div class="bar-header"><span class="bar-name">Tutoring &amp; Mentorship</span><span class="bar-pct">95%</span></div><div class="bar-track"><div class="bar-fill" style="width:95%"></div></div></div>
+        </div>
       </div>
     </div>
   </section>
@@ -570,16 +592,66 @@
         <p class="section-desc">IEEE-published research in Computer Vision, Deep Learning, and Applied AI</p>
       </div>
       <div class="research-list" id="researchList">
-        <!-- Injected by JS -->
-        <noscript>
-          <ol class="noscript-list">
-            <li><strong>Deep Learning Based Real-Time Hand Detection Using First-Person Egocentric Perspectives</strong> — IEEE/ACS AICCSA 2025</li>
-            <li><strong>A Deep Learning-Based Framework for Accurate Detection and Classification of On-Road Vehicles Using Improved YOLOv11</strong> — IEEE ECCE 2025</li>
-            <li><strong>DBNet: Automated Driver Behavior Analysis for Road Safety Using Vision-Based Systems</strong> — IEEE RAAICON 2025</li>
-            <li><strong>TOM-YOLO: Tomato Leaf Disease Detection Using Enhanced YOLOv12 Framework</strong> — IEEE RAAICON 2025</li>
-            <li><strong>An Enhanced YOLOv11 Framework for Automatic Lumbar Spine Level Detection</strong> — IEEE ICCIT 2025</li>
-          </ol>
-        </noscript>
+        <!-- Static fallback for SEO; cleared and replaced by renderResearch() -->
+        <div class="paper-card seo-static">
+          <div class="paper-idx">01</div>
+          <div class="paper-body">
+            <h3>Deep Learning Based Real-Time Hand Detection Using First-Person Egocentric Perspectives</h3>
+            <div class="paper-meta">
+              <span class="paper-venue">IEEE/ACS AICCSA 2025 — 22nd Int'l Conference on Computer Systems and Applications</span>
+              <span class="paper-badge">CORE RANKED</span>
+              <span class="paper-badge">Published</span>
+              <span class="paper-badge review">DOI: 10.1109/AICCSA66935.2025.11315447</span>
+            </div>
+          </div>
+          <a href="https://ieeexplore.ieee.org/document/11315447" target="_blank" class="paper-link">IEEE Xplore</a>
+        </div>
+        <div class="paper-card seo-static">
+          <div class="paper-idx">02</div>
+          <div class="paper-body">
+            <h3>A Deep Learning-Based Framework for Accurate Detection and Classification of On-Road Vehicles Using Improved YOLOv11</h3>
+            <div class="paper-meta">
+              <span class="paper-venue">IEEE ECCE 2025 — Int'l Conference on Electrical, Computer and Communication Engineering</span>
+              <span class="paper-badge">Published</span>
+              <span class="paper-badge review">DOI: 10.1109/ECCE64574.2025.11013964</span>
+            </div>
+          </div>
+          <a href="https://ieeexplore.ieee.org/document/11013964" target="_blank" class="paper-link">IEEE Xplore</a>
+        </div>
+        <div class="paper-card seo-static">
+          <div class="paper-idx">03</div>
+          <div class="paper-body">
+            <h3>DBNet: Automated Driver Behavior Analysis for Road Safety Using Vision-Based Systems</h3>
+            <div class="paper-meta">
+              <span class="paper-venue">IEEE RAAICON 2025 — 4th Int'l Conference on Robotics, Automation, AI and IoT</span>
+              <span class="paper-badge">First Author</span>
+              <span class="paper-badge">Presented</span>
+            </div>
+          </div>
+          <span class="paper-link disabled">Processing</span>
+        </div>
+        <div class="paper-card seo-static">
+          <div class="paper-idx">04</div>
+          <div class="paper-body">
+            <h3>TOM-YOLO: Tomato Leaf Disease Detection Using Enhanced YOLOv12 Framework</h3>
+            <div class="paper-meta">
+              <span class="paper-venue">IEEE RAAICON 2025 — 4th Int'l Conference on Robotics, Automation, AI and IoT</span>
+              <span class="paper-badge">Presented</span>
+            </div>
+          </div>
+          <span class="paper-link disabled">Processing</span>
+        </div>
+        <div class="paper-card seo-static">
+          <div class="paper-idx">05</div>
+          <div class="paper-body">
+            <h3>An Enhanced YOLOv11 Framework for Automatic Lumbar Spine Level Detection</h3>
+            <div class="paper-meta">
+              <span class="paper-venue">IEEE ICCIT 2025 — 28th Int'l Conference on Computer and Information Technology</span>
+              <span class="paper-badge">Presented</span>
+            </div>
+          </div>
+          <span class="paper-link disabled">Processing</span>
+        </div>
       </div>
     </div>
   </section>
@@ -600,17 +672,77 @@
       </div>
 
       <div class="projects-grid" id="projectsGrid">
-        <!-- Injected by JS -->
-        <noscript>
-          <ul class="noscript-list">
-            <li><strong>Multi-Tool AI Agent (Bangladesh Data)</strong> — LangChain &amp; LangGraph-based AI agent with dynamic SQL tool-calling and memory management.</li>
-            <li><strong>Bangladeshi Taka Note Detection API</strong> — Production FastAPI microservice with custom YOLOv11 model for currency detection.</li>
-            <li><strong>LLM Article Analysis Pipeline</strong> — Multi-stage automated AI workflow: Streamlit → FastAPI → n8n → LLM → Google Sheets → Gmail.</li>
-            <li><strong>BERT Fine-Tuning for Question Answering</strong> — Fine-tuned BERT on SQuAD v1.1 achieving 71.15% Exact Match and 80.97% F1.</li>
-            <li><strong>CityWatch — Urban Issue Reporting</strong> — Full-stack MVC web app with multi-role auth and RBAC.</li>
-            <li><strong>Medical &amp; Disease Detection Systems</strong> — Computer Vision pipelines for medical imaging analysis.</li>
-          </ul>
-        </noscript>
+        <!-- Static fallback for SEO; cleared and replaced by renderProjects() -->
+        <article class="project-card seo-static" data-cat="llm">
+          <div class="project-body">
+            <h3>🤖 Multi-Tool AI Agent (Bangladesh Data)</h3>
+            <p>LangChain &amp; LangGraph-based AI agent integrating multiple SQLite databases and web search APIs. Features dynamic SQL tool-calling, memory management, and structured prompt pipelines tailored for Bangladesh-specific data.</p>
+            <div class="project-stack"><span class="stack-tag">LangChain</span><span class="stack-tag">LangGraph</span><span class="stack-tag">SQLite</span><span class="stack-tag">Python</span><span class="stack-tag">OpenAI API</span></div>
+          </div>
+        </article>
+        <article class="project-card seo-static" data-cat="cv">
+          <div class="project-body">
+            <h3>⚡ Bangladeshi Taka Note Detection API</h3>
+            <p>Production-ready FastAPI microservice exposing a custom-trained YOLOv11 model for Bangladeshi taka note &amp; coin detection. Returns denomination labels, confidence scores, and bounding boxes. Docker Compose bundles API with Redis caching.</p>
+            <div class="project-stack"><span class="stack-tag">YOLOv11</span><span class="stack-tag">FastAPI</span><span class="stack-tag">Docker</span><span class="stack-tag">Redis</span><span class="stack-tag">Python</span><span class="stack-tag">PyTorch</span></div>
+          </div>
+        </article>
+        <article class="project-card seo-static" data-cat="llm">
+          <div class="project-body">
+            <h3>📄 LLM Article Analysis Pipeline</h3>
+            <p>Multi-stage automated AI workflow: Streamlit → FastAPI → n8n → LLM → Google Sheets → Gmail. Fully automated document analysis with structured output generation.</p>
+            <div class="project-stack"><span class="stack-tag">OpenAI API</span><span class="stack-tag">n8n</span><span class="stack-tag">FastAPI</span><span class="stack-tag">Streamlit</span><span class="stack-tag">Google Sheets API</span></div>
+          </div>
+        </article>
+        <article class="project-card seo-static" data-cat="llm">
+          <div class="project-body">
+            <h3>🧠 BERT Fine-Tuning for Question Answering</h3>
+            <p>Fine-tuned BERT (bert-base-uncased) on SQuAD v1.1 achieving 71.15% Exact Match and 80.97% F1. Full pipeline: tokenization, span prediction, evaluation with HuggingFace Transformers and PyTorch.</p>
+            <div class="project-stack"><span class="stack-tag">BERT</span><span class="stack-tag">HuggingFace</span><span class="stack-tag">PyTorch</span><span class="stack-tag">SQuAD v1.1</span><span class="stack-tag">Python</span></div>
+          </div>
+        </article>
+        <article class="project-card seo-static" data-cat="web">
+          <div class="project-body">
+            <h3>🌆 CityWatch — Urban Issue Reporting</h3>
+            <p>Full-stack MVC web app with multi-role auth (Citizen, Authority, Admin), AJAX operations, RBAC, secure session handling, and relational database design.</p>
+            <div class="project-stack"><span class="stack-tag">PHP</span><span class="stack-tag">MySQL</span><span class="stack-tag">JavaScript</span><span class="stack-tag">AJAX</span><span class="stack-tag">MVC</span></div>
+          </div>
+        </article>
+        <article class="project-card seo-static" data-cat="cv">
+          <div class="project-body">
+            <h3>🏥 Medical &amp; Disease Detection Systems</h3>
+            <p>ML/DL-based diagnostic tools for bone fracture detection (lumbar spine) and tomato leaf disease classification using enhanced YOLO frameworks. IEEE-published research.</p>
+            <div class="project-stack"><span class="stack-tag">YOLOv11</span><span class="stack-tag">YOLOv12</span><span class="stack-tag">PyTorch</span><span class="stack-tag">OpenCV</span><span class="stack-tag">CNN</span></div>
+          </div>
+        </article>
+        <article class="project-card seo-static" data-cat="ml">
+          <div class="project-body">
+            <h3>🏠 Smart House Rent Forecasting</h3>
+            <p>Regression-based predictive system for rental price estimation using feature engineering and cross-validation techniques. Models: Linear Regression, Random Forest, XGBoost.</p>
+            <div class="project-stack"><span class="stack-tag">Python</span><span class="stack-tag">Scikit-learn</span><span class="stack-tag">XGBoost</span><span class="stack-tag">Pandas</span><span class="stack-tag">NumPy</span></div>
+          </div>
+        </article>
+        <article class="project-card seo-static" data-cat="llm">
+          <div class="project-body">
+            <h3>🛂 Amar Passport AI Agent</h3>
+            <p>Autonomous 4-agent CrewAI system acting as a smart Bangladesh e-passport assistant. Delivers eligibility verification, exact 2026 fee calculation, personalized document checklist, and a full bilingual report in English &amp; Bangla.</p>
+            <div class="project-stack"><span class="stack-tag">CrewAI</span><span class="stack-tag">LangChain</span><span class="stack-tag">Groq</span><span class="stack-tag">Llama 4</span><span class="stack-tag">Python</span></div>
+          </div>
+        </article>
+        <article class="project-card seo-static" data-cat="cv">
+          <div class="project-body">
+            <h3>🇧🇩 Bangladeshi Taka Detection — YOLOv11</h3>
+            <p>End-to-end object detection fine-tuning YOLOv11n on 11 denominations of Bangladeshi currency. Achieves 97.16% mAP@0.50 on ~1,490 real-world annotated images via Roboflow.</p>
+            <div class="project-stack"><span class="stack-tag">YOLOv11</span><span class="stack-tag">Ultralytics</span><span class="stack-tag">PyTorch</span><span class="stack-tag">Roboflow</span><span class="stack-tag">Python</span></div>
+          </div>
+        </article>
+        <article class="project-card seo-static" data-cat="llm">
+          <div class="project-body">
+            <h3>🎬 Sentiment Analysis — IMDB Reviews</h3>
+            <p>Comparative study of 4 sentiment models on 50K IMDB reviews: TF-IDF + LogReg, Word2Vec, BERT Embeddings, and Fine-tuned BERT. Benchmarks accuracy, F1, and computational trade-offs.</p>
+            <div class="project-stack"><span class="stack-tag">BERT</span><span class="stack-tag">HuggingFace</span><span class="stack-tag">PyTorch</span><span class="stack-tag">Scikit-learn</span><span class="stack-tag">Python</span></div>
+          </div>
+        </article>
       </div>
     </div>
   </section>
@@ -622,7 +754,35 @@
         <h2 class="section-title">Academic <span>Journey</span></h2>
       </div>
       <div class="edu-timeline" id="eduTimeline">
-        <!-- Injected by JS -->
+        <!-- Static fallback for SEO; cleared and replaced by renderEducation() -->
+        <div class="edu-item seo-static">
+          <div class="edu-dot"></div>
+          <div class="edu-year">2022 — 2026 (Expected)</div>
+          <h3>B.Sc. in Computer Science &amp; Engineering</h3>
+          <div class="edu-institution" style="color:var(--accent);font-size:12px;margin-bottom:4px">Major: Information Systems</div>
+          <div class="edu-institution">American International University–Bangladesh (AIUB), Dhaka</div>
+          <div class="edu-gpa">CGPA: 3.75 / 4.00</div>
+          <p class="edu-desc">Pursuing undergraduate studies with a focus on AI, Machine Learning, Computer Vision, and Deep Learning. Active researcher and IEEE student member throughout the program.</p>
+          <div class="edu-courses"><span class="course-tag">Data Structures &amp; Algorithms</span><span class="course-tag">Machine Learning</span><span class="course-tag">NLP</span><span class="course-tag">Computer Vision</span><span class="course-tag">Software Engineering</span><span class="course-tag">Database Systems</span><span class="course-tag">Data Warehousing &amp; Mining</span><span class="course-tag">OOP</span><span class="course-tag">Operating Systems</span></div>
+        </div>
+        <div class="edu-item seo-static">
+          <div class="edu-dot"></div>
+          <div class="edu-year">2018 — 2020</div>
+          <h3>Higher Secondary Certificate (Science)</h3>
+          <div class="edu-institution">Govt. Keshab Chandra College, Jhenaidah</div>
+          <div class="edu-gpa">GPA: 5.00 / 5.00</div>
+          <p class="edu-desc">Achieved perfect GPA in the science stream, with strong foundation in Mathematics and Physics.</p>
+          <div class="edu-courses"><span class="course-tag">Higher Mathematics</span><span class="course-tag">Physics</span><span class="course-tag">Chemistry</span><span class="course-tag">Biology</span><span class="course-tag">ICT</span></div>
+        </div>
+        <div class="edu-item seo-static">
+          <div class="edu-dot"></div>
+          <div class="edu-year">2016 — 2018</div>
+          <h3>Secondary School Certificate (Science)</h3>
+          <div class="edu-institution">Garagonj High School</div>
+          <div class="edu-gpa">GPA: 4.67 / 5.00</div>
+          <p class="edu-desc">Completed secondary education in the science stream with a strong foundation in Mathematics, Physics, and Chemistry.</p>
+          <div class="edu-courses"><span class="course-tag">Mathematics</span><span class="course-tag">Physics</span><span class="course-tag">Chemistry</span><span class="course-tag">Biology</span><span class="course-tag">ICT</span><span class="course-tag">Higher Mathematics</span></div>
+        </div>
       </div>
     </div>
   </section>
@@ -665,7 +825,44 @@
         <p class="section-desc">Research, academic service, and professional teaching experience</p>
       </div>
       <div class="exp-grid" id="expGrid">
-        <!-- Injected by JS -->
+        <!-- Static fallback for SEO; cleared and replaced by renderExperience() -->
+        <div class="exp-card seo-static">
+          <div class="exp-icon exp-color-blue"><i class="fas fa-flask"></i></div>
+          <div class="exp-header"><h3 class="exp-role">AI Researcher</h3><span class="exp-type">Research</span></div>
+          <div class="exp-org">American International University–Bangladesh (AIUB)</div>
+          <div class="exp-period"><i class="fas fa-calendar-alt"></i> 2024 — Present</div>
+          <p class="exp-desc">Conducting independent and collaborative research in Computer Vision and Deep Learning at AIUB. Published 5 IEEE papers at internationally ranked conference venues within 2 years, covering YOLO-based systems, medical imaging, and driver behavior analysis.</p>
+          <ul class="exp-highlights">
+            <li>5 IEEE publications at CORE-ranked &amp; international venues</li>
+            <li>Presented at AICCSA 2025, ECCE 2025, RAAICON 2025, ICCIT 2025</li>
+            <li>Research areas: YOLO, LLMs, NLP, Medical AI, Driver AI</li>
+          </ul>
+        </div>
+        <div class="exp-card seo-static">
+          <div class="exp-icon exp-color-purple"><i class="fas fa-search"></i></div>
+          <div class="exp-header"><h3 class="exp-role">IEEE Conference Reviewer</h3><span class="exp-type">Academic Service</span></div>
+          <div class="exp-org">IEEE — 3ICT 2025 &amp; FET'26</div>
+          <div class="exp-period"><i class="fas fa-calendar-alt"></i> 2025 — Present</div>
+          <p class="exp-desc">Serving as an active peer reviewer for IEEE international conferences, evaluating manuscript quality, technical rigor, novelty, and research contributions in deep learning, intelligent systems, and applied AI domains.</p>
+          <ul class="exp-highlights">
+            <li>Reviewer for IEEE 3ICT 2025 (International Conference on Innovation and Intelligence)</li>
+            <li>Assigned to IEEE FET'26 review committee</li>
+            <li>Domains: Deep Learning, AI Systems, Computer Vision, IoT</li>
+          </ul>
+        </div>
+        <div class="exp-card seo-static">
+          <div class="exp-icon exp-color-green"><i class="fas fa-chalkboard-teacher"></i></div>
+          <div class="exp-header"><h3 class="exp-role">Private Tutor &amp; Education Consultant</h3><span class="exp-type">Teaching</span></div>
+          <div class="exp-org">Independent · Dhaka, Bangladesh</div>
+          <div class="exp-period"><i class="fas fa-calendar-alt"></i> 2019 — Present</div>
+          <p class="exp-desc">Providing comprehensive academic tutoring for students from Class 6 through HSC and O/A Level programs for 6+ years. Co-managed a coaching center serving 500+ students. Specialized in science subjects, mathematics, and computer science.</p>
+          <ul class="exp-highlights">
+            <li>6+ years of full-time and part-time teaching experience</li>
+            <li>4+ years in English medium instruction</li>
+            <li>Co-managed coaching center with 500+ enrolled students</li>
+            <li>O Level, A Level, SSC &amp; HSC exam preparation</li>
+          </ul>
+        </div>
       </div>
     </div>
   </section>
@@ -678,7 +875,18 @@
         <p class="section-desc">Professional memberships, academic recognitions, and course completions</p>
       </div>
       <div class="certs-grid" id="certsGrid">
-        <!-- Injected by JS -->
+        <!-- Static fallback for SEO; cleared and replaced by renderCerts() -->
+        <div class="cert-card seo-static"><div class="cert-icon-wrap cert-blue"><i class="fas fa-id-card"></i></div><div class="cert-body"><span class="cert-category">Membership</span><h3 class="cert-title">IEEE Student Member Certificate</h3><p class="cert-issuer">IEEE</p><p class="cert-year">2023</p></div></div>
+        <div class="cert-card seo-static"><div class="cert-icon-wrap cert-blue"><i class="fas fa-laptop-code"></i></div><div class="cert-body"><span class="cert-category">Membership</span><h3 class="cert-title">IEEE Computer Society Member Certificate</h3><p class="cert-issuer">IEEE Computer Society</p><p class="cert-year">2023</p></div></div>
+        <div class="cert-card seo-static"><div class="cert-icon-wrap cert-blue"><i class="fas fa-certificate"></i></div><div class="cert-body"><span class="cert-category">Membership</span><h3 class="cert-title">IEEE Member Certificate</h3><p class="cert-issuer">IEEE</p><p class="cert-year">2023</p></div></div>
+        <div class="cert-card seo-static"><div class="cert-icon-wrap cert-purple"><i class="fas fa-users"></i></div><div class="cert-body"><span class="cert-category">Academic Service</span><h3 class="cert-title">IEEE 3ICT 2025 — Conference Certificate</h3><p class="cert-issuer">IEEE — 3ICT 2025</p><p class="cert-year">2025</p></div></div>
+        <div class="cert-card seo-static"><div class="cert-icon-wrap cert-cyan"><i class="fas fa-car"></i></div><div class="cert-body"><span class="cert-category">Conference Author</span><h3 class="cert-title">ECCE 2025 — Author Certificate</h3><p class="cert-issuer">IEEE ECCE 2025</p><p class="cert-year">2025</p></div></div>
+        <div class="cert-card seo-static"><div class="cert-icon-wrap cert-purple"><i class="fas fa-car"></i></div><div class="cert-body"><span class="cert-category">Conference Author</span><h3 class="cert-title">RAAICON 2025 — Author Certificate (DBNet)</h3><p class="cert-issuer">IEEE RAAICON 2025</p><p class="cert-year">2025</p></div></div>
+        <div class="cert-card seo-static"><div class="cert-icon-wrap cert-green"><i class="fas fa-leaf"></i></div><div class="cert-body"><span class="cert-category">Conference Author</span><h3 class="cert-title">RAAICON 2025 — Author Certificate (TOM-YOLO)</h3><p class="cert-issuer">IEEE RAAICON 2025</p><p class="cert-year">2025</p></div></div>
+        <div class="cert-card seo-static"><div class="cert-icon-wrap cert-blue"><i class="fas fa-x-ray"></i></div><div class="cert-body"><span class="cert-category">Conference Author</span><h3 class="cert-title">ICCIT 2025 — Author Certificate</h3><p class="cert-issuer">IEEE ICCIT 2025</p><p class="cert-year">2025</p></div></div>
+        <div class="cert-card seo-static"><div class="cert-icon-wrap cert-green"><i class="fas fa-chalkboard-teacher"></i></div><div class="cert-body"><span class="cert-category">Teaching</span><h3 class="cert-title">Certified Tutor</h3><p class="cert-issuer">CareTutors</p><p class="cert-year">2025</p></div></div>
+        <div class="cert-card seo-static"><div class="cert-icon-wrap cert-blue"><i class="fas fa-network-wired"></i></div><div class="cert-body"><span class="cert-category">Course Completion</span><h3 class="cert-title">IT Essentials — Cisco Official Certificate</h3><p class="cert-issuer">Cisco Networking Academy</p><p class="cert-year">2022</p></div></div>
+        <div class="cert-card seo-static"><div class="cert-icon-wrap cert-blue"><i class="fas fa-laptop"></i></div><div class="cert-body"><span class="cert-category">Course Completion</span><h3 class="cert-title">IT Essentials — Academy Certificate</h3><p class="cert-issuer">Cisco Networking Academy · AIUB</p><p class="cert-year">2022</p></div></div>
       </div>
     </div>
   </section>
