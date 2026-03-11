@@ -2240,18 +2240,14 @@ section { padding: 120px 0; position: relative; z-index: 10; }
     display: flex;
     flex-direction: column;
   }
-  /* Photo above text on mobile */
-  .hero-mobile-photo { order: -1; }
+  /* Photo above text on all viewports */
+  .hero-right { display: flex; order: -1; justify-content: center; }
   .hero-left { order: 0; }
   /* Center eyebrow on mobile */
   .hero-eyebrow { justify-content: center; }
   .hero-bio { margin-left: auto; margin-right: auto; }
   .hero-actions { justify-content: center; }
   .hero-socials { justify-content: center; }
-  /* Hide the complex desktop visual */
-  .hero-right { display: none; }
-  /* Show the simple mobile photo */
-  .hero-mobile-photo { display: flex; }
   /* Hide scroll hint on mobile */
   .hero-scroll-hint { display: none; }
   /* Prevent horizontal overflow */
@@ -2323,8 +2319,8 @@ section { padding: 120px 0; position: relative; z-index: 10; }
   .hero-actions { flex-direction: column; align-items: stretch; gap: 10px; }
   .cta-primary, .cta-secondary, .cta-resume { width: 100%; justify-content: center; }
 
-  /* Avatar size on small phones */
-  .mobile-avatar-wrap { width: 160px; height: 160px; }
+  /* Scale down the hero visual card on narrow screens */
+  .hero-visual-wrap { padding: 40px; }
 
   /* WPM badge â€” too wide on small screens */
   .wpm-badge { display: none; }
