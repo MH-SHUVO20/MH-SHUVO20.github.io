@@ -496,9 +496,9 @@ section { padding: 120px 0; position: relative; z-index: 10; }
 .hero-container {
   max-width: 1300px; margin: 0 auto; width: 100%;
   display: grid; grid-template-columns: 1fr 1fr;
-  gap: 2rem; align-items: center;
-  min-height: 100vh;
-  padding: 0 4rem;
+  gap: 4rem; align-items: center;
+  padding-top: var(--navbar-h, 80px);
+  padding-bottom: 60px;
 }
 .hero-right {
   display: flex;
@@ -599,21 +599,40 @@ section { padding: 120px 0; position: relative; z-index: 10; }
   transform: translateY(-1px);
 }
 .cta-secondary {
-  display: flex; align-items: center; gap: 10px;
-  padding: 14px 28px;
-  border: 1px solid var(--border);
+  display: inline-flex; align-items: center; gap: 8px;
+  padding: 10px 20px;
+  border: 2px solid var(--border);
   color: var(--text);
-  font-family: var(--font-mono);
-  font-size: 13px;
-  letter-spacing: 0.5px;
-  border-radius: 8px;
+  font-size: 0.875rem;
+  font-weight: 600;
+  border-radius: 50px;
   text-decoration: none;
-  transition: all 0.2s;
+  cursor: pointer;
+  transition: all 0.25s ease;
+  white-space: nowrap;
 }
 .cta-secondary:hover {
   border-color: var(--accent);
   color: var(--accent);
-  transform: translateY(-2px);
+  transform: translateY(-1px);
+}
+.cta-collab {
+  display: inline-flex; align-items: center; gap: 8px;
+  padding: 10px 20px;
+  border: 2px solid rgba(167, 139, 250, 0.4);
+  color: #a78bfa;
+  font-size: 0.875rem;
+  font-weight: 600;
+  border-radius: 50px;
+  text-decoration: none;
+  cursor: pointer;
+  transition: all 0.25s ease;
+  white-space: nowrap;
+}
+.cta-collab:hover {
+  border-color: #a78bfa;
+  background: rgba(167, 139, 250, 0.08);
+  transform: translateY(-1px);
 }
 .cta-resume {
   display: inline-flex;
@@ -698,8 +717,9 @@ section { padding: 120px 0; position: relative; z-index: 10; }
   position: relative;
   display: flex; flex-direction: column; align-items: center;
   justify-content: center;
-  padding: 60px;
+  padding: 40px;
   gap: 16px;
+  overflow: visible;
 }
 .avatar-frame {
   position: relative;
@@ -2566,7 +2586,7 @@ section { padding: 120px 0; position: relative; z-index: 10; }
   section { padding: 80px 0; }
   .hero-container {
     padding-top: calc(var(--navbar-h, 90px) + 16px);
-    padding-bottom: 60px;
+    padding-bottom: 48px;
     gap: 20px;
     text-align: center;
   }
