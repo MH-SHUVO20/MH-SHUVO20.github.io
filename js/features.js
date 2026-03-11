@@ -169,25 +169,25 @@ function initGreeting() {
 }
 // ── 7. Live Clock & Topbar Greeting ───────────────────────────────
 function initLiveClock() {
-  var timeEl     = document.getElementById('topbarTime');
-  var dateEl     = document.getElementById('topbarDate');
-  var greetEl    = document.getElementById('topbarGreeting');
-  if (!timeEl) return;
+  var timeEl  = document.getElementById('topbarTime');
+  var dateEl  = document.getElementById('topbarDate');
+  var greetEl = document.getElementById('topbarGreeting');
 
   function tick() {
-    var now = new Date();
-    var h   = now.getHours();
-    var m   = now.getMinutes();
-    var s   = now.getSeconds();
-    var pad = function(n) { return String(n).padStart(2,'0'); };
+    var now  = new Date();
+    var h    = now.getHours();
+    var m    = now.getMinutes();
+    var s    = now.getSeconds();
+    var pad  = function(n) { return String(n).padStart(2, '0'); };
+    var ampm = h >= 12 ? 'PM' : 'AM';
+    var h12  = h % 12 || 12;
 
-    // Time in 12-hour format
-    var ampm    = h >= 12 ? 'PM' : 'AM';
-    var h12     = h % 12 || 12;
-    var isMobile = window.innerWidth <= 480;
-    timeEl.textContent = isMobile
-      ? pad(h12) + ':' + pad(m) + ' ' + ampm
-      : pad(h12) + ':' + pad(m) + ':' + pad(s) + ' ' + ampm;
+    // Topbar clock (seconds on desktop, HH:MM on mobile)
+    if (timeEl) {
+      timeEl.textContent = (window.innerWidth <= 480)
+        ? pad(h12) + ':' + pad(m) + ' ' + ampm
+        : pad(h12) + ':' + pad(m) + ':' + pad(s) + ' ' + ampm;
+    }
 
     // Hero local time badge
     var heroTimeEl = document.getElementById('heroLocalTime');
@@ -195,34 +195,30 @@ function initLiveClock() {
       heroTimeEl.textContent = pad(h12) + ':' + pad(m) + ' ' + ampm;
     }
 
-    // Date
+    // Date strip
     if (dateEl) {
       dateEl.textContent = now.toLocaleDateString('en-US', {
         weekday: 'short', year: 'numeric', month: 'short', day: 'numeric'
       });
     }
 
-    // Greeting (updates on the hour)
+    // Topbar greeting (re-evaluated on every tick so it updates at midnight)
     if (greetEl) {
-      var greeting;
-      if      (h >= 5  && h < 12) greeting = '\u2600\ufe0f Good Morning';
-      else if (h >= 12 && h < 17) greeting = '\ud83c\udf24\ufe0f Good Afternoon';
-      else if (h >= 17 && h < 21) greeting = '\ud83c\udf06 Good Evening';
-      else                         greeting = '\ud83c\udf19 Good Night';
+      var greeting =
+        (h >= 5  && h < 12) ? '\u2600\ufe0f Good Morning'    :
+        (h >= 12 && h < 17) ? '\ud83c\udf24\ufe0f Good Afternoon' :
+        (h >= 17 && h < 21) ? '\ud83c\udf06 Good Evening'    :
+                               '\ud83c\udf19 Good Night';
       greetEl.textContent = greeting;
     }
   }
 
-  tick();
+  tick();                       // run immediately — no visible flash
   setInterval(tick, 1000);
 }
 // ── Boot ──────────────────────────────────────────────────────
-// Clock starts immediately — DOM is fully parsed by the time scripts
-// at end of <body> execute, so getElementById works without waiting
-// for the DOMContentLoaded event. This prevents any --:-- -- flash.
-initLiveClock();
-
 document.addEventListener('DOMContentLoaded', function() {
+  initLiveClock();      // first — no deps, updates clock immediately
   initVisitCounter();
   initGitHubStats();
   initLastUpdated();
