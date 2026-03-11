@@ -575,15 +575,15 @@ section { padding: 120px 0; position: relative; z-index: 10; }
 }
 .type-cursor { animation: blink 0.7s infinite; }
 .hero-bio {
-  font-size: 17px;
-  line-height: 1.75;
+  font-size: 16px;
+  line-height: 1.7;
   color: var(--text2);
-  margin-bottom: 40px;
-  max-width: 560px;
+  margin-bottom: 24px;
+  max-width: 520px;
 }
 .hero-actions {
   display: flex; gap: 12px; flex-wrap: wrap;
-  margin-bottom: 36px;
+  margin-bottom: 24px;
 }
 .cta-primary {
   display: inline-flex; align-items: center; gap: 8px;
