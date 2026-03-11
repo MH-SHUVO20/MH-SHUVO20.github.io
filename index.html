@@ -223,6 +223,7 @@
       <ul class="nav-menu" id="navMenu">
         <li><a href="#hero" class="nav-link" data-section="hero">Home</a></li>
         <li><a href="#about" class="nav-link" data-section="about">About</a></li>
+        <li><a href="#video-cv" class="nav-link" data-section="video-cv">Video CV</a></li>
         <li><a href="#skills" class="nav-link" data-section="skills">Skills</a></li>
         <li><a href="#research" class="nav-link" data-section="research">Research</a></li>
         <li><a href="#projects" class="nav-link" data-section="projects">Projects</a></li>
@@ -441,29 +442,31 @@
           </div>
         </div>
       </div>
+    </div>
+  </section>
 
-      <!-- Video Introduction -->
-      <div class="about-video-wrap" data-aos="fade-up">
-        <div class="about-video-header">
-          <h3 class="about-video-title">Watch My <span>Introduction</span></h3>
-          <p class="about-video-sub">Get to know me, my research journey, and what drives my work in AI</p>
+  <!-- VIDEO CV -->
+  <section id="video-cv" class="dark-section">
+    <div class="container">
+      <div class="section-header" data-aos="fade-up">
+        <h2 class="section-title">Video <span>Introduction</span></h2>
+        <p class="section-desc">Get to know me, my research journey, and what drives my work in AI</p>
+      </div>
+      <div class="video-cv-frame" id="introVideoFrame" data-aos="fade-up">
+        <div class="intro-video-facade" id="introVideoFacade">
+          <img src="https://img.youtube.com/vi/7HPndjpxDjY/sddefault.jpg"
+               onerror="this.onerror=null;this.src='https://img.youtube.com/vi/7HPndjpxDjY/hqdefault.jpg'"
+               alt="Video Introduction Thumbnail"
+               class="intro-video-thumb"
+               loading="lazy">
+          <button class="intro-video-play" aria-label="Play video introduction">
+            <svg viewBox="0 0 68 48" width="68" height="48">
+              <path d="M66.52 7.74c-.78-2.93-2.49-5.41-5.42-6.19C55.79.13 34 0 34 0S12.21.13 6.9 1.55c-2.93.78-4.63 3.26-5.42 6.19C.06 13.05 0 24 0 24s.06 10.95 1.48 16.26c.78 2.93 2.49 5.41 5.42 6.19C12.21 47.87 34 48 34 48s21.79-.13 27.1-1.55c2.93-.78 4.64-3.26 5.42-6.19C67.94 34.95 68 24 68 24s-.06-10.95-1.48-16.26z" fill="#212121" fill-opacity=".8"></path>
+              <path d="M45 24L27 14v20" fill="#fff"></path>
+            </svg>
+          </button>
         </div>
-        <div class="about-video-frame" id="introVideoFrame">
-          <div class="intro-video-facade" id="introVideoFacade">
-            <img src="https://img.youtube.com/vi/7HPndjpxDjY/sddefault.jpg"
-                 onerror="this.onerror=null;this.src='https://img.youtube.com/vi/7HPndjpxDjY/hqdefault.jpg'"
-                 alt="Video Introduction Thumbnail"
-                 class="intro-video-thumb"
-                 loading="lazy">
-            <button class="intro-video-play" aria-label="Play video introduction">
-              <svg viewBox="0 0 68 48" width="68" height="48">
-                <path d="M66.52 7.74c-.78-2.93-2.49-5.41-5.42-6.19C55.79.13 34 0 34 0S12.21.13 6.9 1.55c-2.93.78-4.63 3.26-5.42 6.19C.06 13.05 0 24 0 24s.06 10.95 1.48 16.26c.78 2.93 2.49 5.41 5.42 6.19C12.21 47.87 34 48 34 48s21.79-.13 27.1-1.55c2.93-.78 4.64-3.26 5.42-6.19C67.94 34.95 68 24 68 24s-.06-10.95-1.48-16.26z" fill="#212121" fill-opacity=".8"></path>
-                <path d="M45 24L27 14v20" fill="#fff"></path>
-              </svg>
-            </button>
-          </div>
-          <div class="intro-video-player" id="introVideoPlayer"></div>
-        </div>
+        <div class="intro-video-player" id="introVideoPlayer"></div>
       </div>
     </div>
   </section>
