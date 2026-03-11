@@ -52,11 +52,18 @@
 (function initTheme() {
   const btn = document.getElementById('themeToggle');
   if (!btn) return;
-  const saved = localStorage.getItem('mhshuvo-theme') || 'dark';
+
+  // Force dark as default — only switch if user explicitly chose light
+  const saved = localStorage.getItem('mhshuvo-theme');
   if (saved === 'light') {
     document.documentElement.setAttribute('data-theme', 'light');
     btn.innerHTML = '<i class="fas fa-sun"></i>';
+  } else {
+    document.documentElement.removeAttribute('data-theme');
+    localStorage.setItem('mhshuvo-theme', 'dark');
+    btn.innerHTML = '<i class="fas fa-moon"></i>';
   }
+
   btn.addEventListener('click', () => {
     const isLight = document.documentElement.getAttribute('data-theme') === 'light';
     if (isLight) {
