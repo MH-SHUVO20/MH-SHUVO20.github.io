@@ -2351,11 +2351,11 @@ section { padding: 120px 0; position: relative; z-index: 10; }
   border-radius: 16px 16px 0 0;
   overflow: hidden;
   position: relative;
-  /* no fixed height — video/image drives height via aspect-ratio */
+  max-height: 500px;
 }
 .pm-media-img {
   width: 100%; height: auto;
-  max-height: 480px;
+  max-height: 320px;
   object-fit: cover;
   display: block;
 }
