@@ -45,6 +45,21 @@
     if (e.target.closest(hoverEls)) outline.classList.remove('hovering');
   });
 
+  // Hide cursor while inside any modal (iframes block mousemove anyway)
+  const modalSelectors = '#projectModal, #certModal';
+  document.addEventListener('mouseover', e => {
+    if (e.target.closest(modalSelectors)) {
+      dot.style.opacity = '0';
+      outline.style.opacity = '0';
+    }
+  });
+  document.addEventListener('mouseout', e => {
+    if (e.target.closest(modalSelectors) && cursorVisible) {
+      dot.style.opacity = '1';
+      outline.style.opacity = '1';
+    }
+  });
+
   // Hide on leave / show on enter
   document.addEventListener('mouseleave', () => {
     dot.style.opacity = '0';

@@ -224,7 +224,7 @@ body a { cursor: none; }
   width: 6px; height: 6px;
   background: var(--accent);
   border-radius: 50%;
-  z-index: 9990;
+  z-index: 999;
   transform: translate(-50%, -50%);
 }
 .cursor-outline {
@@ -232,7 +232,7 @@ body a { cursor: none; }
   width: 32px; height: 32px;
   border: 1.5px solid rgba(34, 211, 238,0.5);
   border-radius: 50%;
-  z-index: 9989;
+  z-index: 998;
   transform: translate(-50%, -50%);
   transition: opacity 0.3s ease, transform 0.1s ease, width 0.3s, height 0.3s, border-color 0.3s;
 }
