@@ -401,13 +401,16 @@ function initProjectModal() {
     const facade = e.target.closest('.video-facade');
     if (!facade) return;
     const src = facade.dataset.src;
+    const fallbackUrl = src.includes('drive.google.com')
+      ? src.replace('/preview', '/view')
+      : src;
     facade.outerHTML = `
       <div class="video-frame-wrap">
         <iframe src="${src}"
-          width="100%" style="aspect-ratio:16/9; border:none; border-radius:8px;"
-          allow="autoplay; encrypted-media" allowfullscreen loading="lazy">
+          allow="autoplay; encrypted-media; fullscreen"
+          allowfullscreen>
         </iframe>
-        <a href="${src.replace('/preview', '')}" target="_blank" class="video-drive-fallback">
+        <a href="${fallbackUrl}" target="_blank" rel="noopener noreferrer" class="video-drive-fallback">
           <i class="fas fa-external-link-alt"></i> Open in Google Drive
         </a>
       </div>
