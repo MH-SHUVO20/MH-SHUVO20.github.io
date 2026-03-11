@@ -1101,7 +1101,7 @@ section { padding: 120px 0; position: relative; z-index: 10; }
 .video-cv-frame {
   position: relative;
   width: 100%;
-  max-width: 960px;
+  max-width: 780px;
   margin: 0 auto;
   padding-top: 54%; /* ~16:9 */
   border-radius: 12px;
