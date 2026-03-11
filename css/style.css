@@ -47,6 +47,15 @@
 }
 
 /* Light mode navbar & topbar overrides */
+/* Hide custom cursor in light theme — cyan ring doesn't work on light bg */
+[data-theme="light"] .cursor-dot,
+[data-theme="light"] .cursor-outline {
+  display: none;
+}
+[data-theme="light"] body,
+[data-theme="light"] body * {
+  cursor: auto !important;
+}
 [data-theme="light"] #navbar.scrolled {
   background: rgba(255,255,255,0.95);
   box-shadow: 0 1px 0 rgba(99, 102, 241, 0.15);
@@ -490,15 +499,13 @@ section { padding: 120px 0; position: relative; z-index: 10; }
   min-height: 100vh;
   min-height: var(--vvh, 100vh);
   display: flex; align-items: center;
-  padding: 0 60px;
+  padding: calc(var(--navbar-h, 80px) + 16px) 60px 40px;
   position: relative; z-index: 10;
 }
 .hero-container {
   max-width: 1300px; margin: 0 auto; width: 100%;
   display: grid; grid-template-columns: 1fr 1fr;
   gap: 4rem; align-items: center;
-  padding-top: var(--navbar-h, 80px);
-  padding-bottom: 60px;
 }
 .hero-right {
   display: flex;
@@ -531,7 +538,7 @@ section { padding: 120px 0; position: relative; z-index: 10; }
 
 .hero-title {
   font-family: var(--font-display);
-  font-size: clamp(3rem, 6vw, 5.5rem);
+  font-size: clamp(2.4rem, 4.5vw, 4.2rem);
   letter-spacing: 3px;
   line-height: 1.05;
   margin-bottom: 28px;
@@ -2585,8 +2592,6 @@ section { padding: 120px 0; position: relative; z-index: 10; }
   #hero { padding: 0 24px; }
   section { padding: 80px 0; }
   .hero-container {
-    padding-top: calc(var(--navbar-h, 90px) + 16px);
-    padding-bottom: 48px;
     gap: 20px;
     text-align: center;
   }
@@ -2606,9 +2611,7 @@ section { padding: 120px 0; position: relative; z-index: 10; }
 @media (max-width: 768px) {
   .hero-container {
     grid-template-columns: 1fr;
-    padding: 0 1.5rem;
-    padding-top: calc(var(--navbar-h, 80px) + 16px);
-    padding-bottom: 48px;
+    padding: 0;
     text-align: center;
   }
   .hero-right { order: -1; justify-content: center; }
