@@ -3,11 +3,8 @@
    ============================================================ */
 
 (function () {
-  // Disable custom cursor on touch devices
-  const isTouchDevice = window.matchMedia('(pointer: coarse)').matches
-    || ('ontouchstart' in window)
-    || navigator.maxTouchPoints > 0;
-  if (isTouchDevice) return;
+  // Custom cursor disabled to keep the UI cleaner and more native.
+  return;
 
   const dot = document.getElementById('cursorDot');
   const outline = document.getElementById('cursorOutline');

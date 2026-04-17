@@ -260,7 +260,7 @@ const PORTFOLIO_DATA = {
       cat: "llm",
       catLabel: "Featured Product",
       emoji: "AI",
-      image: "assets/img/projects/medical.svg",
+      image: "assets/img/projects/nirovaai.svg",
       video: null,
       featured: true,
       featuredLabel: "Flagship Product",

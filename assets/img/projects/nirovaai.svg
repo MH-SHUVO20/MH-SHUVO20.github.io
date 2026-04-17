@@ -1,0 +1,48 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 450" width="800" height="450">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#0b1220"/>
+      <stop offset="100%" stop-color="#142033"/>
+    </linearGradient>
+    <linearGradient id="panel" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#16324a"/>
+      <stop offset="100%" stop-color="#0f2132"/>
+    </linearGradient>
+    <linearGradient id="accent" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0%" stop-color="#38bdf8"/>
+      <stop offset="100%" stop-color="#10b981"/>
+    </linearGradient>
+    <filter id="glow" x="-100%" y="-100%" width="300%" height="300%">
+      <feGaussianBlur stdDeviation="36"/>
+    </filter>
+    <pattern id="dots" width="28" height="28" patternUnits="userSpaceOnUse">
+      <circle cx="14" cy="14" r="0.8" fill="#dbeafe" fill-opacity="0.08"/>
+    </pattern>
+  </defs>
+  <rect width="800" height="450" fill="url(#bg)"/>
+  <rect width="800" height="450" fill="url(#dots)"/>
+  <ellipse cx="160" cy="72" rx="180" ry="120" fill="#38bdf8" fill-opacity="0.08" filter="url(#glow)"/>
+  <ellipse cx="660" cy="360" rx="180" ry="120" fill="#10b981" fill-opacity="0.07" filter="url(#glow)"/>
+  <rect x="86" y="104" width="628" height="184" rx="28" fill="url(#panel)" stroke="#29445e" stroke-width="1.5"/>
+  <rect x="116" y="132" width="226" height="128" rx="20" fill="#0d1a29" stroke="#27405c"/>
+  <rect x="362" y="132" width="322" height="128" rx="20" fill="#0d1a29" stroke="#27405c"/>
+  <circle cx="184" cy="168" r="28" fill="#12314a" stroke="#2c5878"/>
+  <path d="M173 168h22M184 157v22" stroke="#38bdf8" stroke-width="4" stroke-linecap="round"/>
+  <rect x="222" y="152" width="86" height="12" rx="6" fill="#5b7289"/>
+  <rect x="222" y="178" width="64" height="10" rx="5" fill="#385066"/>
+  <rect x="222" y="198" width="92" height="10" rx="5" fill="#385066"/>
+  <rect x="222" y="218" width="58" height="10" rx="5" fill="#385066"/>
+  <rect x="394" y="154" width="136" height="14" rx="7" fill="#385066"/>
+  <rect x="394" y="180" width="220" height="12" rx="6" fill="#4f6478"/>
+  <rect x="394" y="204" width="198" height="12" rx="6" fill="#4f6478"/>
+  <rect x="394" y="228" width="162" height="12" rx="6" fill="#4f6478"/>
+  <circle cx="640" cy="186" r="24" fill="#12314a" stroke="#24546d"/>
+  <path d="M628 186l8 8 16-18" fill="none" stroke="#10b981" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/>
+  <rect x="86" y="320" width="148" height="34" rx="8" fill="#12314a" stroke="#2a5975"/>
+  <text x="160" y="342" text-anchor="middle" font-family="Courier New,Courier,monospace" font-size="14" fill="#38bdf8" letter-spacing="1.1">FEATURED PRODUCT</text>
+  <rect x="574" y="320" width="140" height="34" rx="17" fill="#11372f" stroke="#1d6b5a"/>
+  <text x="644" y="342" text-anchor="middle" font-family="Courier New,Courier,monospace" font-size="13" fill="#8af0ca" letter-spacing="1">LIVE HEALTH AI</text>
+  <text x="86" y="390" font-family="Trebuchet MS,Verdana,Arial,sans-serif" font-size="38" font-weight="700" fill="#f8fbff" letter-spacing="1.4">NIROVAAI</text>
+  <text x="86" y="416" font-family="Courier New,Courier,monospace" font-size="14" fill="#9fb0c3" letter-spacing="1.2">BILINGUAL EARLY DISEASE SUPPORT PLATFORM FOR BANGLADESH</text>
+  <rect x="0" y="441" width="800" height="9" fill="url(#accent)" opacity="0.92"/>
+</svg>
