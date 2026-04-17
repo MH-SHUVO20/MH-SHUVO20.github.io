@@ -20,13 +20,13 @@ const PORTFOLIO_DATA = {
     // Place your photo at assets/img/avatar.jpg
     avatar: "assets/img/mehedi.jpg",
     // Place your resume PDF at assets/resume/
-    resumePDF: "assets/resume/Md__Mehedi_Hasan_Shuvo_Engineer_Resume.pdf",
+    resumePDF: "assets/resume/Md_Mehedi_Hasan_Shuvo_AI_Engineer_Resume.pdf",
     typedStrings: [
       "Computer Vision Engineer",
-      "Deep Learning Researcher",
-      "LLM & Agent Systems Builder",
+      "LLM, RAG, and Agent Systems Engineer",
+      "AI Automation and Workflow Builder",
       "IEEE Published Author",
-      "YOLO Architecture Specialist",
+      "Computer Vision and YOLO Specialist",
       "Open to Internship & Full-time Roles",
     ],
   },
@@ -90,7 +90,7 @@ const PORTFOLIO_DATA = {
       cat: "ai",
       category: "LLMs & Agents",
       title: "LLM & Agent Systems",
-      tags: ["LangChain", "LangGraph", "Prompt Engineering", "OpenAI API", "Ollama", "Multi-Agent Systems", "Tool Calling", "ReAct Agents", "Memory Management", "Chain-of-Thought Prompting"]
+      tags: ["LangChain", "LangGraph", "CrewAI", "LlamaIndex", "Prompt Engineering", "OpenAI API", "Gemini API", "Groq", "Anthropic API", "Ollama", "Multi-Agent Systems", "Tool Calling", "ReAct Agents", "Memory Management"]
     },
     {
       icon: "📊",
@@ -125,14 +125,14 @@ const PORTFOLIO_DATA = {
       cat: "eng",
       category: "Web & Backend",
       title: "Engineering",
-      tags: ["FastAPI", "Docker", "Redis", "REST APIs", "PHP", "MVC Architecture", "AJAX/JSON", "Session Management", "RBAC"]
+      tags: ["FastAPI", "n8n", "Docker", "Docker Compose", "Redis", "REST APIs", "Azure Container Apps", "API Orchestration", "PHP", "MVC Architecture", "AJAX/JSON", "RBAC"]
     },
     {
       icon: "🗄️",
       cat: "eng",
       category: "Databases",
       title: "Data & Storage",
-      tags: ["MySQL", "Oracle", "SQLite", "Relational Schema Design", "3NF Normalization", "Query Optimization", "SQL Injection Prevention"]
+      tags: ["PostgreSQL", "Supabase", "pgvector", "MongoDB", "ChromaDB", "MySQL", "SQLite", "FAISS", "Pinecone", "Relational Schema Design", "Query Optimization"]
     },
     {
       icon: "💻",
@@ -146,7 +146,7 @@ const PORTFOLIO_DATA = {
       cat: "tools",
       category: "Dev Tools",
       title: "Tools & Platforms",
-      tags: ["Jupyter Notebook", "Google Colab", "Git", "GitHub", "Docker", "VS Code", "Kaggle", "R Studio", "Matlab", "LaTeX"]
+      tags: ["Jupyter Notebook", "Google Colab", "Git", "GitHub", "Docker", "Supabase", "VS Code", "Kaggle", "R Studio", "Matlab", "LaTeX"]
     },
     {
       icon: "🔬",
@@ -736,17 +736,31 @@ const PORTFOLIO_DATA = {
   // ── Experience ────────────────────────────────────────────
   experience: [
     {
+      role: "AI Automation Intern",
+      org: "Infinoz.com · Remote, Bangladesh",
+      period: "Mar 2026 — Present",
+      type: "Internship",
+      icon: "fas fa-robot",
+      colorClass: "exp-color-cyan",
+      desc: "Working on production-grade AI automation systems with n8n, Supabase, pgvector, and LLM APIs. Building multi-domain chatbot workflows and retrieval pipelines for client-facing use cases across e-commerce, education, and service platforms.",
+      highlights: [
+        "Built multi-domain n8n chatbot workflows with intent routing and confidence-based fallback",
+        "Engineered multi-tenant RAG pipelines with Supabase and pgvector for isolated client knowledge bases",
+        "Handled prompt engineering, workflow debugging, and production deployment in a fast-paced internship setting",
+      ],
+    },
+    {
       role: "AI Researcher",
       org: "American International University–Bangladesh (AIUB)",
       period: "2024 — Present",
       type: "Research",
       icon: "fas fa-flask",
       colorClass: "exp-color-blue",
-      desc: "Conducting independent and collaborative research in Computer Vision and Deep Learning at AIUB. Published 5 IEEE papers at internationally ranked conference venues within 2 years, covering YOLO-based systems, medical imaging, and driver behavior analysis.",
+      desc: "Conducting independent and collaborative research in Computer Vision, Deep Learning, and applied AI at AIUB. Authored 7 IEEE papers across CORE-ranked and international venues, covering YOLO-based systems, medical imaging, driver behavior analysis, and explainable AI for security.",
       highlights: [
-        "5 IEEE publications at CORE-ranked & international venues",
-        "Presented at AICCSA 2025, ECCE 2025, RAAICON 2025, ICCIT 2025",
-        "Research areas: YOLO, LLMs, NLP, Medical AI, Driver AI",
+        "7 IEEE papers: 5 published and 2 accepted",
+        "Presented or accepted at AICCSA 2025, ECCE 2025, RAAICON 2025, ICCIT 2025, and FET 2026",
+        "Research areas: YOLO, LLMs, RAG, Medical AI, Driver AI, Explainable AI",
         "Collaborated with faculty advisors on deep learning projects",
       ],
     },
