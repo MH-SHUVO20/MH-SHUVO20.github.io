@@ -72,39 +72,6 @@ function animateCounter(el, target, duration = 1200) {
 }
 
 // ── Skill proficiency bars ────────────────────────────────────
-function initSkillBars() {
-  const container = document.getElementById('skillBars');
-  if (!container || !PORTFOLIO_DATA) return;
-  container.innerHTML = '';
-
-  PORTFOLIO_DATA.proficiency.forEach(({ name, pct }) => {
-    const item = document.createElement('div');
-    item.className = 'bar-item';
-    item.innerHTML = `
-      <div class="bar-header">
-        <span class="bar-name">${name}</span>
-        <span class="bar-pct">${pct}%</span>
-      </div>
-      <div class="bar-track"><div class="bar-fill" data-pct="${pct}"></div></div>
-    `;
-    container.appendChild(item);
-  });
-
-  // Observe and animate
-  const observer = new IntersectionObserver(entries => {
-    entries.forEach(e => {
-      if (e.isIntersecting) {
-        e.target.querySelectorAll('.bar-fill').forEach(fill => {
-          fill.style.width = fill.dataset.pct + '%';
-        });
-        observer.unobserve(e.target);
-      }
-    });
-  }, { threshold: 0.3 });
-
-  observer.observe(container);
-}
-
 // ── Counter chips ────────────────────────────────────────────
 function initCounterChips() {
   const chips = document.querySelectorAll('.chip-num[data-count]');
@@ -181,7 +148,6 @@ function initTilt() {
 
 // Init all when DOM is ready
 document.addEventListener('DOMContentLoaded', () => {
-  initSkillBars();
   initCounterChips();
   initGSAP();
   setTimeout(initTilt, 1500); // wait for cards to render

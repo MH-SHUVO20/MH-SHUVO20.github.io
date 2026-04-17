@@ -682,6 +682,37 @@ section { padding: 120px 0; position: relative; z-index: 10; }
   word-break: break-word;
 }
 .type-cursor { animation: blink 0.7s infinite; }
+.hero-signals {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 12px;
+  margin: 20px 0 18px;
+  max-width: 760px;
+}
+.hero-signal {
+  padding: 14px 16px;
+  border: 1px solid var(--border);
+  border-radius: 14px;
+  background:
+    linear-gradient(180deg, rgba(255,255,255,0.02), transparent),
+    var(--surface);
+  box-shadow: 0 18px 40px rgba(0,0,0,0.22);
+}
+.hero-signal-label {
+  display: block;
+  margin-bottom: 8px;
+  font-family: var(--font-mono);
+  font-size: 10px;
+  letter-spacing: 1.4px;
+  text-transform: uppercase;
+  color: var(--accent);
+}
+.hero-signal strong {
+  display: block;
+  font-size: 13px;
+  line-height: 1.55;
+  color: var(--text);
+}
 .hero-bio {
   font-size: 16px;
   line-height: 1.7;
@@ -1620,6 +1651,13 @@ section { padding: 120px 0; position: relative; z-index: 10; }
   border: 1px solid rgba(167,139,250,0.3);
   color: var(--accent2);
 }
+.proj-avail-badge--featured {
+  background: rgba(52,211,153,0.12);
+  border: 1px solid rgba(52,211,153,0.32);
+  color: var(--accent3);
+  opacity: 1;
+  transform: translateY(0);
+}
 .pab-dot {
   width: 6px; height: 6px; border-radius: 50%;
   background: var(--accent); flex-shrink: 0;
@@ -1630,10 +1668,39 @@ section { padding: 120px 0; position: relative; z-index: 10; }
   50%      { opacity:0.4; transform:scale(0.7); }
 }
 
+.project-card--featured {
+  grid-column: span 2;
+  background:
+    radial-gradient(circle at top right, rgba(52,211,153,0.08), transparent 35%),
+    radial-gradient(circle at left center, rgba(34,211,238,0.08), transparent 40%),
+    var(--surface);
+  border-color: rgba(52,211,153,0.22);
+  box-shadow: 0 28px 80px rgba(0,0,0,0.34);
+}
+.project-card--featured .project-media {
+  height: 220px;
+}
+.project-kicker {
+  margin-bottom: 10px;
+  font-family: var(--font-mono);
+  font-size: 10px;
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+  color: var(--accent3);
+}
+.project-impact {
+  margin: -2px 0 16px;
+  padding-left: 12px;
+  border-left: 2px solid rgba(52,211,153,0.35);
+  font-size: 12px;
+  line-height: 1.6;
+  color: var(--text);
+}
+
 .project-body { padding: 24px; }
 .project-body h3 {
   font-family: var(--font-display);
-  font-size: 20px;
+  font-size: 22px;
   letter-spacing: 1px;
   margin-bottom: 10px;
 }
@@ -1657,10 +1724,10 @@ section { padding: 120px 0; position: relative; z-index: 10; }
   color: var(--accent2);
 }
 .project-footer {
-  display: flex; gap: 8px;
+  display: flex; gap: 8px; flex-wrap: wrap;
 }
 .proj-btn {
-  flex: 1;
+  flex: 1 1 132px;
   font-family: var(--font-mono);
   font-size: 11px;
   padding: 9px;
@@ -2642,12 +2709,14 @@ section { padding: 120px 0; position: relative; z-index: 10; }
   .hero-right { order: -1; justify-content: center; }
   .hero-left  { order: 0; }
   .hero-eyebrow { justify-content: center; }
+  .hero-signals { grid-template-columns: 1fr; }
   .hero-bio { margin-left: auto; margin-right: auto; }
   .hero-actions { justify-content: center; }
   .hero-socials { justify-content: center; }
   .about-grid, .contact-grid { grid-template-columns: 1fr; }
   .about-cards { grid-template-columns: 1fr 1fr; }
   .skills-grid, .projects-grid { grid-template-columns: repeat(2, 1fr); }
+  .project-card--featured { grid-column: span 2; }
   .exp-grid { grid-template-columns: 1fr; }
   .bars-grid { grid-template-columns: 1fr; }
   .certs-grid { grid-template-columns: repeat(2, 1fr); }
@@ -2705,6 +2774,7 @@ section { padding: 120px 0; position: relative; z-index: 10; }
 
   /* Hero */
   .hero-title { font-size: clamp(44px, 13vw, 80px); }
+  .hero-signals { grid-template-columns: 1fr; }
   .hero-bio { font-size: 15px; }
   .hero-sub { font-size: 14px; }
   .hero-actions { flex-direction: column; align-items: stretch; gap: 10px; }
@@ -2726,6 +2796,7 @@ section { padding: 120px 0; position: relative; z-index: 10; }
 
   /* Skills */
   .skills-grid, .projects-grid { grid-template-columns: 1fr; }
+  .project-card--featured { grid-column: span 1; }
   .skill-tabs, .project-filters { gap: 6px; }
 
   /* Section headers */

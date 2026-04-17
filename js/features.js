@@ -141,17 +141,6 @@ function initCopyButtons() {
 // The typewriter in animations.js uses 80ms per character.
 // Standard WPM = chars per minute ÷ 5.
 // 1000ms ÷ 80ms = 12.5 chars/sec × 60 = 750 chars/min ÷ 5 = 150 WPM
-function initTypingWpm() {
-  var el = document.getElementById('typingWpm');
-  if (!el) return;
-  var CHAR_DELAY = 80; // ms per character (matches animations.js)
-  var wpm = Math.round(60000 / (CHAR_DELAY * 5));
-  var valEl = el.querySelector('.wpm-value');
-  if (valEl) valEl.textContent = wpm;
-  // Fade in after the first typed word appears (~2.4s after page load)
-  setTimeout(function() { el.classList.add('wpm-visible'); }, 3000);
-}
-
 // ── 5. Last Updated Badge ─────────────────────────────────────
 // document.lastModified reflects the server's Last-Modified header
 // which GitHub Pages sets to the deployment date.
@@ -252,7 +241,6 @@ document.addEventListener('DOMContentLoaded', function() {
   initVisitCounter();
   initGitHubStats();
   initLastUpdated();
-  initTypingWpm();
   // Contact copy buttons run after components.js renders the DOM
   setTimeout(initCopyButtons, 800);
 });

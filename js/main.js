@@ -78,6 +78,18 @@
   });
 })();
 
+// Ensure every external tab opens safely.
+(function initExternalLinks() {
+  document.addEventListener('DOMContentLoaded', () => {
+    document.querySelectorAll('a[target="_blank"]').forEach(link => {
+      const rel = new Set((link.getAttribute('rel') || '').split(/\s+/).filter(Boolean));
+      rel.add('noopener');
+      rel.add('noreferrer');
+      link.setAttribute('rel', Array.from(rel).join(' '));
+    });
+  });
+})();
+
 // ── Contact Form ──────────────────────────────────────────────
 (function initContactForm() {
   const form = document.getElementById('contactForm');
@@ -128,6 +140,11 @@
       document.getElementById('errEmail').textContent = '';
     }
     setErr(msg, 'errMsg', 'Message is required.');
+    if (msg.value.trim().length > 500) {
+      msg.classList.add('error');
+      document.getElementById('errMsg').textContent = 'Please keep the message within 500 characters.';
+      valid = false;
+    }
     return valid;
   }
 

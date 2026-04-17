@@ -68,26 +68,6 @@
   }
 
   // ── 4. Dynamic hero layout switch ───────────────────────────
-  const mq = window.matchMedia('(max-width: 900px)');
-
-  function handleHeroLayout(mobile) {
-    const mobilePhoto = document.getElementById('heroMobilePhoto');
-    const desktopRight = document.getElementById('heroRight');
-    if (!mobilePhoto || !desktopRight) return;
-
-    if (mobile) {
-      mobilePhoto.style.display  = 'flex';
-      desktopRight.style.display = 'none';
-    } else {
-      mobilePhoto.style.display  = '';   // let CSS decide
-      desktopRight.style.display = '';
-    }
-  }
-
-  // Run immediately, then on every viewport change
-  handleHeroLayout(mq.matches);
-  mq.addEventListener('change', e => handleHeroLayout(e.matches));
-
   // ── 5. Close nav on outside tap (mobile) ────────────────────
   document.addEventListener('click', e => {
     const nav   = document.getElementById('navMenu');

@@ -15,7 +15,7 @@ const PORTFOLIO_DATA = {
     location: "Kuratoli, Khilkhet, Dhaka 1229, Bangladesh",
     github: "https://github.com/MH-SHUVO20",
     linkedin: "https://www.linkedin.com/in/mh-shuvo-aiub/",
-    portfolio: "https://mhshuvo.me/",
+    portfolio: "http://mhshuvo.tech/",
     facebook: "https://www.facebook.com/mh.shuvo.7370",
     // Place your photo at assets/img/avatar.jpg
     avatar: "assets/img/mehedi.jpg",
@@ -254,6 +254,32 @@ const PORTFOLIO_DATA = {
   // image: put file at assets/img/projects/<filename>
   // video: put file at assets/video/<filename> OR use a YouTube URL
   projects: [
+    {
+      id: "nirovaai",
+      title: "NirovaAI",
+      cat: "llm",
+      catLabel: "Featured Product",
+      emoji: "AI",
+      image: "assets/img/projects/medical.svg",
+      video: null,
+      featured: true,
+      featuredLabel: "Flagship Product",
+      kicker: "AI-powered early disease support platform for Bangladesh",
+      impact: "Designed for bilingual, accessibility-first health guidance across underserved communities.",
+      description: "A production-oriented healthcare AI platform combining symptom guidance, disease-risk screening, OCR-assisted lab interpretation, and conversational assistance for Bangla and English users.",
+      fullDesc: "Built NirovaAI as a full-stack applied AI product focused on practical healthcare accessibility in Bangladesh. The platform brings together multilingual symptom checking, disease-risk estimation, skin and lab-report analysis, retrieval-augmented medical guidance, user health history, and admin analytics in a single experience. The system is designed with real-world deployment in mind, including containerized delivery, CI/CD, and cloud hosting.",
+      highlights: [
+        "41+ disease pathways with bilingual Bangla and English guidance",
+        "Integrated symptom checker, dengue risk analysis, lab-report OCR, and AI health assistant",
+        "RAG pipeline grounded in Bangladesh- and WHO-aligned medical references",
+        "JWT auth, user health timeline, admin analytics, and streaming AI responses",
+        "Containerized deployment workflow for Azure Container Apps with CI/CD",
+      ],
+      stack: ["React", "FastAPI", "MongoDB", "Azure", "Docker", "LLM", "Gemini Vision"],
+      github: "https://github.com/MH-SHUVO20/Nirova-Ai",
+      demo: "https://nirovaai.app",
+      docs: "https://github.com/MH-SHUVO20/Nirova-Ai",
+    },
     {
       id: "agent-bd",
       title: "Multi-Tool AI Agent (Bangladesh Data)",
@@ -862,7 +888,7 @@ const PORTFOLIO_DATA = {
     { icon: "fas fa-envelope", label: "Email", value: "mdmehedihasanshuvo994@gmail.com", href: "mailto:mdmehedihasanshuvo994@gmail.com" },
     { icon: "fab fa-linkedin", label: "LinkedIn", value: "linkedin.com/in/mh-shuvo-aiub", href: "https://linkedin.com/in/mh-shuvo-aiub/" },
     { icon: "fab fa-github", label: "GitHub", value: "github.com/MH-SHUVO20", href: "https://github.com/MH-SHUVO20" },
-    { icon: "fas fa-globe", label: "Portfolio", value: "mhshuvo.me", href: "https://mhshuvo.me/" },
+    { icon: "fas fa-globe", label: "Portfolio", value: "mhshuvo.tech", href: "http://mhshuvo.tech/" },
     { icon: "fas fa-phone", label: "Phone", value: "+8801954-596854", href: "tel:+8801954596854" },
     { icon: "fas fa-graduation-cap", label: "Google Scholar", value: "scholar.google.com", href: "https://scholar.google.com/citations?user=yZ4wglYAAAAJ&hl=en" },
     { icon: "fas fa-flask", label: "ResearchGate", value: "researchgate.net/profile/Mehedi-Hasan-Shuvo-5", href: "https://www.researchgate.net/profile/Mehedi-Hasan-Shuvo-5" },

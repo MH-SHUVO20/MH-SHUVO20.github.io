@@ -55,7 +55,7 @@ function renderResearch() {
       return `<span class="${cls}">${b}</span>`;
     }).join('');
     const linkHTML = p.link
-      ? `<a href="${p.link}" target="_blank" class="paper-link"><i class="fas fa-external-link-alt"></i> IEEE Xplore</a>`
+      ? `<a href="${p.link}" target="_blank" rel="noopener noreferrer" class="paper-link"><i class="fas fa-external-link-alt"></i> IEEE Xplore</a>`
       : `<span class="paper-link disabled"><i class="fas fa-clock"></i> Processing</span>`;
 
     card.innerHTML = `
@@ -112,9 +112,11 @@ function renderProjects() {
   if (!grid || !PORTFOLIO_DATA) return;
   grid.innerHTML = '';
 
-  PORTFOLIO_DATA.projects.forEach((p, i) => {
+  const projects = [...PORTFOLIO_DATA.projects].sort((a, b) => Number(Boolean(b.featured)) - Number(Boolean(a.featured)));
+
+  projects.forEach((p, i) => {
     const card = document.createElement('div');
-    card.className = 'project-card';
+    card.className = `project-card${p.featured ? ' project-card--featured' : ''}`;
     card.dataset.cat = p.cat;
     card.setAttribute('data-aos', 'fade-up');
     card.setAttribute('data-aos-delay', String(i % 3 * 80));
@@ -128,6 +130,9 @@ function renderProjects() {
       availBadge = '<div class="proj-avail-badge proj-avail-badge--live">🚀 Live</div>';
     } else if (p.github) {
       availBadge = '<div class="proj-avail-badge proj-avail-badge--github">⭐ Code</div>';
+    }
+    if (p.featured && p.featuredLabel) {
+      availBadge = `<div class="proj-avail-badge proj-avail-badge--featured">${p.featuredLabel}</div>`;
     }
 
     let mediaHTML;
@@ -193,20 +198,25 @@ function renderProjects() {
     }
 
     const stackHTML = p.stack.map(s => `<span class="stack-tag">${s}</span>`).join('');
+    const kickerHTML = p.kicker ? `<div class="project-kicker">${p.kicker}</div>` : '';
+    const impactHTML = p.impact ? `<div class="project-impact">${p.impact}</div>` : '';
     const footerHTML = `
       <div class="project-footer">
         <a href="#" class="proj-btn primary open-project-modal" data-id="${p.id}">
           <i class="fas fa-expand-alt"></i> Details
         </a>
-        ${p.github ? `<a href="${p.github}" target="_blank" class="proj-btn"><i class="fab fa-github"></i> Code</a>` : ''}
-        ${p.demo ? `<a href="${p.demo}" target="_blank" class="proj-btn"><i class="fas fa-external-link-alt"></i> Demo</a>` : ''}
+        ${p.github ? `<a href="${p.github}" target="_blank" rel="noopener noreferrer" class="proj-btn"><i class="fab fa-github"></i> Code</a>` : ''}
+        ${p.demo ? `<a href="${p.demo}" target="_blank" rel="noopener noreferrer" class="proj-btn"><i class="fas fa-external-link-alt"></i> Demo</a>` : ''}
+        ${p.docs ? `<a href="${p.docs}" target="_blank" rel="noopener noreferrer" class="proj-btn"><i class="fas fa-book-open"></i> Docs</a>` : ''}
       </div>`;
 
     card.innerHTML = `
       ${mediaHTML}
       <div class="project-body">
+        ${kickerHTML}
         <h3>${p.title}</h3>
         <p>${p.description}</p>
+        ${impactHTML}
         <div class="project-stack">${stackHTML}</div>
         ${footerHTML}
       </div>
@@ -297,7 +307,10 @@ function renderContact() {
       const a = document.createElement('a');
       a.href = c.href;
       a.className = 'contact-link-item';
-      if (c.href.startsWith('http')) a.target = '_blank';
+      if (c.href.startsWith('http')) {
+        a.target = '_blank';
+        a.rel = 'noopener noreferrer';
+      }
       a.setAttribute('data-aos', 'fade-right');
       a.innerHTML = `
         <div class="cli-icon"><i class="${c.icon}"></i></div>
@@ -323,7 +336,7 @@ function renderContact() {
         <div class="ref-title">${r.title}</div>
         <div class="ref-org">${r.org}</div>
         <a href="mailto:${r.email}" class="ref-email">${r.email}</a>
-        ${r.website ? `<br><a href="${r.website}" target="_blank" class="ref-email" style="margin-top:4px;display:inline-block">${r.website}</a>` : ''}
+        ${r.website ? `<br><a href="${r.website}" target="_blank" rel="noopener noreferrer" class="ref-email" style="margin-top:4px;display:inline-block">${r.website}</a>` : ''}
       `;
       refsContainer.appendChild(card);
     });
@@ -373,13 +386,17 @@ function initProjectModal() {
     const stackHTML = project.stack.map(s => `<span class="stack-tag">${s}</span>`).join('');
     const hlHTML = project.highlights.map(h => `<li>${h}</li>`).join('');
 
-    // CTA links: primary = demo if exists, else github; secondary = the other
-    let primaryLink = '', secondaryLink = '';
+    const modalLinks = [];
     if (project.demo) {
-      primaryLink = `<a href="${project.demo}" target="_blank" class="pm-link primary"><i class="fas fa-external-link-alt"></i> Live Demo →</a>`;
-      if (project.github) secondaryLink = `<a href="${project.github}" target="_blank" class="pm-link ghost"><i class="fab fa-github"></i> View Code</a>`;
+      modalLinks.push(`<a href="${project.demo}" target="_blank" rel="noopener noreferrer" class="pm-link primary"><i class="fas fa-external-link-alt"></i> Live Demo →</a>`);
     } else if (project.github) {
-      primaryLink = `<a href="${project.github}" target="_blank" class="pm-link primary"><i class="fab fa-github"></i> View on GitHub →</a>`;
+      modalLinks.push(`<a href="${project.github}" target="_blank" rel="noopener noreferrer" class="pm-link primary"><i class="fab fa-github"></i> View on GitHub →</a>`);
+    }
+    if (project.github && project.demo) {
+      modalLinks.push(`<a href="${project.github}" target="_blank" rel="noopener noreferrer" class="pm-link ghost"><i class="fab fa-github"></i> View Code</a>`);
+    }
+    if (project.docs) {
+      modalLinks.push(`<a href="${project.docs}" target="_blank" rel="noopener noreferrer" class="pm-link ghost"><i class="fas fa-book-open"></i> Documentation</a>`);
     }
 
     content.innerHTML = `
@@ -392,8 +409,7 @@ function initProjectModal() {
         <ul>${hlHTML}</ul>
       </div>
       <div class="pm-links">
-        ${primaryLink}
-        ${secondaryLink}
+        ${modalLinks.join('')}
       </div>
     `;
 
