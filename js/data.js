@@ -237,6 +237,20 @@ const PORTFOLIO_DATA = {
   upcomingResearch: [
     {
       num: "06",
+      title: "Proactive AI and Machine Learning Strategies for Network Threat Detection with Adaptive Explainable Intelligence",
+      venue: "Target Venue: IEEE FET'26",
+      status: "accepted",
+      ctaLabel: "Presentation Tomorrow",
+    },
+    {
+      num: "07",
+      title: "MS-YOLO: An Enhanced Real-Time Recyclable Waste Detection and Classification Framework",
+      venue: "Target Venue: IEEE FET'26",
+      status: "accepted",
+      ctaLabel: "Presentation Tomorrow",
+    },
+    {
+      num: "08",
       title: "SoftSense-HFS: An Explainable Hybrid Ensemble Soft Sensor with Hybrid Feature Selection for SCADA Time-Series Phosphate Estimation",
       venue: "Accepted paper · Under consideration for inclusion in a Taylor & Francis book",
       status: "accepted",
@@ -244,7 +258,7 @@ const PORTFOLIO_DATA = {
       ctaLabel: "Accepted Paper",
     },
     {
-      num: "07",
+      num: "09",
       title: "Explainable Hybrid Ensemble for Breast Cancer Malignancy Prediction Using Clinically-Motivated Feature Engineering and Nested Cross-Validation",
       venue: "Accepted paper · Under consideration for inclusion in a Taylor & Francis book",
       status: "accepted",
@@ -760,9 +774,9 @@ const PORTFOLIO_DATA = {
       type: "Research",
       icon: "fas fa-flask",
       colorClass: "exp-color-blue",
-      desc: "Conducting independent and collaborative research in Computer Vision, Deep Learning, and applied AI at AIUB. Authored 7 papers across CORE-ranked and international venues, including work on YOLO-based systems, medical imaging, driver behavior analysis, explainable AI for healthcare, and industrial SCADA analytics.",
+      desc: "Conducting independent and collaborative research in Computer Vision, Deep Learning, and applied AI at AIUB. Authored 9 papers across CORE-ranked and international venues, including work on YOLO-based systems, medical imaging, driver behavior analysis, explainable AI for healthcare, and industrial SCADA analytics.",
       highlights: [
-        "7 papers: 5 published and 2 accepted",
+        "9 papers: 5 published and 4 accepted",
         "First author of both newly accepted papers",
         "Presented or accepted at AICCSA 2025, ECCE 2025, RAAICON 2025, ICCIT 2025, and FET 2026",
         "Research areas: YOLO, LLMs, RAG, Medical AI, Driver AI, Explainable AI",
