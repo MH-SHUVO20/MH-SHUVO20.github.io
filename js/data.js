@@ -240,6 +240,7 @@ const PORTFOLIO_DATA = {
       title: "Proactive AI and Machine Learning Strategies for Network Threat Detection with Adaptive Explainable Intelligence",
       venue: "Target Venue: IEEE FET'26",
       status: "accepted",
+      badges: ["Presented"],
       ctaLabel: "Presentation Tomorrow",
     },
     {
@@ -247,6 +248,7 @@ const PORTFOLIO_DATA = {
       title: "MS-YOLO: An Enhanced Real-Time Recyclable Waste Detection and Classification Framework",
       venue: "Target Venue: IEEE FET'26",
       status: "accepted",
+      badges: ["Presented"],
       ctaLabel: "Presentation Tomorrow",
     },
     {
@@ -929,3 +931,7 @@ const PORTFOLIO_DATA = {
     { icon: "fas fa-microchip", label: "IEEE Author Page", value: "ieeexplore.ieee.org/author/...", href: "https://ieeexplore.ieee.org/author/621212562613368" },
   ],
 };
+
+
+
+
