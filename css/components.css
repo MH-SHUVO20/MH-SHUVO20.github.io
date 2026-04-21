@@ -134,13 +134,12 @@
   padding: 32px 0;
 }
 .stats-strip-inner {
-  max-width: 1000px;
+  max-width: 1280px;
   margin: 0 auto;
   padding: 0 24px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  flex-wrap: wrap;
+  display: grid;
+  grid-template-columns: repeat(6, minmax(120px, 1fr));
+  align-items: stretch;
   gap: 0;
 }
 .sstat {
@@ -168,13 +167,13 @@
   text-transform: uppercase;
 }
 .sstat-divider {
-  width: 1px;
-  height: 44px;
-  background: var(--border);
-  flex-shrink: 0;
+  display: none;
 }
 @media (max-width: 700px) {
-  .stats-strip-inner { gap: 12px; }
+  .stats-strip-inner {
+    grid-template-columns: repeat(2, minmax(120px, 1fr));
+    gap: 12px;
+  }
   .sstat { padding: 10px 16px; }
   .sstat-divider { display: none; }
   .sstat-num { font-size: 32px; }
@@ -507,4 +506,3 @@
   .cw-pill { font-size: 10.5px; padding: 5px 11px; }
   .cw-cat-label { font-size: 9.5px; }
 }
-
