@@ -93,6 +93,8 @@ function renderUpcomingResearch() {
         ? 'badge-upcoming badge-upcoming--inline'
         : 'badge-upcoming badge-upcoming--inline badge-upcoming--amber';
     const badgeLabel = isAccepted ? 'Accepted' : isUnderReview ? 'Under Review' : 'Coming Soon';
+    const extraBadgesHTML = (p.badges || []).map(b => `<span class="paper-badge">${b}</span>`).join('');
+    const actionLabel = p.ctaLabel || (isAccepted ? 'Accepted Paper' : 'Coming Soon');
     card.innerHTML = `
       <div class="paper-idx">${p.num}</div>
       <div class="paper-body">
@@ -100,9 +102,10 @@ function renderUpcomingResearch() {
         <div class="paper-meta">
           <span class="paper-venue">${p.venue}</span>
           <span class="${badgeClass}">${badgeLabel}</span>
+          ${extraBadgesHTML}
         </div>
       </div>
-      <span class="coming-soon-btn" aria-disabled="true">Coming Soon</span>
+      <span class="coming-soon-btn" aria-disabled="true">${actionLabel}</span>
     `;
     list.appendChild(card);
   });
