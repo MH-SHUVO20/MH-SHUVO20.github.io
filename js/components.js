@@ -125,14 +125,14 @@ function renderProjects() {
     card.setAttribute('data-aos-delay', String(i % 3 * 80));
 
     // Media section
-    // Availability badge (Part 3 — card hover indicator)
+    // Availability badge shown on project cards.
     let availBadge = '';
     if (p.video) {
       availBadge = '<div class="proj-avail-badge proj-avail-badge--demo"><span class="pab-dot"></span> Demo</div>';
     } else if (p.demo) {
-      availBadge = '<div class="proj-avail-badge proj-avail-badge--live">🚀 Live</div>';
+      availBadge = '<div class="proj-avail-badge proj-avail-badge--live"><i class="fas fa-rocket"></i> Live</div>';
     } else if (p.github) {
-      availBadge = '<div class="proj-avail-badge proj-avail-badge--github">⭐ Code</div>';
+      availBadge = '<div class="proj-avail-badge proj-avail-badge--github"><i class="fab fa-github"></i> Code</div>';
     }
     if (p.featured && p.featuredLabel) {
       availBadge = `<div class="proj-avail-badge proj-avail-badge--featured">${p.featuredLabel}</div>`;
