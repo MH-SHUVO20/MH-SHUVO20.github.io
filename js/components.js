@@ -307,25 +307,26 @@ function renderContact() {
   const linksContainer = document.getElementById('contactLinks');
   if (linksContainer && PORTFOLIO_DATA) {
     PORTFOLIO_DATA.contactLinks.forEach(c => {
-      const a = document.createElement('a');
-      a.href = c.href;
-      a.className = 'contact-link-item';
-      if (c.href.startsWith('http')) {
-        a.target = '_blank';
-        a.rel = 'noopener noreferrer';
-      }
-      a.setAttribute('data-aos', 'fade-right');
-      a.innerHTML = `
-        <div class="cli-icon"><i class="${c.icon}"></i></div>
-        <div class="cli-body">
-          <strong>${c.label}</strong>
-          <span>${c.value}</span>
-        </div>
-        <button class="copy-btn" data-copy="${c.value}" title="Copy ${c.label}">
+      const item = document.createElement('div');
+      item.className = 'contact-link-item';
+      item.setAttribute('data-aos', 'fade-right');
+      const externalAttrs = c.href.startsWith('http')
+        ? ' target="_blank" rel="noopener noreferrer"'
+        : '';
+      const copyValue = String(c.value).replace(/"/g, '&quot;');
+      item.innerHTML = `
+        <a href="${c.href}" class="contact-link-main"${externalAttrs}>
+          <div class="cli-icon"><i class="${c.icon}"></i></div>
+          <div class="cli-body">
+            <strong>${c.label}</strong>
+            <span>${c.value}</span>
+          </div>
+        </a>
+        <button type="button" class="copy-btn" data-copy="${copyValue}" title="Copy ${c.label}" aria-label="Copy ${c.label}">
           <i class="fas fa-copy"></i>
         </button>
       `;
-      linksContainer.appendChild(a);
+      linksContainer.appendChild(item);
     });
   }
 

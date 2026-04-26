@@ -38,12 +38,14 @@
   ham.addEventListener('click', () => {
     ham.classList.toggle('open');
     menu.classList.toggle('open');
+    ham.setAttribute('aria-expanded', String(menu.classList.contains('open')));
   });
 
   menu.querySelectorAll('a').forEach(link => {
     link.addEventListener('click', () => {
       ham.classList.remove('open');
       menu.classList.remove('open');
+      ham.setAttribute('aria-expanded', 'false');
     });
   });
 })();
@@ -58,10 +60,12 @@
   if (saved === 'light') {
     document.documentElement.setAttribute('data-theme', 'light');
     btn.innerHTML = '<i class="fas fa-sun"></i>';
+    btn.setAttribute('aria-pressed', 'true');
   } else {
     document.documentElement.removeAttribute('data-theme');
     localStorage.setItem('mhshuvo-theme', 'dark');
     btn.innerHTML = '<i class="fas fa-moon"></i>';
+    btn.setAttribute('aria-pressed', 'false');
   }
 
   btn.addEventListener('click', () => {
@@ -69,10 +73,12 @@
     if (isLight) {
       document.documentElement.removeAttribute('data-theme');
       btn.innerHTML = '<i class="fas fa-moon"></i>';
+      btn.setAttribute('aria-pressed', 'false');
       localStorage.setItem('mhshuvo-theme', 'dark');
     } else {
       document.documentElement.setAttribute('data-theme', 'light');
       btn.innerHTML = '<i class="fas fa-sun"></i>';
+      btn.setAttribute('aria-pressed', 'true');
       localStorage.setItem('mhshuvo-theme', 'light');
     }
   });
@@ -114,6 +120,11 @@
     const email = document.getElementById('cEmail');
     const msg = document.getElementById('cMsg');
 
+    function setErrorText(id, text) {
+      const errEl = document.getElementById(id);
+      if (errEl) errEl.textContent = text;
+    }
+
     function setErr(field, errId, msg) {
       const errEl = document.getElementById(errId);
       if (field.value.trim() === '') {
@@ -129,20 +140,20 @@
     setErr(name, 'errName', 'Name is required.');
     if (email.value.trim() === '') {
       email.classList.add('error');
-      document.getElementById('errEmail').textContent = 'Email is required.';
+      setErrorText('errEmail', 'Email is required.');
       valid = false;
     } else if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email.value)) {
       email.classList.add('error');
-      document.getElementById('errEmail').textContent = 'Enter a valid email.';
+      setErrorText('errEmail', 'Enter a valid email.');
       valid = false;
     } else {
       email.classList.remove('error');
-      document.getElementById('errEmail').textContent = '';
+      setErrorText('errEmail', '');
     }
     setErr(msg, 'errMsg', 'Message is required.');
     if (msg.value.trim().length > 500) {
       msg.classList.add('error');
-      document.getElementById('errMsg').textContent = 'Please keep the message within 500 characters.';
+      setErrorText('errMsg', 'Please keep the message within 500 characters.');
       valid = false;
     }
     return valid;
@@ -234,7 +245,9 @@
 // ── Smooth anchor scroll ──────────────────────────────────────
 document.querySelectorAll('a[href^="#"]').forEach(a => {
   a.addEventListener('click', e => {
-    const target = document.querySelector(a.getAttribute('href'));
+    const href = a.getAttribute('href');
+    if (!href || href === '#') return;
+    const target = document.querySelector(href);
     if (target) {
       e.preventDefault();
       target.scrollIntoView({ behavior: 'smooth', block: 'start' });

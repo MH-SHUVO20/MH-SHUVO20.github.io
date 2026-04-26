@@ -32,6 +32,7 @@
   const nav = document.getElementById('navbar');
   const progress = document.getElementById('navProgress');
   const links = document.querySelectorAll('.nav-link[data-section]');
+  if (!nav) return;
 
   window.addEventListener('scroll', () => {
     const scrolled = window.scrollY;
@@ -41,7 +42,7 @@
     nav.classList.toggle('scrolled', scrolled > 60);
 
     // Progress bar
-    if (progress) progress.style.width = (scrolled / total * 100) + '%';
+    if (progress) progress.style.width = (total > 0 ? (scrolled / total * 100) : 0) + '%';
 
     // Active link
     const sections = document.querySelectorAll('section[id]');
