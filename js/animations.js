@@ -128,28 +128,8 @@ function initGSAP() {
   });
 }
 
-// ── Tilt effect on project cards ────────────────────────────
-function initTilt() {
-  document.querySelectorAll('.project-card').forEach(card => {
-    card.addEventListener('mousemove', e => {
-      const rect = card.getBoundingClientRect();
-      const x = e.clientX - rect.left;
-      const y = e.clientY - rect.top;
-      const cx = rect.width / 2;
-      const cy = rect.height / 2;
-      const rotX = ((y - cy) / cy) * -5;
-      const rotY = ((x - cx) / cx) * 5;
-      card.style.transform = `translateY(-8px) perspective(1000px) rotateX(${rotX}deg) rotateY(${rotY}deg)`;
-    });
-    card.addEventListener('mouseleave', () => {
-      card.style.transform = '';
-    });
-  });
-}
-
 // Init all when DOM is ready
 document.addEventListener('DOMContentLoaded', () => {
   initCounterChips();
   initGSAP();
-  setTimeout(initTilt, 1500); // wait for cards to render
 });

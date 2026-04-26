@@ -110,6 +110,40 @@ function renderUpcomingResearch() {
     list.appendChild(card);
   });
 }
+
+function escapeHTML(value) {
+  return String(value ?? '').replace(/[&<>"']/g, char => ({
+    '&': '&amp;',
+    '<': '&lt;',
+    '>': '&gt;',
+    '"': '&quot;',
+    "'": '&#39;',
+  }[char]));
+}
+
+function getYouTubeId(url) {
+  try {
+    const parsed = new URL(url);
+    if (parsed.hostname.includes('youtu.be')) return parsed.pathname.split('/').filter(Boolean)[0] || '';
+    if (parsed.searchParams.get('v')) return parsed.searchParams.get('v');
+    const parts = parsed.pathname.split('/').filter(Boolean);
+    const marker = parts.findIndex(part => ['embed', 'shorts', 'live'].includes(part));
+    return marker >= 0 ? parts[marker + 1] || '' : '';
+  } catch {
+    return '';
+  }
+}
+
+function getProjectBadge(project) {
+  if (project.featured && project.featuredLabel) {
+    return { label: project.featuredLabel, cls: 'proj-avail-badge--featured', icon: 'fas fa-star' };
+  }
+  if (project.video) return { label: 'Demo', cls: 'proj-avail-badge--demo', icon: 'fas fa-play' };
+  if (project.demo) return { label: 'Live', cls: 'proj-avail-badge--live', icon: 'fas fa-rocket' };
+  if (project.github) return { label: 'Code', cls: 'proj-avail-badge--github', icon: 'fab fa-github' };
+  return { label: 'Case Study', cls: 'proj-avail-badge--case', icon: 'fas fa-file-lines' };
+}
+
 function renderProjects() {
   const grid = document.getElementById('projectsGrid');
   if (!grid || !PORTFOLIO_DATA) return;
@@ -124,114 +158,123 @@ function renderProjects() {
     card.setAttribute('data-aos', 'fade-up');
     card.setAttribute('data-aos-delay', String(i % 3 * 80));
 
-    // Media section
-    // Availability badge shown on project cards.
-    let availBadge = '';
-    if (p.video) {
-      availBadge = '<div class="proj-avail-badge proj-avail-badge--demo"><span class="pab-dot"></span> Demo</div>';
-    } else if (p.demo) {
-      availBadge = '<div class="proj-avail-badge proj-avail-badge--live"><i class="fas fa-rocket"></i> Live</div>';
-    } else if (p.github) {
-      availBadge = '<div class="proj-avail-badge proj-avail-badge--github"><i class="fab fa-github"></i> Code</div>';
-    }
-    if (p.featured && p.featuredLabel) {
-      availBadge = `<div class="proj-avail-badge proj-avail-badge--featured">${p.featuredLabel}</div>`;
-    }
+    const title = escapeHTML(p.title);
+    const catLabel = escapeHTML(p.catLabel);
+    const emoji = escapeHTML(p.emoji || 'AI');
+    const badge = getProjectBadge(p);
+    const availBadge = `
+      <div class="proj-avail-badge ${badge.cls}">
+        <i class="${badge.icon}"></i>
+        <span>${escapeHTML(badge.label)}</span>
+      </div>`;
 
     let mediaHTML;
     if (p.video) {
-      if (p.video.includes('youtube') || p.video.includes('youtu.be')) {
-        const videoId = p.video.split('v=')[1]?.split('&')[0] || p.video.split('/').pop();
+      const youtubeId = getYouTubeId(p.video);
+      if (youtubeId) {
         mediaHTML = `
-          <div class="project-media">
-            <div class="project-thumb" style="overflow:hidden">
-              <img src="https://img.youtube.com/vi/${videoId}/hqdefault.jpg" alt="${p.title}" class="project-thumb" onerror="this.parentElement.innerHTML='<div class=project-media-placeholder>${p.emoji}</div>'">
-            </div>
+          <div class="project-media" role="button" tabindex="0" aria-label="Open ${title} project details">
+            <img src="https://img.youtube.com/vi/${escapeHTML(youtubeId)}/hqdefault.jpg" alt="${title}" class="project-thumb" loading="lazy" decoding="async">
+            <div class="project-media-placeholder" hidden>${emoji}</div>
             <div class="project-play-btn">
               <div class="play-icon"><i class="fas fa-play"></i></div>
             </div>
             <div class="project-overlay"></div>
-            <span class="project-cat-chip">${p.catLabel}</span>
+            <span class="project-cat-chip">${catLabel}</span>
             ${availBadge}
           </div>`;
       } else if (p.video.includes('drive.google.com')) {
         const thumbInner = p.image
-          ? `<img src="${p.image}" alt="${p.title}" class="project-thumb" onerror="this.style.display='none'">`
-          : `<div class="project-media-placeholder">${p.emoji}</div>`;
+          ? `<img src="${escapeHTML(p.image)}" alt="${title}" class="project-thumb" loading="lazy" decoding="async"><div class="project-media-placeholder" hidden>${emoji}</div>`
+          : `<div class="project-media-placeholder">${emoji}</div>`;
         mediaHTML = `
-          <div class="project-media">
-            <div class="project-thumb" style="overflow:hidden">${thumbInner}</div>
+          <div class="project-media" role="button" tabindex="0" aria-label="Open ${title} project details">
+            ${thumbInner}
             <div class="project-play-btn">
               <div class="play-icon"><i class="fas fa-play"></i></div>
             </div>
             <div class="project-overlay"></div>
-            <span class="project-cat-chip">${p.catLabel}</span>
+            <span class="project-cat-chip">${catLabel}</span>
             ${availBadge}
           </div>`;
       } else {
         mediaHTML = `
-          <div class="project-media">
-            <video class="project-thumb" muted loop preload="none" data-src="${p.video}">
-              <source src="${p.video}" type="video/mp4">
-            </video>
+          <div class="project-media" role="button" tabindex="0" aria-label="Open ${title} project details">
+            <video class="project-thumb" muted loop playsinline preload="none" data-src="${escapeHTML(p.video)}"></video>
             <div class="project-play-btn">
               <div class="play-icon"><i class="fas fa-play"></i></div>
             </div>
             <div class="project-overlay"></div>
-            <span class="project-cat-chip">${p.catLabel}</span>
+            <span class="project-cat-chip">${catLabel}</span>
             ${availBadge}
           </div>`;
       }
     } else if (p.image) {
       mediaHTML = `
-        <div class="project-media">
-          <img src="${p.image}" alt="${p.title}" class="project-thumb" onerror="this.parentElement.innerHTML='<div class=project-media-placeholder>${p.emoji}</div><div class=project-overlay></div><span class=project-cat-chip>${p.catLabel}</span>'">
+        <div class="project-media" role="button" tabindex="0" aria-label="Open ${title} project details">
+          <img src="${escapeHTML(p.image)}" alt="${title}" class="project-thumb" loading="lazy" decoding="async">
+          <div class="project-media-placeholder" hidden>${emoji}</div>
           <div class="project-overlay"></div>
-          <span class="project-cat-chip">${p.catLabel}</span>
+          <span class="project-cat-chip">${catLabel}</span>
           ${availBadge}
         </div>`;
     } else {
       mediaHTML = `
-        <div class="project-media">
-          <div class="project-media-placeholder">${p.emoji}</div>
+        <div class="project-media" role="button" tabindex="0" aria-label="Open ${title} project details">
+          <div class="project-media-placeholder">${emoji}</div>
           <div class="project-overlay"></div>
-          <span class="project-cat-chip">${p.catLabel}</span>
+          <span class="project-cat-chip">${catLabel}</span>
           ${availBadge}
         </div>`;
     }
 
-    const stackHTML = p.stack.map(s => `<span class="stack-tag">${s}</span>`).join('');
-    const kickerHTML = p.kicker ? `<div class="project-kicker">${p.kicker}</div>` : '';
-    const impactHTML = p.impact ? `<div class="project-impact">${p.impact}</div>` : '';
+    const stackHTML = p.stack.map(s => `<span class="stack-tag">${escapeHTML(s)}</span>`).join('');
+    const kickerHTML = p.kicker ? `<div class="project-kicker">${escapeHTML(p.kicker)}</div>` : '';
+    const impactHTML = p.impact ? `<div class="project-impact">${escapeHTML(p.impact)}</div>` : '';
+    const docsHTML = p.docs && p.docs !== p.github
+      ? `<a href="${escapeHTML(p.docs)}" target="_blank" rel="noopener noreferrer" class="proj-btn"><i class="fas fa-book-open"></i> Docs</a>`
+      : '';
     const footerHTML = `
       <div class="project-footer">
-        <a href="#" class="proj-btn primary open-project-modal" data-id="${p.id}">
+        <button type="button" class="proj-btn primary open-project-modal" data-id="${escapeHTML(p.id)}">
           <i class="fas fa-expand-alt"></i> Details
-        </a>
-        ${p.github ? `<a href="${p.github}" target="_blank" rel="noopener noreferrer" class="proj-btn"><i class="fab fa-github"></i> Code</a>` : ''}
-        ${p.demo ? `<a href="${p.demo}" target="_blank" rel="noopener noreferrer" class="proj-btn"><i class="fas fa-external-link-alt"></i> Demo</a>` : ''}
-        ${p.docs ? `<a href="${p.docs}" target="_blank" rel="noopener noreferrer" class="proj-btn"><i class="fas fa-book-open"></i> Docs</a>` : ''}
+        </button>
+        ${p.github ? `<a href="${escapeHTML(p.github)}" target="_blank" rel="noopener noreferrer" class="proj-btn"><i class="fab fa-github"></i> Code</a>` : ''}
+        ${p.demo ? `<a href="${escapeHTML(p.demo)}" target="_blank" rel="noopener noreferrer" class="proj-btn"><i class="fas fa-external-link-alt"></i> Demo</a>` : ''}
+        ${docsHTML}
       </div>`;
 
     card.innerHTML = `
       ${mediaHTML}
       <div class="project-body">
         ${kickerHTML}
-        <h3>${p.title}</h3>
-        <p>${p.description}</p>
+        <h3>${title}</h3>
+        <p>${escapeHTML(p.description)}</p>
         ${impactHTML}
         <div class="project-stack">${stackHTML}</div>
         ${footerHTML}
       </div>
     `;
     grid.appendChild(card);
+
+    card.querySelectorAll('img.project-thumb').forEach(img => {
+      img.addEventListener('error', () => {
+        img.hidden = true;
+        const fallback = img.parentElement.querySelector('.project-media-placeholder');
+        if (fallback) fallback.hidden = false;
+      }, { once: true });
+    });
   });
 
   // Project filters
   document.querySelectorAll('.proj-filter').forEach(btn => {
     btn.addEventListener('click', () => {
-      document.querySelectorAll('.proj-filter').forEach(b => b.classList.remove('active'));
+      document.querySelectorAll('.proj-filter').forEach(b => {
+        b.classList.remove('active');
+        b.setAttribute('aria-pressed', 'false');
+      });
       btn.classList.add('active');
+      btn.setAttribute('aria-pressed', 'true');
       const cat = btn.dataset.cat;
       document.querySelectorAll('.project-card').forEach(c => {
         c.classList.toggle('hidden', cat !== 'all' && c.dataset.cat !== cat);
@@ -351,7 +394,7 @@ function renderContact() {
 function renderVideoFacade(videoUrl) {
   if (!videoUrl) return '';
   return `
-    <div class="video-facade" data-src="${videoUrl}">
+    <div class="video-facade" data-src="${escapeHTML(videoUrl)}">
       <div class="video-facade-inner">
         <div class="video-play-btn">
           <i class="fas fa-play"></i>
@@ -382,32 +425,36 @@ function initProjectModal() {
     if (project.video) {
       mediaHTML = `<div class="pm-media">${renderVideoFacade(project.video)}</div>`;
     } else if (project.image) {
-      mediaHTML = `<div class="pm-media"><img src="${project.image}" alt="${project.title}" class="pm-media-img" onerror="this.parentElement.innerHTML='<div class=pm-media-placeholder>${project.emoji}</div>'"></div>`;
+      mediaHTML = `
+        <div class="pm-media">
+          <img src="${escapeHTML(project.image)}" alt="${escapeHTML(project.title)}" class="pm-media-img">
+          <div class="pm-media-placeholder" hidden>${escapeHTML(project.emoji || 'AI')}</div>
+        </div>`;
     } else {
-      mediaHTML = `<div class="pm-media"><div class="pm-media-placeholder">${project.emoji}</div></div>`;
+      mediaHTML = `<div class="pm-media"><div class="pm-media-placeholder">${escapeHTML(project.emoji || 'AI')}</div></div>`;
     }
 
-    const stackHTML = project.stack.map(s => `<span class="stack-tag">${s}</span>`).join('');
-    const hlHTML = project.highlights.map(h => `<li>${h}</li>`).join('');
+    const stackHTML = project.stack.map(s => `<span class="stack-tag">${escapeHTML(s)}</span>`).join('');
+    const hlHTML = project.highlights.map(h => `<li>${escapeHTML(h)}</li>`).join('');
 
     const modalLinks = [];
     if (project.demo) {
-      modalLinks.push(`<a href="${project.demo}" target="_blank" rel="noopener noreferrer" class="pm-link primary"><i class="fas fa-external-link-alt"></i> Live Demo →</a>`);
+      modalLinks.push(`<a href="${escapeHTML(project.demo)}" target="_blank" rel="noopener noreferrer" class="pm-link primary"><i class="fas fa-external-link-alt"></i> Live Demo →</a>`);
     } else if (project.github) {
-      modalLinks.push(`<a href="${project.github}" target="_blank" rel="noopener noreferrer" class="pm-link primary"><i class="fab fa-github"></i> View on GitHub →</a>`);
+      modalLinks.push(`<a href="${escapeHTML(project.github)}" target="_blank" rel="noopener noreferrer" class="pm-link primary"><i class="fab fa-github"></i> View on GitHub →</a>`);
     }
     if (project.github && project.demo) {
-      modalLinks.push(`<a href="${project.github}" target="_blank" rel="noopener noreferrer" class="pm-link ghost"><i class="fab fa-github"></i> View Code</a>`);
+      modalLinks.push(`<a href="${escapeHTML(project.github)}" target="_blank" rel="noopener noreferrer" class="pm-link ghost"><i class="fab fa-github"></i> View Code</a>`);
     }
-    if (project.docs) {
-      modalLinks.push(`<a href="${project.docs}" target="_blank" rel="noopener noreferrer" class="pm-link ghost"><i class="fas fa-book-open"></i> Documentation</a>`);
+    if (project.docs && project.docs !== project.github) {
+      modalLinks.push(`<a href="${escapeHTML(project.docs)}" target="_blank" rel="noopener noreferrer" class="pm-link ghost"><i class="fas fa-book-open"></i> Documentation</a>`);
     }
 
     content.innerHTML = `
       ${mediaHTML}
-      <div class="pm-title">${project.title}</div>
+      <div class="pm-title">${escapeHTML(project.title)}</div>
       <div class="pm-stack">${stackHTML}</div>
-      <p class="pm-description">${project.fullDesc || project.description}</p>
+      <p class="pm-description">${escapeHTML(project.fullDesc || project.description)}</p>
       <div class="pm-highlights">
         <h4>Key Highlights</h4>
         <ul>${hlHTML}</ul>
@@ -416,6 +463,14 @@ function initProjectModal() {
         ${modalLinks.join('')}
       </div>
     `;
+
+    content.querySelectorAll('img.pm-media-img').forEach(img => {
+      img.addEventListener('error', () => {
+        img.hidden = true;
+        const fallback = img.parentElement.querySelector('.pm-media-placeholder');
+        if (fallback) fallback.hidden = false;
+      }, { once: true });
+    });
 
     modal.classList.add('open');
     document.body.style.overflow = 'hidden';
@@ -426,18 +481,36 @@ function initProjectModal() {
     const facade = e.target.closest('.video-facade');
     if (!facade) return;
     const src = facade.dataset.src;
-    const fallbackUrl = src.includes('drive.google.com')
-      ? src.replace('/preview', '/view')
+    const youtubeId = getYouTubeId(src);
+    const isDriveVideo = src.includes('drive.google.com');
+    const iframeSrc = youtubeId
+      ? `https://www.youtube-nocookie.com/embed/${youtubeId}?autoplay=1`
       : src;
+    const fallbackUrl = isDriveVideo ? src.replace('/preview', '/view') : src;
+
+    if (!youtubeId && !isDriveVideo) {
+      facade.outerHTML = `
+        <video class="video-local-player" src="${escapeHTML(src)}" controls autoplay playsinline></video>
+      `;
+      return;
+    }
+
+    const fallbackLink = isDriveVideo
+      ? `<a href="${escapeHTML(fallbackUrl)}" target="_blank" rel="noopener noreferrer" class="video-drive-fallback">
+          <i class="fas fa-external-link-alt"></i> Open in Google Drive
+        </a>`
+      : `<a href="${escapeHTML(fallbackUrl)}" target="_blank" rel="noopener noreferrer" class="video-drive-fallback">
+          <i class="fas fa-external-link-alt"></i> Open video
+        </a>`;
+
     facade.outerHTML = `
       <div class="video-frame-wrap">
-        <iframe src="${src}"
+        <iframe src="${escapeHTML(iframeSrc)}"
+          title="Project demo video"
           allow="autoplay; encrypted-media; fullscreen"
           allowfullscreen>
         </iframe>
-        <a href="${fallbackUrl}" target="_blank" rel="noopener noreferrer" class="video-drive-fallback">
-          <i class="fas fa-external-link-alt"></i> Open in Google Drive
-        </a>
+        ${fallbackLink}
       </div>
     `;
   });
@@ -449,6 +522,9 @@ function initProjectModal() {
   function closeProjectModal() {
     modal.classList.remove('open');
     document.body.style.overflow = '';
+    setTimeout(() => {
+      if (!modal.classList.contains('open') && content) content.innerHTML = '';
+    }, 250);
   }
 }
 
@@ -556,15 +632,27 @@ function renderCerts() {
 
 // ── Project card media click → open modal ────────────────────
 function initProjectMediaClick() {
+  function openProject(media) {
+    const card = media.closest('.project-card');
+    if (!card) return;
+    const btn = card.querySelector('.open-project-modal');
+    if (btn) btn.click();
+  }
+
   document.addEventListener('click', e => {
     const media = e.target.closest('.project-media');
     if (!media) return;
     // Don't double-fire if the details button itself was clicked
     if (e.target.closest('.open-project-modal')) return;
-    const card = media.closest('.project-card');
-    if (!card) return;
-    const btn = card.querySelector('.open-project-modal');
-    if (btn) btn.click();
+    openProject(media);
+  });
+
+  document.addEventListener('keydown', e => {
+    if (e.key !== 'Enter' && e.key !== ' ') return;
+    const media = e.target.closest('.project-media');
+    if (!media) return;
+    e.preventDefault();
+    openProject(media);
   });
 }
 
