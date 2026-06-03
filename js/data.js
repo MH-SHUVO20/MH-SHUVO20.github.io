@@ -241,7 +241,7 @@ const PORTFOLIO_DATA = {
       venue: "Target Venue: IEEE FET'26",
       status: "accepted",
       badges: ["Presented"],
-      ctaLabel: "Presentation Tomorrow",
+      ctaLabel: "Accepted Paper",
     },
     {
       num: "07",
@@ -249,7 +249,7 @@ const PORTFOLIO_DATA = {
       venue: "Target Venue: IEEE FET'26",
       status: "accepted",
       badges: ["Presented"],
-      ctaLabel: "Presentation Tomorrow",
+      ctaLabel: "Accepted Paper",
     },
     {
       num: "08",
